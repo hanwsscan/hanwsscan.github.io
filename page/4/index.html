@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/page/4/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-JavaScript RegExp 对象" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/28/JavaScript RegExp 对象/" class="article-date">
+  <time datetime="2017-03-28T03:14:11.803Z" itemprop="datePublished">2017-03-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/28/JavaScript RegExp 对象/">JavaScript RegExp 对象</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>RegExp 对象表示正则表达式，它是对字符串执行模式匹配的强大工具。</p>
+<h4 id="1、直接量语法-pattern-attributes"><a href="#1、直接量语法-pattern-attributes" class="headerlink" title="1、直接量语法:/pattern/attributes"></a>1、直接量语法:/pattern/attributes</h4><h4 id="2、创建-RegExp-对象的语法：new-RegExp-pattern-attributes"><a href="#2、创建-RegExp-对象的语法：new-RegExp-pattern-attributes" class="headerlink" title="2、创建 RegExp 对象的语法：new RegExp(pattern, attributes);"></a>2、创建 RegExp 对象的语法：new RegExp(pattern, attributes);</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">var str1 = <span class="string">"Visit W3School.com.cn"</span>;</div><div class="line">var patt1=/[a-h]/g;</div><div class="line"></div><div class="line"></div><div class="line">var str2 = <span class="string">"Visit W3School.com.cn"</span>;</div><div class="line">var patt2 = new RegExp(<span class="string">"cn"</span>, <span class="string">"g"</span>);</div></pre></td></tr></table></figure>
+<p>参数：</p>
+<p>参数 pattern 是一个字符串，指定了正则表达式的模式或其他正则表达式。</p>
+<p>参数 attributes 是一个可选的字符串，包含属性 “g”、”i” 和 “m”，分别用于指定全局匹配、区分大小写的匹配和多行匹配。ECMAScript 标准化之前，不支持 m 属性。如果 pattern 是正则表达式，而不是字符串，则必须省略该参数。</p>
+<p>返回值：</p>
+<p>一个新的 RegExp 对象，具有指定的模式和标志。如果参数 pattern 是正则表达式而不是字符串，那么 RegExp() 构造函数将用与指定的 RegExp 相同的模式和标志创建一个新的 RegExp 对象。</p>
+<p>如果不用 new 运算符，而将 RegExp() 作为函数调用，那么它的行为与用 new 运算符调用时一样，只是当 pattern 是正则表达式时，它只返回 pattern，而不再创建一个新的 RegExp 对象。</p>
+<p>抛出：</p>
+<p>SyntaxError - 如果 pattern 不是合法的正则表达式，或 attributes 含有 “g”、”i” 和 “m” 之外的字符，抛出该异常。</p>
+<p>TypeError - 如果 pattern 是 RegExp 对象，但没有省略 attributes 参数，抛出该异常。</p>
+<h2 id="具体参见-JavaScript-RegExp-对象"><a href="#具体参见-JavaScript-RegExp-对象" class="headerlink" title="具体参见 JavaScript RegExp 对象"></a>具体参见 <a href="http://www.w3school.com.cn/jsref/jsref_obj_regexp.asp" target="_blank" rel="external">JavaScript RegExp 对象</a></h2>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/28/JavaScript RegExp 对象/" data-id="cj0syydg10005j0w773cv706u" class="article-share-link">Partager</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-HTTP-2对前端的影响" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/28/HTTP-2对前端的影响/" class="article-date">
+  <time datetime="2017-03-28T03:14:11.801Z" itemprop="datePublished">2017-03-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/28/HTTP-2对前端的影响/">HTTP 2 对于前端的影响</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="HTTP-1的缺点与HTTP-2的改进"><a href="#HTTP-1的缺点与HTTP-2的改进" class="headerlink" title="HTTP 1的缺点与HTTP 2的改进"></a>HTTP 1的缺点与HTTP 2的改进</h3><p>HTTP 1时代，每个TCP连接一次只能下载一个资源。</p>
+<p>比如浏览器发送一个请求获取index.html的数据，服务端收到后只会返回index.html，随后浏览器会解析index.html，如果里面含有 a.css、b.js ，则会再次向服务器发送请求，获取a.css和b.js的数据。 这一过程会产生三个问题：</p>
+<p>1、如果index.html里含有多个js和css文件，请求数则随之增加，从而导致在TCP往返连接所耗费的时间增多。<br>2、每次发送的请求，HTTP头部信息基本是一样的，从而导致一定的头部信息冗余，耗费了不必要的流量。<br>3、index.html与内部的资源文件之间会产生了一个延时，而非同步获取。</p>
+<p>在HTTP 2中多个请求是可以合并为一个的，如下图，多个数据请求允许在同一路中传输（Multiplexed），这样也就可以解决了HTTP 1 请求过程中产生的问题1：</p>
+<h5 id="HTTP-2优点：预先加载，合并请求，缩小数据，提升性能。"><a href="#HTTP-2优点：预先加载，合并请求，缩小数据，提升性能。" class="headerlink" title="HTTP 2优点：预先加载，合并请求，缩小数据，提升性能。"></a>HTTP 2优点：预先加载，合并请求，缩小数据，提升性能。</h5>
+        
+          <p class="article-more-link">
+            <a href="/2017/03/28/HTTP-2对前端的影响/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/28/HTTP-2对前端的影响/" data-id="cj0syydh20007j0w7y69flf5a" class="article-share-link">Partager</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/转载/">转载</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-HTML5面试问题及答案" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/28/HTML5面试问题及答案/" class="article-date">
+  <time datetime="2017-03-28T03:14:11.799Z" itemprop="datePublished">2017-03-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/28/HTML5面试问题及答案/">HTML5 面试问题及答案</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="SGML、HTML、XML和XHTML之间的关系？"><a href="#SGML、HTML、XML和XHTML之间的关系？" class="headerlink" title="SGML、HTML、XML和XHTML之间的关系？"></a>SGML、HTML、XML和XHTML之间的关系？</h3><p>SGML（标准通用标记语言）是一种指定文档标记的标准，是一种描述了文档标记应该如何的元语言。 HTML是描述使用SGML的标记语言。</p>
+<p>通过SGML，每一个HTML页面都需要在相同的地方创建并附加一个DTD（文档类型定义）节点。所以，你总是可以在HTML页面的顶部发现DTD用于解析目的的“DOCTYPE”属性。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;!--!doctype--&gt;</div></pre></td></tr></table></figure>
+<p>由于解析SGML是一种痛苦，所以创建了XML。 XML使用SGML。例如，在SGML，你必须拥有成对的开始和结束标签，但在XML中，你可以使用自动关闭的标签。</p>
+<p>XHTML源自于使用HTML 4.0的XML。你可以参考XML DTD如以下所示的代码片段。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;!--!doctype--&gt;&lt;!--!doctype--&gt;</div></pre></td></tr></table></figure>
+<h3 id="什么是HTML-5？"><a href="#什么是HTML-5？" class="headerlink" title="什么是HTML 5？"></a>什么是HTML 5？</h3><p>HTML 5是HTML的新标准，其主要目标是无需任何额外的插件如Flash、Silverlight等，就可以传输所有内容。它囊括了动画、视频、丰富的图形用户界面等。</p>
+<p>HTML5是由万维网联盟（W3C）和Web Hypertext Application Technology Working Group （Web超文本应用技术工作组—WHATWG）合作创建的HTML新版本。</p>
+<h3 id="如果我不输入-lt-DOCTYPE-HTML-gt-，HTML-5能工作吗？"><a href="#如果我不输入-lt-DOCTYPE-HTML-gt-，HTML-5能工作吗？" class="headerlink" title="如果我不输入&lt;!DOCTYPE HTML&gt;，HTML 5能工作吗？"></a>如果我不输入&lt;!DOCTYPE HTML&gt;，HTML 5能工作吗？</h3><p>No，浏览器将无法识别HTML文件，并且HTML 5标签将无法正常工作。</p>
+<h3 id="哪些浏览器支持HTML-5？"><a href="#哪些浏览器支持HTML-5？" class="headerlink" title="哪些浏览器支持HTML 5？"></a>哪些浏览器支持HTML 5？</h3><p>几乎所有的浏览器都支持HTML 5，例如Safari，Chrome，火狐，Opera，IE等。</p>
+<h3 id="HTML-5的页面结构和HTML-4或早先的HTML有什么不同？"><a href="#HTML-5的页面结构和HTML-4或早先的HTML有什么不同？" class="headerlink" title="HTML 5的页面结构和HTML 4或早先的HTML有什么不同？"></a>HTML 5的页面结构和HTML 4或早先的HTML有什么不同？</h3><p>一个典型的Web页面有页眉（header），页脚（footer），导航（navigation），正文（central area）和侧栏（side bar）。现在如果是在HTML 4中，HTML部分中的上述这些专用名词需要使用DIV标签来描述。</p>
+<p>但是，如果是在HTML 5，可以专门为这些区域创建特定的元素名，让HTML更具可读性。</p>
+<p><img src="d6b7c06.png" alt="HTML更具可读性"></p>
+<p>以下是形成页面结构的HTML 5元素的更多细节。</p>
+<pre><code>&lt;header&gt;：表现HTML的标题数据。
+&lt;footer&gt;：页面的页脚部分。
+&lt;nav&gt;：页面中的导航元素。
+&lt;article&gt;：正文内容。
+&lt;section&gt;：用在正文中定义section或区段内容。
+&lt;aside&gt;：表现页面侧边栏内容。
+</code></pre><h3 id="HTML-5中的DataList是什么？"><a href="#HTML-5中的DataList是什么？" class="headerlink" title="HTML 5中的DataList是什么？"></a>HTML 5中的DataList是什么？</h3><p>HTML 5中的DataList控件元素有助于提供自动完成功能的文本框，如下图所示。</p>
+<p><img src="dd4.png" alt="DataList控件"></p>
+<p>下面是DataList控件功能的HTML代码：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;input list=<span class="string">"Country"</span>&gt;</div><div class="line">&lt;datalist id=<span class="string">"Country"</span>&gt;</div><div class="line">	&lt;option value=<span class="string">"India"</span>&gt;</div><div class="line">	&lt;option value=<span class="string">"Italy"</span>&gt;</div><div class="line">	&lt;option value=<span class="string">"Iran"</span>&gt;</div><div class="line">	&lt;option value=<span class="string">"Israel"</span>&gt;</div><div class="line">	&lt;option value=<span class="string">"Indonesia"</span>&gt;</div><div class="line">&lt;/datalist&gt;</div></pre></td></tr></table></figure>
+<h3 id="HTML-5中不同的新表单元素类型是什么？"><a href="#HTML-5中不同的新表单元素类型是什么？" class="headerlink" title="HTML 5中不同的新表单元素类型是什么？"></a>HTML 5中不同的新表单元素类型是什么？</h3><p>HTML 5推出了10个重要的新的表单元素：</p>
+<pre><code>1、Color
+2、Date
+3、Datetime-local
+4、Email
+5、Time
+6、Url
+7、Range
+8、Telephone
+9、Number
+10、Search
+</code></pre><h3 id="HTML-5中的输出元素是什么？"><a href="#HTML-5中的输出元素是什么？" class="headerlink" title="HTML 5中的输出元素是什么？"></a>HTML 5中的输出元素是什么？</h3><p>当你需要计算两个输入的结果并将结果放到一个标签里的时候，就需要输出元素了。比如你有两个文本框（参见下图），你想要让这些文本框数字相加，然后输出给标签。</p>
+<h3 id="SVG是什么？"><a href="#SVG是什么？" class="headerlink" title="SVG是什么？"></a>SVG是什么？</h3><p>SVG表示（scalable vector graphics）可缩放矢量图形。这是一个基于文本的图形语言，它可以绘制使用文本、线、点等的图形，因此可以轻巧又快速地渲染。</p>
+<p>使用HTML 5 SVG显示下面简单的线条。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;svg id=<span class="string">"svgelem"</span> height=<span class="string">"[object SVGAnimatedLength]"</span> xmlns=<span class="string">"http://www.w3.org/2000/svg"</span>&gt;</div><div class="line">&lt;line style=<span class="string">"stroke: rgb(255, 0, 0); stroke-width: 2px;"</span> y2=<span class="string">"[object SVGAnimatedLength]"</span> x2=<span class="string">"[object SVGAnimatedLength]"</span> y1=<span class="string">"[object SVGAnimatedLength]"</span> x1=<span class="string">"[object SVGAnimatedLength]"</span>&gt;&lt;/line&gt;</div></pre></td></tr></table></figure>
+<h3 id="HTML-5中的Canvas画布是什么？"><a href="#HTML-5中的Canvas画布是什么？" class="headerlink" title="HTML 5中的Canvas画布是什么？"></a>HTML 5中的Canvas画布是什么？</h3><p>画布是一个可以在其上绘制图形的HTML区域。</p>
+<h5 id="访问画布区域"><a href="#访问画布区域" class="headerlink" title="访问画布区域"></a>访问画布区域</h5><p>要在画布区域上绘制图形，我们首先需要获取上下文的引用部分。下面就是用于画布部分的代码。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var c=document.getElementById(<span class="string">"mycanvas"</span>); var ctx=c.getContext(<span class="string">"2d"</span>);</div></pre></td></tr></table></figure>
+<h5 id="绘制图形"><a href="#绘制图形" class="headerlink" title="绘制图形"></a>绘制图形</h5><p>一旦你可以使用上下文对象，就可以开始上下文绘制。所以首先调用“move”方法，从一个点开始，使用线方法画线，然后敲击键盘应用结束。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;a name=<span class="string">"WhatisthedifferencebetweenCanvasandSVGgraphics"</span>&gt;What is the difference between Canvas and SVG graphics? &lt;/a&gt;</div></pre></td></tr></table></figure>
+<h4 id="画布和SVG都可以在浏览器上绘制图形"><a href="#画布和SVG都可以在浏览器上绘制图形" class="headerlink" title="画布和SVG都可以在浏览器上绘制图形"></a>画布和SVG都可以在浏览器上绘制图形</h4><h5 id="SVG"><a href="#SVG" class="headerlink" title="SVG"></a>SVG</h5><p>绘制并记忆。换句话说就是，通过使用SVG绘制的任意形状都可以被记住和操作，并且浏览器可以再次渲染它。<br>SVG可以很好地用于创建如CAD软件的图形，绘制之后允许用户操作。<br>这是一个缓慢的过程，因为它需要记住坐标以便于后续操作。<br>我们可以有与图形对象相关联的事件处理程序。<br>分辨率独立。</p>
+<h5 id="Canvas"><a href="#Canvas" class="headerlink" title="Canvas"></a>Canvas</h5><p>画布则是绘制然后遗忘。一旦绘制完成，你就不能访问和处理像素。<br>Canvas则用于绘制和遗忘类似动漫和游戏的场画。<br>它就快多了，因为没有必要记住后面的东西。我们不需要将事件处理程序与图形对象关联，因为我们不需要引用它们。<br>分辨率依赖。</p>
+<h3 id="CSS中的选择器是什么？"><a href="#CSS中的选择器是什么？" class="headerlink" title="CSS中的选择器是什么？"></a>CSS中的选择器是什么？</h3><p>选择器可以帮助选择你想要应用样式的元素。</p>
+<h3 id="CSS中列布局的用处是什么？"><a href="#CSS中列布局的用处是什么？" class="headerlink" title="CSS中列布局的用处是什么？"></a>CSS中列布局的用处是什么？</h3><p>CSS列布局可以帮助你分配文字为一个个列。例如，下面的杂志新闻文本内容就比较大，我们需要用两条边界线分成相同的3列。这就是HTML 5列布局的用途。</p>
+<p>要实现列布局，我们需要指定以下内容：</p>
+<h5 id="要将文本分割成多少列？"><a href="#要将文本分割成多少列？" class="headerlink" title="要将文本分割成多少列？"></a>要将文本分割成多少列？</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">/*指定列数*/</div><div class="line">-moz-column-count:3; /* Firefox */</div><div class="line">-webkit-column-count:3; /* Safari and Chrome */</div><div class="line">column-count:3;</div><div class="line"></div><div class="line">/*这些列之间的间距要多大？*/</div><div class="line">-moz-column-gap:40px; /* Firefox */</div><div class="line">-webkit-column-gap:40px; /* Safari and Chrome */</div><div class="line">column-gap:20px;</div><div class="line"></div><div class="line">/*要不要再列之间画分界线，如果需要的话，那么线要多粗？*/</div><div class="line">-moz-column-rule:4px outset <span class="comment">#ff00ff; /* Firefox */</span></div><div class="line">-webkit-column-rule:4px outset <span class="comment">#ff00ff; /* Safari and Chrome */</span></div><div class="line">column-rule:6px outset <span class="comment">#ff00ff;</span></div></pre></td></tr></table></figure>
+<h3 id="解释一下CSS盒子模型？"><a href="#解释一下CSS盒子模型？" class="headerlink" title="解释一下CSS盒子模型？"></a>解释一下CSS盒子模型？</h3><p><img src="e8533550a.png" alt="CSS盒子模型"></p>
+<h3 id="CSS-3中有哪些文本效果？"><a href="#CSS-3中有哪些文本效果？" class="headerlink" title="CSS 3中有哪些文本效果？"></a>CSS 3中有哪些文本效果？</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">/*阴影文字效果*/</div><div class="line">text-shadow: 5px 5px 5px <span class="comment">#FF0000;</span></div><div class="line"></div><div class="line">/*自动换行效果*/</div><div class="line">word-wrap:<span class="built_in">break</span>-word;</div></pre></td></tr></table></figure>
+<h3 id="web-workers是什么，为什么我们需要web-workers？"><a href="#web-workers是什么，为什么我们需要web-workers？" class="headerlink" title="web workers是什么，为什么我们需要web workers？"></a>web workers是什么，为什么我们需要web workers？</h3><p>web worker有助于异步执行JavaScript文件</p>
+<h3 id="HTML-5中的本地存储概念？"><a href="#HTML-5中的本地存储概念？" class="headerlink" title="HTML 5中的本地存储概念？"></a>HTML 5中的本地存储概念？</h3><p>很多时候，我们想在本地计算机存储有关用户的信息。例如，假设用户已经填满了一半的长表单，互联网却突然连接中断。此时，用户希望能在本地存储这些信息，然后当重新连接到互联网的时候，获取这些信息，并将其发送到服务器进行存储。</p>
+<p>现代的浏览器存储称为“本地存储”，可以让你存储这些信息。</p>
+<h3 id="如何添加和删除本地存储中的数据？"><a href="#如何添加和删除本地存储中的数据？" class="headerlink" title="如何添加和删除本地存储中的数据？"></a>如何添加和删除本地存储中的数据？</h3><p>添加到本地存储的数据使用“键”和“值”。下面的示例代码显示了国家数据“India”添加的键值为“Key001”。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">local</span>Storage.setItem(<span class="string">"Key001"</span>,<span class="string">"India"</span>);</div></pre></td></tr></table></figure>
+<p>要检索本地存储的数据，我们需要使用“getItem”来提供键名。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var country = <span class="built_in">local</span>Storage.setItem(<span class="string">"Key001"</span>,<span class="string">"India"</span>);</div></pre></td></tr></table></figure>
+<h5 id="你还可以使用下面的代码存储JavaScript对象到本地存储。"><a href="#你还可以使用下面的代码存储JavaScript对象到本地存储。" class="headerlink" title="你还可以使用下面的代码存储JavaScript对象到本地存储。"></a>你还可以使用下面的代码存储JavaScript对象到本地存储。</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var country = &#123;&#125;;</div><div class="line">country.name = <span class="string">'India'</span>;</div><div class="line">country.code = <span class="string">'I001'</span>;</div><div class="line"><span class="built_in">local</span>Storage.setItem(<span class="string">'I001'</span>, country);</div><div class="line">var country1 = <span class="built_in">local</span>Storage.getItem(<span class="string">'I001'</span>);</div></pre></td></tr></table></figure>
+<p>如果你想用JSON格式存储，那么可以使用“JSON.stringify”函数，如下面所示的代码。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">local</span>Storage.setItem(<span class="string">'I001'</span>,JSON.stringify(country));</div></pre></td></tr></table></figure>
+<h3 id="什么是本地存储的生命周期？"><a href="#什么是本地存储的生命周期？" class="headerlink" title="什么是本地存储的生命周期？"></a>什么是本地存储的生命周期？</h3><p>本地存储没有生命周期，它会一直存在直到用户将其从浏览器清楚或使用JavaScript代码删除它。</p>
+<h3 id="本地存储和cookies之间的区别是什么？"><a href="#本地存储和cookies之间的区别是什么？" class="headerlink" title="本地存储和cookies之间的区别是什么？"></a>本地存储和cookies之间的区别是什么？</h3><h4 id="cookies"><a href="#cookies" class="headerlink" title="cookies"></a>cookies</h4><p>1、既可以从客户端也可以从服务器端访问数据。每个请求都会发送cookie数据到服务器。<br>2、每个Cookie 4095个字节。<br>3、cookie有附加的有效期。所以有效期后的cookie和cookie数据会被删除。</p>
+<h4 id="本地存储"><a href="#本地存储" class="headerlink" title="本地存储"></a>本地存储</h4><p>1、只能在本地浏览器端访问数据。服务器无法访问本地存储，除非特意通过POST或GET发送到服务器。<br>2、每个域5 MB。<br>3、数据没有有效期限。要么最终用户从浏览器删除它，要么使用JavaScript编程删除。</p>
+<h3 id="WebSQL是什么？是HTML-5规范的一部分吗？"><a href="#WebSQL是什么？是HTML-5规范的一部分吗？" class="headerlink" title="WebSQL是什么？是HTML 5规范的一部分吗？"></a>WebSQL是什么？是HTML 5规范的一部分吗？</h3><p>WebSQL是客户浏览器端的结构化的关系数据库。这是浏览器内部的本地RDBMS，你可以在这个本地RDBMS上执行SQL查询。</p>
+<p>不是，虽然很多人将其标记为HTML 5，但它不是HTML5规范的一部分。HTML 5规范基于SQLite。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/28/HTML5面试问题及答案/" data-id="cj0syydh2000cj0w7g71ho5j0" class="article-share-link">Partager</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/">html</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-HTML5的canvas动画" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/28/HTML5的canvas动画/" class="article-date">
+  <time datetime="2017-03-28T03:14:11.798Z" itemprop="datePublished">2017-03-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/28/HTML5的canvas动画/">HTML5的canvas动画</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>HTML5 canvas 标签用于绘制图像，canvas 元素本身并没有绘制能力（它仅仅是图形的容器） 必须使用脚本（通常是 JavaScript）来完成实际的绘图任务。</p>
+<p>Internet Explorer 9 +、Firefox、Opera、Chrome 以及 Safari 支持 canvas 及其属性和方法。</p>
+<p>getContext() 方法可返回一个对象，该对象提供了用于在画布上绘图的方法和属性。</p>
+        
+          <p class="article-more-link">
+            <a href="/2017/03/28/HTML5的canvas动画/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/28/HTML5的canvas动画/" data-id="cj0syydg10004j0w7txb09duz" class="article-share-link">Partager</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/canvas/">canvas</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/">html</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html5/">html5</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-fis3配置文档入门" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/28/fis3配置文档入门/" class="article-date">
+  <time datetime="2017-03-28T03:14:11.781Z" itemprop="datePublished">2017-03-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/28/fis3配置文档入门/">fis3配置文档</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="fis3-是什么？"><a href="#fis3-是什么？" class="headerlink" title="fis3 是什么？"></a>fis3 是什么？</h3><p>FIS3 面向前端的工程构建系统。解决前端工程中性能优化、资源加载（异步、同步、按需、预加载、依赖管理、合并、内嵌）、模块化开发、自动化工具、开发规范、代码部署等问题。</p>
+<p>具体的使用请参考官方文档 <a href="https://github.com/fex-team/fis3" target="_blank" rel="external">fis3</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//合并css packTo main.css 并排序packOrder</span></div><div class="line">fis.match(<span class="string">'widget/**.css'</span>, &#123;</div><div class="line"> <span class="attr">packTo</span>: <span class="string">'css/main.css'</span></div><div class="line">&#125;)</div><div class="line"></div><div class="line">fis.match(<span class="string">'widget/common.css'</span>, &#123;</div><div class="line"> <span class="attr">packOrder</span>: <span class="number">-100</span></div><div class="line">&#125;)</div><div class="line"></div><div class="line">fis.match(<span class="string">'*.css'</span>, &#123;</div><div class="line"> <span class="attr">optimizer</span>: fis.plugin(<span class="string">'clean-css'</span>) <span class="comment">// css 压缩</span></div><div class="line">&#125;);</div><div class="line"></div><div class="line">fis.match(<span class="string">'*.png'</span>, &#123;</div><div class="line"> <span class="attr">optimizer</span>: fis.plugin(<span class="string">'png-compressor'</span>) <span class="comment">// png 图片压缩</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<ul>
+<li>再学fis3 2016-04-22</li>
+</ul>
+<p><img src="fis04.jpg" alt="FIS3 提供了哪些命令"></p>
+<ul>
+<li>release</li>
+</ul>
+<p>编译发布一个 FIS3 项目</p>
+<p><img src="fis05.jpg" alt="编译发布一个 FIS3 项目"></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//发布的当前目录的out下</span></div><div class="line">fis3 release -d ./out</div><div class="line"><span class="comment">//发布到当前目录父目录的out下，即上一级目录的out目录下</span></div><div class="line">fis3 release -d ../out</div><div class="line"><span class="comment">//发布到fis3自带服务目录</span></div><div class="line">fis3 release</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/28/fis3配置文档入门/" data-id="cj0syydhi000vj0w7d9yqdpye" class="article-share-link">Partager</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/baidu/">baidu</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/fis/">fis</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/构建工具/">构建工具</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-git与svn" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/28/git与svn/" class="article-date">
+  <time datetime="2017-03-28T03:14:11.781Z" itemprop="datePublished">2017-03-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/28/git与svn/">git与svn</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="Git是一款自由和开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。"><a href="#Git是一款自由和开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。" class="headerlink" title="Git是一款自由和开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。"></a>Git是一款自由和开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。</h4><h4 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h4><ul>
+<li>开源的代码管理软件</li>
+<li>分布式版本控制系统</li>
+<li>分散式协作存储工具</li>
+</ul>
+<h5 id="和svn-cvs相比："><a href="#和svn-cvs相比：" class="headerlink" title="和svn cvs相比："></a>和svn cvs相比：</h5><p>如果遇到服务器宕机，整个协同工作无法进行，也无法进行代码更新和提交，也无法checkout最新代码；<br>如果服务器数据丢失，整个版本数据也将丢失；除非服务器有备份；</p>
+<p>而git可以方便的在本地进行版本管理，就如同本地机器就是一个服务器，你可以在合适的时候将本地版本推送到服务器上；</p>
+<ul>
+<li>git是分布式的，svn不是</li>
+<li>git把内容按元数据存储，svn按文件</li>
+<li>git分支和svn分支不同</li>
+<li>git没有全局版本号，svn有</li>
+<li>git的内容完整性优于svn</li>
+</ul>
+<p>svn管理的是文件，git管理的是仓库；</p>
+<p>svn是集中式代码管理系统，几乎所有操作服务器都要参与<br>git是分布式代码管理系统，大部分的操作在本地，少数操作在服务器上完成（pull,push,fetch,clone）<br>svn分支信息，历史记录，标签都在服务器上；<br>git分支信息几乎都在客户端<br>Git 是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/28/git与svn/" data-id="cj0syydhy000wj0w71bvhmn88" class="article-share-link">Partager</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/svn/">svn</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/版本控制/">版本控制</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-git github gitlab" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/28/git github gitlab/" class="article-date">
+  <time datetime="2017-03-28T03:14:11.781Z" itemprop="datePublished">2017-03-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/28/git github gitlab/">git github gitlab...</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="Git是一款自由和开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。"><a href="#Git是一款自由和开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。" class="headerlink" title="Git是一款自由和开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。"></a>Git是一款自由和开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。</h4><h4 id="Git-版本控制工具"><a href="#Git-版本控制工具" class="headerlink" title="Git - 版本控制工具"></a>Git - 版本控制工具</h4><p>Git是一个开源的分布式版本控制系统，用以有效、高速的处理从很小到非常大的项目版本管理。</p>
+<p>Git 是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件。</p>
+<p>Torvalds 开始着手开发 Git 是为了作为一种过渡方案来替代 BitKeeper，后者之前一直是 Linux 内核开发人员在全球使用的主要源代码工具。开放源码社区中的有些人觉得 BitKeeper 的许可证并不适合开放源码社区的工作，因此 Torvalds 决定着手研究许可证更为灵活的版本控制系统。尽管最初 Git 的开发是为了辅助 Linux 内核开发的过程，但是我们已经发现在很多其他自由软件项目中也使用了 Git。例如 最近就迁移到 Git 上来了，很多 Freedesktop 的项目也迁移到了 Git 上。</p>
+<h4 id="Github-一个网站，提供给用户空间创建git仓储，保存用户的一些数据文档或者代码等。"><a href="#Github-一个网站，提供给用户空间创建git仓储，保存用户的一些数据文档或者代码等。" class="headerlink" title="Github 一个网站，提供给用户空间创建git仓储，保存用户的一些数据文档或者代码等。"></a>Github 一个网站，提供给用户空间创建git仓储，保存用户的一些数据文档或者代码等。</h4><p>作为开源代码库以及版本控制系统，Github目前拥有140多万开发者用户。随着越来越多的应用程序转移到了云上，Github已经成为了管理软件开发以及发现已有代码的首选方法。</p>
+<p>如前所述，作为一个分布式的版本控制系统，在Git中并不存在主库这样的概念，每一份复制出的库都可以独立使用，任何两个库之间的不一致之处都可以进行合并。</p>
+<p>GitHub可以托管各种git库，并提供一个web界面，但与其它像 SourceForge或Google Code这样的服务不同，GitHub的独特卖点在于从另外一个项目进行分支的简易性。为一个项目贡献代码非常简单：首先点击项目站点的“fork”的按钮，然后将代码检出并将修改加入到刚才分出的代码库中，最后通过内建的“pull request”机制向项目负责人申请代码合并。已经有人将GitHub称为代码玩家的 MySpace。</p>
+<h4 id="GitLab-基于Git的项目管理软件。"><a href="#GitLab-基于Git的项目管理软件。" class="headerlink" title="GitLab - 基于Git的项目管理软件。"></a>GitLab - 基于Git的项目管理软件。</h4><p>GitLab 是一个用于仓库管理系统的开源项目。使用Git作为代码管理工具，并在此基础上搭建起来的web服务。</p>
+<h3 id="三者都是基于git的，可以说是git的衍生品。"><a href="#三者都是基于git的，可以说是git的衍生品。" class="headerlink" title="三者都是基于git的，可以说是git的衍生品。"></a>三者都是基于git的，可以说是git的衍生品。</h3>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/28/git github gitlab/" data-id="cj0syydhy000yj0w7o97yv2go" class="article-share-link">Partager</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/github/">github</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-gulp配置文档入门" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/28/gulp配置文档入门/" class="article-date">
+  <time datetime="2017-03-28T03:14:11.781Z" itemprop="datePublished">2017-03-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/28/gulp配置文档入门/">gulp配置文档入门</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="gulp-是什么？"><a href="#gulp-是什么？" class="headerlink" title="gulp 是什么？"></a>gulp 是什么？</h3><p>Gulp.js 是一个自动化构建工具，开发者可以使用它在项目开发过程中自动执行常见任务。Gulp.js 是基于 Node.js 构建的，利用 Node.js 流的威力，你可以快速构建项目并减少频繁的 IO 操作。Gulp.js 源文件和你用来定义任务的 Gulp 文件都是通过 JavaScript（或者 CoffeeScript ）源码来实现的。</p>
+<h3 id="1、安装"><a href="#1、安装" class="headerlink" title="1、安装"></a>1、安装</h3><h5 id="1-1安装："><a href="#1-1安装：" class="headerlink" title="1.1安装："></a>1.1安装：</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">//确保已安装node npm</div><div class="line">//node -v</div><div class="line">//npm -v</div><div class="line"></div><div class="line">//全局安装</div><div class="line">npm install -g gulp</div><div class="line"></div><div class="line">//查看版本</div><div class="line">gulp -v</div><div class="line"></div><div class="line">//项目的根目录再安装一遍</div><div class="line">npm install gulp --save-dev</div></pre></td></tr></table></figure>
+<h5 id="1-2插件安装-——————-插件搜索"><a href="#1-2插件安装-——————-插件搜索" class="headerlink" title="1.2插件安装 ——————-插件搜索"></a>1.2插件安装 ——————-<a href="https://www.npmjs.com/" target="_blank" rel="external">插件搜索</a></h5><p>我们将要使用Gulp插件来完成我们以下任务：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">//less的编译（gulp-less）</div><div class="line">npm install gulp-less</div><div class="line">//根据浏览器版本自动添加css前缀（gulp-autoprefixer）</div><div class="line">npm install gulp-autoprefixer</div><div class="line">//压缩css（gulp-minify-css）</div><div class="line">npm install gulp-minify-css</div><div class="line">//js代码校验（gulp-jshint）</div><div class="line">npm install	gulp-jshint</div><div class="line">//合并js文件（gulp-concat）</div><div class="line">npm install gulp-concat</div><div class="line">//压缩js代码（gulp-uglify）</div><div class="line">npm install gulp-uglify</div><div class="line">//压缩图片（gulp-imagemin）</div><div class="line">npm install gulp-imagemin</div><div class="line">//自动刷新页面（gulp-livereload）</div><div class="line">npm install gulp-livereload</div><div class="line">//图片缓存，只有图片替换了才压缩（gulp-cache）</div><div class="line">npm install gulp-cache</div><div class="line">//更改提醒（gulp-notify）</div><div class="line">npm install gulp-notify</div></pre></td></tr></table></figure>
+<p><a href="http://git-scm.com/downloads" target="_blank" rel="external">建议 下载 git 替代系统“命令提示符”</a> </p>
+<h3 id="2、项目目录"><a href="#2、项目目录" class="headerlink" title="2、项目目录"></a>2、项目目录</h3><p><img src="gulp01.png" alt="测试目录，具体根据项目制定"></p>
+<p>我们主要用到 assets images javascript stylesheets</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">--gulptest</div><div class="line">----assets				//生成目录</div><div class="line">----images				//图片</div><div class="line">----javascript				//js文件</div><div class="line">----node_modules </div><div class="line">----plugin</div><div class="line">----stylesheets				//css文件</div></pre></td></tr></table></figure>
+<h3 id="3、gulpfile-js-文件"><a href="#3、gulpfile-js-文件" class="headerlink" title="3、gulpfile.js 文件"></a>3、gulpfile.js 文件</h3><p>在项目目录下新建 gulpfile.js 文件，所有配置将在此文件中进行设置。</p>
+<h5 id="下面是最重要的，gulpfile-js的配置及说明："><a href="#下面是最重要的，gulpfile-js的配置及说明：" class="headerlink" title="下面是最重要的，gulpfile.js的配置及说明："></a>下面是最重要的，gulpfile.js的配置及说明：</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Load plugins </span></div><div class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>),</div><div class="line">	less = <span class="built_in">require</span>(<span class="string">'gulp-less'</span>), <span class="comment">//less的编译（gulp-less）</span></div><div class="line">	autoprefixer = <span class="built_in">require</span>(<span class="string">'gulp-autoprefixer'</span>), <span class="comment">//根据浏览器版本自动处理浏览器前缀 （gulp-autoprefixer）</span></div><div class="line">	minifycss = <span class="built_in">require</span>(<span class="string">'gulp-minify-css'</span>), <span class="comment">//压缩css（gulp-minify-css）</span></div><div class="line">	jshint = <span class="built_in">require</span>(<span class="string">'gulp-jshint'</span>), <span class="comment">//js代码校验（gulp-jshint）</span></div><div class="line">	imagemin = <span class="built_in">require</span>(<span class="string">'gulp-imagemin'</span>), <span class="comment">//压缩图片（gulp-imagemin）</span></div><div class="line">	rename = <span class="built_in">require</span>(<span class="string">'gulp-rename'</span>),</div><div class="line">	concat = <span class="built_in">require</span>(<span class="string">'gulp-concat'</span>), <span class="comment">//合并js文件（gulp-concat）</span></div><div class="line">	notify = <span class="built_in">require</span>(<span class="string">'gulp-notify'</span>), <span class="comment">//更改提醒（gulp-notify）</span></div><div class="line">	cache = <span class="built_in">require</span>(<span class="string">'gulp-cache'</span>), <span class="comment">//图片缓存，只有图片替换了才压缩（gulp-cache）</span></div><div class="line">	livereload = <span class="built_in">require</span>(<span class="string">'gulp-livereload'</span>); <span class="comment">//自动刷新页面（gulp-livereload）</span></div><div class="line"></div><div class="line"><span class="comment">// Styles</span></div><div class="line">gulp.task(<span class="string">'styles'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">	<span class="keyword">return</span> gulp.src(<span class="string">'stylesheets/*.less'</span>)</div><div class="line">		.pipe(less())</div><div class="line">		.pipe(autoprefixer(<span class="string">'last 2 version'</span>, <span class="string">'safari 5'</span>, <span class="string">'ie 8'</span>, <span class="string">'ie 9'</span>, <span class="string">'opera 12.1'</span>, <span class="string">'ios 6'</span>, <span class="string">'android 4'</span>))</div><div class="line">		.pipe(gulp.dest(<span class="string">'stylesheets'</span>))</div><div class="line">		.pipe(concat(<span class="string">'all.css'</span>))</div><div class="line">		.pipe(rename(&#123;</div><div class="line">			<span class="attr">suffix</span>: <span class="string">'.min'</span></div><div class="line">		&#125;))</div><div class="line">		.pipe(minifycss())</div><div class="line">		.pipe(gulp.dest(<span class="string">'assets/css'</span>))</div><div class="line">		.pipe(notify(&#123;</div><div class="line">			<span class="attr">message</span>: <span class="string">'Styles task complete'</span></div><div class="line">		&#125;));</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">// Scripts</span></div><div class="line">gulp.task(<span class="string">'scripts'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">	<span class="keyword">return</span> gulp.src(<span class="string">'javascripts/*.js'</span>)</div><div class="line">		.pipe(jshint())</div><div class="line">		.pipe(jshint.reporter(<span class="string">'default'</span>))</div><div class="line">		.pipe(concat(<span class="string">'all.js'</span>))</div><div class="line">		.pipe(rename(&#123;</div><div class="line">			<span class="attr">suffix</span>: <span class="string">'.min'</span></div><div class="line">		&#125;))</div><div class="line">		.pipe(uglify())</div><div class="line">		.pipe(gulp.dest(<span class="string">'assets/js'</span>))</div><div class="line">		.pipe(notify(&#123;</div><div class="line">			<span class="attr">message</span>: <span class="string">'Scripts task complete'</span></div><div class="line">		&#125;));</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">// Images</span></div><div class="line">gulp.task(<span class="string">'images'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">	<span class="keyword">return</span> gulp.src(<span class="string">'images/*'</span>)</div><div class="line">		.pipe(cache(imagemin(&#123;</div><div class="line">			<span class="attr">optimizationLevel</span>: <span class="number">3</span>,</div><div class="line">			<span class="attr">progressive</span>: <span class="literal">true</span>,</div><div class="line">			<span class="attr">interlaced</span>: <span class="literal">true</span></div><div class="line">		&#125;)))</div><div class="line">		.pipe(gulp.dest(<span class="string">'assets/images'</span>))</div><div class="line">		.pipe(notify(&#123;</div><div class="line">			<span class="attr">message</span>: <span class="string">'Images task complete'</span></div><div class="line">		&#125;));</div><div class="line">&#125;);</div><div class="line"><span class="comment">// Default task</span></div><div class="line">gulp.task(<span class="string">'default'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">	<span class="built_in">console</span>.log(<span class="string">"task default"</span>)</div><div class="line">	gulp.start(<span class="string">'styles'</span>, <span class="string">'scripts'</span>, <span class="string">'images'</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="4、结束语"><a href="#4、结束语" class="headerlink" title="4、结束语"></a>4、结束语</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//运行</div><div class="line">gulp</div></pre></td></tr></table></figure>
+<p><img src="gulp03.png" alt="发布"></p>
+<p>基本的任务配置就完成了；我们实现了：<br>1、css合并/压缩/添加.min.等等<br>2、js合并/压缩/校验等，可以<br>3、图片的压缩<br>4、将生成的资源发布到对应/assets/目录下各自的文件夹。</p>
+<p><img src="gulp02.png" alt="发布"></p>
+<p>这就是最基本的gulp配置，我们做的仅仅是最简单的入门，如果项目有其他需要，查询目前提供的插件并引用到你的项目配置里去吧！</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/28/gulp配置文档入门/" data-id="cj0syydhy0010j0w7extyn3r3" class="article-share-link">Partager</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gulp/">gulp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/构建工具/">构建工具</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-CSS中Position、Float属性深入探讨" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/28/CSS中Position、Float属性深入探讨/" class="article-date">
+  <time datetime="2017-03-28T03:14:11.781Z" itemprop="datePublished">2017-03-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/28/CSS中Position、Float属性深入探讨/">CSS中Position、Float属性深入探讨</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>首先抛出2个概念：盒子模型（box model）、HTML的普通流（normal flow）</p>
+<h5 id="盒子模型"><a href="#盒子模型" class="headerlink" title="盒子模型:"></a><a href="https://www.zhihu.com/question/41559689" target="_blank" rel="external">盒子模型</a>:</h5><ul>
+<li>块状元素</li>
+<li>行内元素</li>
+</ul>
+<p>常用的块状元素<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>、<span class="tag">&lt;<span class="name">p</span>&gt;</span>、<span class="tag">&lt;<span class="name">h1</span>&gt;</span>...<span class="tag">&lt;<span class="name">h6</span>&gt;</span>、<span class="tag">&lt;<span class="name">ol</span>&gt;</span>、<span class="tag">&lt;<span class="name">ul</span>&gt;</span>、<span class="tag">&lt;<span class="name">dl</span>&gt;</span>、<span class="tag">&lt;<span class="name">table</span>&gt;</span>、<span class="tag">&lt;<span class="name">address</span>&gt;</span>、<span class="tag">&lt;<span class="name">blockquote</span>&gt;</span> 、<span class="tag">&lt;<span class="name">form</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>常用的行内元素<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">a</span>&gt;</span>、<span class="tag">&lt;<span class="name">span</span>&gt;</span>、<span class="tag">&lt;<span class="name">br</span>&gt;</span>、<span class="tag">&lt;<span class="name">i</span>&gt;</span>、<span class="tag">&lt;<span class="name">em</span>&gt;</span>、<span class="tag">&lt;<span class="name">strong</span>&gt;</span>、<span class="tag">&lt;<span class="name">label</span>&gt;</span>、<span class="tag">&lt;<span class="name">q</span>&gt;</span>、<span class="tag">&lt;<span class="name">var</span>&gt;</span>、<span class="tag">&lt;<span class="name">cite</span>&gt;</span>、<span class="tag">&lt;<span class="name">code</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>设置display:block就是将行内元素显示为块状元素。如:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">style</span>=<span class="string">"display:block"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>两种盒子模型的区别:</p>
+<ul>
+<li>块状元素独占一行，行内元素和其他元素都在一行；</li>
+<li>块状元素的高度、宽度、行高以及顶和底边距都可设置；行内元素的高度、宽度及顶部和底部边距不可设置；</li>
+<li>块状元素宽度在不设置的情况下，是它本身父容器的100%；行内元素是根据自身的内容及子元素来决定宽、高度。</li>
+</ul>
+<p>CSS盒子模式具备这些属性：内容(content)、填充/内边距(padding)、边框(border)、外边距(margin)。(标准的盒子模型和IE盒子模型是有区别的，IE 盒子模型的 content 部分包含了 border 和 pading，请自行查阅)</p>
+<p><img src="1408656-688353a5969cab8e.gif" alt="图示"></p>
+<ul>
+<li>margin会重叠和产生2倍编剧问题，反正我是尽量不用margin；</li>
+<li><a href="http://www.w3school.com.cn/cssref/pr_box-sizing.asp" target="_blank" rel="external">box-sizing：border-box；为元素设定的宽度和高度决定了元素的边框盒</a></li>
+</ul>
+<h5 id="HTML的普通流"><a href="#HTML的普通流" class="headerlink" title="HTML的普通流"></a>HTML的普通流</h5><p>浏览器在读取HTML源代码的时候是根据元素在代码出现的顺序读取，最终元素的呈现方式是依据元素的盒子模型来决定的。行内元素是从左到右，块状元素是从上到下。</p>
+<p>元素在HTML的普通流中会“占位”，而“占位”的大小、位置则是由元素的盒子模型来决定。</p>
+<h5 id="Position、Float属性会使元素脱离HTML的普通流"><a href="#Position、Float属性会使元素脱离HTML的普通流" class="headerlink" title="Position、Float属性会使元素脱离HTML的普通流"></a>Position、Float属性会使元素脱离HTML的普通流</h5><h5 id="Position属性"><a href="#Position属性" class="headerlink" title="Position属性"></a>Position属性</h5><p>position的属性值共有四个static、relative、absolute、fixed。</p>
+<p>所有元素在默认的情况下position属性均为static</p>
+<p>relative：相对定位，将元素偏离元素的默认位置，但普通流中依然保持着原有的默认位置，并没有脱离普通流，只是视觉上发生的偏移。</p>
+<p>absolute：绝对定位，相对这个根元素（父、祖设置了position:relative/position:absolute）来偏移，如果在其节点树中所有父（祖）元素都没有设置position属性值为relative或者absolute则该元素最终将对body进行位置偏移。</p>
+<ul>
+<li>块状元素设置了position: absolute之后，width变成auto;</li>
+<li>没有设置top、bottom、left、right属性的话，浏览器会默认设置成auto;</li>
+<li>注意应用absolute的z-index</li>
+</ul>
+<h5 id="Float属性"><a href="#Float属性" class="headerlink" title="Float属性"></a>Float属性</h5><p>float的属性值有none、left、right</p>
+<p>当元素应用了float属性后，将会脱离普通流，其容器（父）元素将得不到脱离普通流的子元素高度。我们可以用清除浮动来进行处理；</p>
+<p>元素同时应用了position: absolute及float属性，则float失效。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/28/CSS中Position、Float属性深入探讨/" data-id="cj0syydg10003j0w7cdh97828" class="article-share-link">Partager</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-hello-hexo" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/28/hello-hexo/" class="article-date">
+  <time datetime="2017-03-28T03:14:11.781Z" itemprop="datePublished">2017-03-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/28/hello-hexo/">Hello World</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>记录自己学习和理解过程，都是入门级别的…</p>
+<p>重点强调，所记录文章都会综合参考好多文章，有好些没有经过验证，有个人理解偏差和错误。</p>
+<p>坚持每天1-3个知识点，整理并记录下来</p>
+<h3 id="理解是个过程，很多知识点会理解偏差或错误，所以千万别当成参考资料。"><a href="#理解是个过程，很多知识点会理解偏差或错误，所以千万别当成参考资料。" class="headerlink" title="理解是个过程，很多知识点会理解偏差或错误，所以千万别当成参考资料。"></a>理解是个过程，很多知识点会理解偏差或错误，所以千万别当成参考资料。</h3><h3 id="前端："><a href="#前端：" class="headerlink" title="前端："></a>前端：</h3><p>HTML CSS JAVASCRIPT 框架 库</p>
+<p>React和Flux是比较火的新兴事物(尤其是刚刚发布的React Native，由Facebook开发并在使用，非常棒)。</p>
+<p>Angular(有些年头，但很流行，由Google开发)，目前有两个非常不同的主流版本，所以我选择暂时不选用它们，直到尘埃落定。</p>
+<p>Backbone是一个适用于处理客户端东西的比较好但有点老的MVC框架。</p>
+<p>Node.js和io.js。它们是同一种东西，只不过io.js是最新的一个分支。可以参考hudson/jenkins的分离。现在可以使用Node.js，而 io.js有可能会最终胜出。</p>
+<p>npm是JavaScript主要的包管理器，它包含了一切的模块。另外还有jspm 和bower。jspm非常棒，但是太新了，而bower过于笨重，应避免使用(参考：为什么已经有npm了还要使用bower)。</p>
+<p>Browserify非常棒，它允许你在浏览器中使用npm模块，而不仅仅是在服务器端。</p>
+<p>Gulp和Grunt是构建系统，其中Gulp比较新，但很成熟，你应当使用它。</p>
+<p>express.js–如果你想建立服务器端的东西，你可能会需要它。</p>
+<p>Meteor是一个超级未来但非常酷的全栈框架，与其他所有人的方式都不同，它非常流行，你应当尝试一下。</p>
+<p>jQuery对于JavaScript就相当于WordPress对于PHP来说一样。每个人都会用，并想用它做一些东西。jQuery对于DOM操作是非常好的，除此之外，不要使用它。</p>
+<h3 id="后端语言也要学学："><a href="#后端语言也要学学：" class="headerlink" title="后端语言也要学学："></a>后端语言也要学学：</h3><p>后置</p>
+<h3 id="客户端也要了解一下："><a href="#客户端也要了解一下：" class="headerlink" title="客户端也要了解一下："></a>客户端也要了解一下：</h3><p>后置</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/28/hello-hexo/" data-id="cj0syydhy0012j0w7d9bggcjt" class="article-share-link">Partager</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/">html</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    <a class="extend prev" rel="prev" href="/page/3/">&laquo; __('prev')</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/">__('next') &raquo;</a>
+  </nav>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Mot-clés</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/MVVM/">MVVM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vuejs/">Vuejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/angular/">angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/baidu/">baidu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bower/">bower</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas/">canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fis/">fis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gulp/">gulp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html5/">html5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jquery/">jquery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mockjs/">mockjs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mvvm/">mvvm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/">npm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nvm/">nvm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/">react</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/svn/">svn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/this/">this</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue2/">vue2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/不错/">不错</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/作用域/">作用域</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/全局变量/">全局变量</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/其他/">其他</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前后端分离/">前后端分离</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/构建工具/">构建工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/模拟数据/">模拟数据</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/正则/">正则</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/版本控制/">版本控制</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/管理/">管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/规范/">规范</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/记录/">记录</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/转载/">转载</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/闭包/">闭包</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/阮一峰/">阮一峰</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面向对象/">面向对象</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Nuage de mot-clés</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/MVVM/" style="font-size: 13.33px;">MVVM</a> <a href="/tags/Vuejs/" style="font-size: 10px;">Vuejs</a> <a href="/tags/angular/" style="font-size: 15px;">angular</a> <a href="/tags/baidu/" style="font-size: 10px;">baidu</a> <a href="/tags/bower/" style="font-size: 10px;">bower</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/css/" style="font-size: 18.33px;">css</a> <a href="/tags/fis/" style="font-size: 10px;">fis</a> <a href="/tags/git/" style="font-size: 11.67px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/html/" style="font-size: 16.67px;">html</a> <a href="/tags/html5/" style="font-size: 10px;">html5</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/jquery/" style="font-size: 13.33px;">jquery</a> <a href="/tags/js/" style="font-size: 18.33px;">js</a> <a href="/tags/mockjs/" style="font-size: 10px;">mockjs</a> <a href="/tags/mvvm/" style="font-size: 13.33px;">mvvm</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/nvm/" style="font-size: 10px;">nvm</a> <a href="/tags/react/" style="font-size: 11.67px;">react</a> <a href="/tags/svn/" style="font-size: 11.67px;">svn</a> <a href="/tags/this/" style="font-size: 10px;">this</a> <a href="/tags/vue/" style="font-size: 11.67px;">vue</a> <a href="/tags/vue2/" style="font-size: 10px;">vue2</a> <a href="/tags/不错/" style="font-size: 10px;">不错</a> <a href="/tags/作用域/" style="font-size: 10px;">作用域</a> <a href="/tags/全局变量/" style="font-size: 10px;">全局变量</a> <a href="/tags/其他/" style="font-size: 11.67px;">其他</a> <a href="/tags/前后端分离/" style="font-size: 10px;">前后端分离</a> <a href="/tags/前端/" style="font-size: 10px;">前端</a> <a href="/tags/指针/" style="font-size: 10px;">指针</a> <a href="/tags/构建工具/" style="font-size: 11.67px;">构建工具</a> <a href="/tags/模拟数据/" style="font-size: 10px;">模拟数据</a> <a href="/tags/正则/" style="font-size: 10px;">正则</a> <a href="/tags/版本控制/" style="font-size: 10px;">版本控制</a> <a href="/tags/管理/" style="font-size: 10px;">管理</a> <a href="/tags/规范/" style="font-size: 10px;">规范</a> <a href="/tags/记录/" style="font-size: 10px;">记录</a> <a href="/tags/转载/" style="font-size: 18.33px;">转载</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a> <a href="/tags/阮一峰/" style="font-size: 10px;">阮一峰</a> <a href="/tags/面向对象/" style="font-size: 10px;">面向对象</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Articles récents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/03/28/项目总结/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/聊聊互联网产品的分类/">聊聊互联网产品的分类</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/管理岗是什么/">管理岗是什么鬼？</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/如何挑选适合的前端框架/">如何挑选适合的前端框架</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/一段小代码/">一段小代码</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

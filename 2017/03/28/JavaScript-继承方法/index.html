@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>JavaScript 语言中的继承 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="面向对象与基于对象在传统面向对象的语言中，有两个非常重要的概念 - 类和实例。 类定义了一类事物公共的行为和方法；而实例则是类的一个具体实现。 我们还知道，面向对象编程有三个重要的概念 - 封装、继承和多态。
+但是在JavaScript的世界中，所有的这一切特性似乎都不存在。 因为JavaScript本身不是面向对象的语言，而是基于对象的语言。 这里面就有一些有趣的特性，比如JavaScript中">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript 语言中的继承">
+<meta property="og:url" content="http://yoursite.com/2017/03/28/JavaScript-继承方法/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="面向对象与基于对象在传统面向对象的语言中，有两个非常重要的概念 - 类和实例。 类定义了一类事物公共的行为和方法；而实例则是类的一个具体实现。 我们还知道，面向对象编程有三个重要的概念 - 封装、继承和多态。
+但是在JavaScript的世界中，所有的这一切特性似乎都不存在。 因为JavaScript本身不是面向对象的语言，而是基于对象的语言。 这里面就有一些有趣的特性，比如JavaScript中">
+<meta property="og:updated_time" content="2016-01-07T10:43:58.352Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript 语言中的继承">
+<meta name="twitter:description" content="面向对象与基于对象在传统面向对象的语言中，有两个非常重要的概念 - 类和实例。 类定义了一类事物公共的行为和方法；而实例则是类的一个具体实现。 我们还知道，面向对象编程有三个重要的概念 - 封装、继承和多态。
+但是在JavaScript的世界中，所有的这一切特性似乎都不存在。 因为JavaScript本身不是面向对象的语言，而是基于对象的语言。 这里面就有一些有趣的特性，比如JavaScript中">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-JavaScript-继承方法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/28/JavaScript-继承方法/" class="article-date">
+  <time datetime="2017-03-28T03:14:11.807Z" itemprop="datePublished">2017-03-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JavaScript 语言中的继承
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="面向对象与基于对象"><a href="#面向对象与基于对象" class="headerlink" title="面向对象与基于对象"></a>面向对象与基于对象</h2><p>在传统面向对象的语言中，有两个非常重要的概念 - 类和实例。 类定义了一类事物公共的行为和方法；而实例则是类的一个具体实现。 我们还知道，面向对象编程有三个重要的概念 - 封装、继承和多态。</p>
+<p>但是在JavaScript的世界中，所有的这一切特性似乎都不存在。 因为JavaScript本身不是面向对象的语言，而是基于对象的语言。 这里面就有一些有趣的特性，比如JavaScript中所有事物都是对象， 包括字符串、数组、日期、数字，甚至是函数，比如下面这个例子：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">function</span> add(a,b)&#123;</div><div class="line">	add.invokeTimes++;</div><div class="line">	<span class="built_in">return</span> a + b;</div><div class="line">&#125;</div><div class="line"></div><div class="line">add.invokeTimes = 0;</div><div class="line">add(1 + 1);</div><div class="line">add(2 + 3);</div><div class="line">console.log(add.invokerTimes); //2</div></pre></td></tr></table></figure>
+<h2 id="模拟JavaScript中类和继承"><a href="#模拟JavaScript中类和继承" class="headerlink" title="模拟JavaScript中类和继承"></a>模拟JavaScript中类和继承</h2><p>在面向对象的语言中，我们使用类来创建一个自定义对象。然而JavaScript中所有事物都是对象，那么用什么办法来创建自定义对象呢？</p>
+<p>这就需要引入另外一个概念 - 原型（prototype），我们可以简单的把prototype看做是一个模版，新创建的自定义对象都是这个模版（prototype）的一个拷贝 （实际上不是拷贝而是链接，只不过这种链接是不可见，给人们的感觉好像是拷贝）。</p>
+<p>让我们看一下通过prototype创建自定义对象的一个例子：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> Person(name,sex)&#123;</div><div class="line">	this.name = name;</div><div class="line">	this.sex = sex;</div><div class="line">&#125;</div><div class="line"></div><div class="line">Person.prototype = &#123;</div><div class="line">	getName : <span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">		<span class="built_in">return</span> this.name;</div><div class="line">	&#125;,</div><div class="line">	getSex : <span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">		<span class="built_in">return</span> this.sex;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>构造函数 Person创建自定义对象函数，JavaScript通过构造函数和原型的方式实现了类的继承。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var han = new Person(<span class="string">"hanwsscan"</span>,<span class="string">"man"</span>);</div><div class="line">han.getName() //hanwsscan</div><div class="line">han.getSex() //man</div></pre></td></tr></table></figure>
+<p>代码执行时，其实内部做了如下几件事：</p>
+<p>1、创建空白对象 new Object()<br>2、copy Person.prototype中的属性到这个空对象（不是拷贝而是一个隐藏链接）<br>3、将这个对象通过this关键字传递到构造函数中并执行构造函数<br>4、将这个对象赋值给变量 han</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> Person(name,sex)&#123;</div><div class="line">	this.name = name;</div><div class="line">	this.sex = sex;</div><div class="line">&#125;</div><div class="line"></div><div class="line">Person.prototype.age = 20;</div><div class="line">var han = new Person(<span class="string">"hanwsscan"</span>,<span class="string">"man"</span>);</div><div class="line">han.age; //20</div><div class="line">// 覆盖prototype中的age属性</div><div class="line">han.age = 19; //19	</div><div class="line">delete han.age;</div><div class="line">// 在删除实例属性age后，此属性值又从prototype中获取</div><div class="line">han.age; //20</div></pre></td></tr></table></figure>
+<p>这种在JavaScript内部实现的隐藏的prototype链接，是JavaScript赖以生存的温润土壤， 也是模拟实现继承的基础。</p>
+<h1 id="this"><a href="#this" class="headerlink" title="this"></a><a href="http://hanwsscan.github.io/2015/12/30/JavaScript-this/" target="_blank" rel="external">this</a></h1><p>this表示当前对象，如果在全局作用范围内使用this，则指代当前页面对象window； </p>
+<p>如果在函数中使用this，则this指代什么是根据运行时此函数在什么对象上被调用。 </p>
+<p>我们还可以使用apply和call两个全局方法来改变函数中this的具体指向。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">//全局作用范围内使用this</div><div class="line">this == window</div><div class="line">//<span class="literal">true</span></div><div class="line">window.alert == this.alert</div><div class="line">//<span class="literal">true</span></div><div class="line">this.parseInt(<span class="string">"100"</span>,10)</div><div class="line">//100</div><div class="line">this.parseInt(<span class="string">"021"</span>,10)</div><div class="line">//21</div></pre></td></tr></table></figure>
+<p>函数中的this是在运行时决定的，而不是函数定义时</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">// 定义一个全局函数</div><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">foo</span></span>() &#123;</div><div class="line">	console.log(this.fruit);</div><div class="line">   &#125;</div><div class="line">// 定义一个全局变量，等价于window.fruit = <span class="string">"apple"</span>;</div><div class="line">var fruit = <span class="string">"apple"</span>;</div><div class="line">// 此时函数foo中this指向window对象</div><div class="line">// 这种调用方式和window.foo();是完全等价的</div><div class="line">foo();  // <span class="string">"apple"</span></div><div class="line"></div><div class="line">// 自定义一个对象，并将此对象的属性foo指向全局函数foo</div><div class="line">var pack = &#123;</div><div class="line">	fruit: <span class="string">"orange"</span>,</div><div class="line">	foo: foo</div><div class="line">&#125;;</div><div class="line">// 此时函数foo中this指向window.pack对象</div><div class="line">pack.foo(); // <span class="string">"orange"</span></div></pre></td></tr></table></figure>
+<p>全局函数apply和call可以用来改变函数中this的指向，apply和call两个函数的作用相同，唯一的区别是两个函数的参数定义不同。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">// 定义一个全局函数</div><div class="line">        <span class="keyword">function</span> <span class="function"><span class="title">foo</span></span>() &#123;</div><div class="line">            console.log(this.fruit);</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        // 定义一个全局变量</div><div class="line">        var fruit = <span class="string">"apple"</span>;</div><div class="line">        // 自定义一个对象</div><div class="line">        var pack = &#123;</div><div class="line">            fruit: <span class="string">"orange"</span></div><div class="line">        &#125;;</div><div class="line">        </div><div class="line">        // 等价于window.foo();</div><div class="line">        foo.apply(window);  // <span class="string">"apple"</span></div><div class="line">        // 此时foo中的this === pack</div><div class="line">        foo.apply(pack);    // <span class="string">"orange"</span></div></pre></td></tr></table></figure>
+<h1 id="prototype"><a href="#prototype" class="headerlink" title="prototype"></a>prototype</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> Person(name)&#123;</div><div class="line">	this.name = name;</div><div class="line">&#125;</div><div class="line"></div><div class="line">Person.prototype = &#123;</div><div class="line">	getName : <span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">		<span class="built_in">return</span> this.name</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var han = new Person(<span class="string">"hanwsscan"</span>);</div><div class="line"></div><div class="line">han.getName() //hanwsscan</div></pre></td></tr></table></figure>
+<p>每个函数都有一个默认的prototype属性；</p>
+<p>JavaScript中的数据类型 - 字符串（String）、数字（Number）、数组（Array）、对象（Object）、日期（Date）等，在JavaScript内部这些类型都是作为构造函数来实现的。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">// 定义数组的构造函数，作为JavaScript的一种预定义类型</div><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">Array</span></span>() &#123;</div><div class="line">	// ...</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 初始化数组的实例</div><div class="line">var arr1 = new Array(1, 56, 34, 12);</div><div class="line">// 但是，我们更倾向于如下的语法定义：</div><div class="line">var arr2 = [1, 56, 34, 12];</div></pre></td></tr></table></figure>
+<p>同时对数组操作的很多方法（比如concat、join、push）应该也是在prototype属性中定义的。 </p>
+<p>我们可以针对固有类型添加自己的方法，如向JavaScript固有类型Array扩展一个获取最小值的方法，固有类型尽量不要添加自定义方法。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">//向固有类型扩展方法</div><div class="line">Array.prototype.customMethods = <span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">	//....</div><div class="line">&#125;</div><div class="line"></div><div class="line">//为Array添加自定义方法，获取最小值</div><div class="line">Array.prototype.min = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">	var min = this[0];</div><div class="line">	<span class="keyword">for</span> (var i = 1; i &lt; this.length; i++) &#123;</div><div class="line">		<span class="keyword">if</span> (this[i] &lt; min) &#123;</div><div class="line">			min = this[i];</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">return</span> min;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">// 在任意Array的实例上调用min方法</div><div class="line">console.log([1, 56, 34, 12].min());  // 1</div></pre></td></tr></table></figure>
+<p>在为固有类型添加自定义方法时，会产生一个小陷阱，如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">//假设已经向Array的原型中扩展了min方法</div><div class="line">var arr = [1, 56, 34, 12];</div><div class="line">var total = 0;</div><div class="line"><span class="keyword">for</span>(var i <span class="keyword">in</span> arr)&#123;</div><div class="line">	total += parseInt(arr[i],10);</div><div class="line">&#125;</div><div class="line">//向Array的原型中添加扩展方法后，当使用<span class="keyword">for</span>-in循环数组时，这个扩展方法也会被循环出来。 </div><div class="line">console.log(total) //NaN</div></pre></td></tr></table></figure>
+<p>解决方法：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">//假设已经向Array的原型中扩展了min方法</div><div class="line">var arr = [1, 56, 34, 12];</div><div class="line">var total = 0;</div><div class="line"><span class="keyword">for</span>(var i <span class="keyword">in</span> arr)&#123;</div><div class="line">	<span class="keyword">if</span>(arr.hasOwnProperty(i))&#123;</div><div class="line">		total += parseInt(arr[i],10);</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">&#125;</div><div class="line">//向Array的原型中添加扩展方法后，当使用<span class="keyword">for</span>-in循环数组时，这个扩展方法也会被循环出来。 </div><div class="line">console.log(total) //103</div></pre></td></tr></table></figure>
+<h1 id="constructor-NaN"><a href="#constructor-NaN" class="headerlink" title="constructor"></a>constructor</h1><h3 id="constructor始终指向创建当前对象的构造函数"><a href="#constructor始终指向创建当前对象的构造函数" class="headerlink" title="constructor始终指向创建当前对象的构造函数"></a>constructor始终指向创建当前对象的构造函数</h3><p>只要记住并理解上面的话：constructor始终指向创建当前对象的构造函数</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var arr = [1, 56, 34, 12];</div><div class="line">arr.constructor === Array // <span class="literal">true</span></div><div class="line"></div><div class="line">var Foo = <span class="function"><span class="title">function</span></span>()&#123;//...&#125;</div><div class="line">Foo.constructor === Function //<span class="literal">true</span></div><div class="line"></div><div class="line">var obj = new Foo();	</div><div class="line">obj.constructor === Foo //<span class="literal">true</span></div><div class="line"></div><div class="line">//同样</div><div class="line">obj.constructor.constructor === Function //<span class="literal">true</span></div></pre></td></tr></table></figure>
+<p>那么当constructor遇到prototype，会发生什么呢？</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> Person(name) &#123;</div><div class="line">	this.name = name;</div><div class="line">&#125;</div><div class="line"></div><div class="line">Person.prototype.getName = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">	<span class="built_in">return</span> this.name;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var p = new Person(<span class="string">"hanwsscan"</span>)</div><div class="line"></div><div class="line">p.constructor === Person //<span class="literal">true</span>	</div><div class="line">Person.prototype.constructor === Person //<span class="literal">true</span>	</div><div class="line">p.constructor.prototype.constructor === Person //ture</div></pre></td></tr></table></figure>
+<p>当时当我们重新定义函数的prototype时（注意：和上例的区别，这里不是修改而是覆盖）， constructor的行为就有点奇怪了，如下示例：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> Person(name) &#123;</div><div class="line">	this.name = name;</div><div class="line">&#125;	</div><div class="line"></div><div class="line">Person.prototype = &#123;  </div><div class="line">	getName: <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">		<span class="built_in">return</span> this.name;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">//上面这段等价于  Person.prototype = new Object(&#123;//...&#125;) </div><div class="line">//此时Person.prototype.constructor === Object</div><div class="line"></div><div class="line">//怎么修正这种问题呢？方法也很简单，重新覆盖Person.prototype.constructor即可：</div><div class="line">//Person.prototype.constructor = Person;</div><div class="line">//p.constructor === Person //<span class="literal">true</span>	</div><div class="line">//Person.prototype.constructor === Person //<span class="literal">true</span>	</div><div class="line">//p.constructor.prototype.constructor === Person //ture	</div><div class="line"></div><div class="line">var p = new Person(<span class="string">"hanwsscan"</span>)</div><div class="line"></div><div class="line">p.constructor === Person //<span class="literal">false</span>	</div><div class="line">Person.prototype.constructor === Person //<span class="literal">false</span>	</div><div class="line">p.constructor.prototype.constructor === Person //<span class="literal">false</span></div><div class="line"></div><div class="line">p.constructor === Object //<span class="literal">true</span>	</div><div class="line">Person.prototype.constructor === Object //<span class="literal">true</span>	</div><div class="line">p.constructor.prototype.constructor === Object //<span class="literal">true</span></div></pre></td></tr></table></figure>
+<p>再次强调记住并理解，constructor始终指向创建当前对象的构造函数</p>
+<p>后续参考出处：</p>
+<p><a href="http://www.cnblogs.com/sanshi/archive/2009/07/13/1522647.html" target="_blank" rel="external">JavaScript继承详解（四）</a><br><a href="http://www.cnblogs.com/sanshi/archive/2009/07/14/1523523.html" target="_blank" rel="external">JavaScript继承详解（五）</a><br><a href="http://www.cnblogs.com/sanshi/archive/2009/07/15/1524263.html" target="_blank" rel="external">JavaScript继承详解（六）</a></p>
+<h2 id="今天股票半小时熔断，纪念一下…"><a href="#今天股票半小时熔断，纪念一下…" class="headerlink" title="今天股票半小时熔断，纪念一下…."></a>今天股票半小时熔断，纪念一下….</h2><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Inheritance_and_the_prototype_chain" target="_blank" rel="external">继承与原型链</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/28/JavaScript-继承方法/" data-id="cj0syydh2000fj0w7ih1ysaed" class="article-share-link">Partager</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/03/28/JavaScript模板/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Récent</strong>
+      <div class="article-nav-title">
+        
+          什么是JavaScript模板以及该何时使用和怎么使用这些模板
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/03/28/JavaScript-this/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ancien</strong>
+      <div class="article-nav-title">JavaScript 语言中的 this</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Mot-clés</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/MVVM/">MVVM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vuejs/">Vuejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/angular/">angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/baidu/">baidu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bower/">bower</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas/">canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fis/">fis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gulp/">gulp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html5/">html5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jquery/">jquery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mockjs/">mockjs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mvvm/">mvvm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/">npm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nvm/">nvm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/">react</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/svn/">svn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/this/">this</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue2/">vue2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/不错/">不错</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/作用域/">作用域</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/全局变量/">全局变量</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/其他/">其他</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前后端分离/">前后端分离</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/构建工具/">构建工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/模拟数据/">模拟数据</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/正则/">正则</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/版本控制/">版本控制</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/管理/">管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/规范/">规范</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/记录/">记录</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/转载/">转载</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/闭包/">闭包</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/阮一峰/">阮一峰</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面向对象/">面向对象</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Nuage de mot-clés</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/MVVM/" style="font-size: 13.33px;">MVVM</a> <a href="/tags/Vuejs/" style="font-size: 10px;">Vuejs</a> <a href="/tags/angular/" style="font-size: 15px;">angular</a> <a href="/tags/baidu/" style="font-size: 10px;">baidu</a> <a href="/tags/bower/" style="font-size: 10px;">bower</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/css/" style="font-size: 18.33px;">css</a> <a href="/tags/fis/" style="font-size: 10px;">fis</a> <a href="/tags/git/" style="font-size: 11.67px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/html/" style="font-size: 16.67px;">html</a> <a href="/tags/html5/" style="font-size: 10px;">html5</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/jquery/" style="font-size: 13.33px;">jquery</a> <a href="/tags/js/" style="font-size: 18.33px;">js</a> <a href="/tags/mockjs/" style="font-size: 10px;">mockjs</a> <a href="/tags/mvvm/" style="font-size: 13.33px;">mvvm</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/nvm/" style="font-size: 10px;">nvm</a> <a href="/tags/react/" style="font-size: 11.67px;">react</a> <a href="/tags/svn/" style="font-size: 11.67px;">svn</a> <a href="/tags/this/" style="font-size: 10px;">this</a> <a href="/tags/vue/" style="font-size: 11.67px;">vue</a> <a href="/tags/vue2/" style="font-size: 10px;">vue2</a> <a href="/tags/不错/" style="font-size: 10px;">不错</a> <a href="/tags/作用域/" style="font-size: 10px;">作用域</a> <a href="/tags/全局变量/" style="font-size: 10px;">全局变量</a> <a href="/tags/其他/" style="font-size: 11.67px;">其他</a> <a href="/tags/前后端分离/" style="font-size: 10px;">前后端分离</a> <a href="/tags/前端/" style="font-size: 10px;">前端</a> <a href="/tags/指针/" style="font-size: 10px;">指针</a> <a href="/tags/构建工具/" style="font-size: 11.67px;">构建工具</a> <a href="/tags/模拟数据/" style="font-size: 10px;">模拟数据</a> <a href="/tags/正则/" style="font-size: 10px;">正则</a> <a href="/tags/版本控制/" style="font-size: 10px;">版本控制</a> <a href="/tags/管理/" style="font-size: 10px;">管理</a> <a href="/tags/规范/" style="font-size: 10px;">规范</a> <a href="/tags/记录/" style="font-size: 10px;">记录</a> <a href="/tags/转载/" style="font-size: 18.33px;">转载</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a> <a href="/tags/阮一峰/" style="font-size: 10px;">阮一峰</a> <a href="/tags/面向对象/" style="font-size: 10px;">面向对象</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Articles récents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/03/28/项目总结/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/聊聊互联网产品的分类/">聊聊互联网产品的分类</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/管理岗是什么/">管理岗是什么鬼？</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/如何挑选适合的前端框架/">如何挑选适合的前端框架</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/一段小代码/">一段小代码</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

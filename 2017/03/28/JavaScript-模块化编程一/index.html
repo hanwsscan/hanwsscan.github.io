@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>JavaScript 语言中 模块的写法 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="模块就是实现特定功能的一组方法。原始写法对象写法立即执行函数写法放大模式宽放大模式（Loose augmentation）输入全局变量原始写法模块就是实现特定功能的一组方法。
+只要把不同的函数（以及记录状态的变量）简单地放在一起，就算是一个模块。
+1234567function m1()&amp;#123;	//...&amp;#125;function m2()&amp;#123;	//...&amp;#125;
+m1(),m">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript 语言中 模块的写法">
+<meta property="og:url" content="http://yoursite.com/2017/03/28/JavaScript-模块化编程一/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="模块就是实现特定功能的一组方法。原始写法对象写法立即执行函数写法放大模式宽放大模式（Loose augmentation）输入全局变量原始写法模块就是实现特定功能的一组方法。
+只要把不同的函数（以及记录状态的变量）简单地放在一起，就算是一个模块。
+1234567function m1()&amp;#123;	//...&amp;#125;function m2()&amp;#123;	//...&amp;#125;
+m1(),m">
+<meta property="og:updated_time" content="2016-01-07T10:44:41.834Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript 语言中 模块的写法">
+<meta name="twitter:description" content="模块就是实现特定功能的一组方法。原始写法对象写法立即执行函数写法放大模式宽放大模式（Loose augmentation）输入全局变量原始写法模块就是实现特定功能的一组方法。
+只要把不同的函数（以及记录状态的变量）简单地放在一起，就算是一个模块。
+1234567function m1()&amp;#123;	//...&amp;#125;function m2()&amp;#123;	//...&amp;#125;
+m1(),m">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-JavaScript-模块化编程一" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/28/JavaScript-模块化编程一/" class="article-date">
+  <time datetime="2017-03-28T03:14:11.809Z" itemprop="datePublished">2017-03-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JavaScript 语言中 模块的写法
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="模块就是实现特定功能的一组方法。"><a href="#模块就是实现特定功能的一组方法。" class="headerlink" title="模块就是实现特定功能的一组方法。"></a>模块就是实现特定功能的一组方法。</h2><h4 id="原始写法"><a href="#原始写法" class="headerlink" title="原始写法"></a>原始写法</h4><h4 id="对象写法"><a href="#对象写法" class="headerlink" title="对象写法"></a>对象写法</h4><h4 id="立即执行函数写法"><a href="#立即执行函数写法" class="headerlink" title="立即执行函数写法"></a>立即执行函数写法</h4><h4 id="放大模式"><a href="#放大模式" class="headerlink" title="放大模式"></a>放大模式</h4><h4 id="宽放大模式（Loose-augmentation）"><a href="#宽放大模式（Loose-augmentation）" class="headerlink" title="宽放大模式（Loose augmentation）"></a>宽放大模式（Loose augmentation）</h4><h4 id="输入全局变量"><a href="#输入全局变量" class="headerlink" title="输入全局变量"></a>输入全局变量</h4><h2 id="原始写法-1"><a href="#原始写法-1" class="headerlink" title="原始写法"></a>原始写法</h2><p>模块就是实现特定功能的一组方法。</p>
+<p>只要把不同的函数（以及记录状态的变量）简单地放在一起，就算是一个模块。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">m1</span></span>()&#123;</div><div class="line">	//...</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">m2</span></span>()&#123;</div><div class="line">	//...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>m1(),m2()就是模块，使用的时候直接调用</p>
+<p>这种做法缺点是污染了全局变量，无法保证命名不冲突，而且模块间的调用无法体现；</p>
+<h2 id="对象写法-1"><a href="#对象写法-1" class="headerlink" title="对象写法"></a>对象写法</h2><p>为解决方法一的缺点，可以把模块写出一个对象，模块成员都写到对象里</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">var module1 = new Object(&#123;</div><div class="line"></div><div class="line">	_count = 0,</div><div class="line">	</div><div class="line">	m1:<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">		//...</div><div class="line">	&#125;,</div><div class="line">	</div><div class="line">	m2:<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">		//...</div><div class="line">	&#125;</div><div class="line"></div><div class="line"></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>m1(),m2()都封装在对象module1里，使用时调用 module1.m1(),module1.m2();</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">module1.m1()</div><div class="line">module1.m2()</div></pre></td></tr></table></figure>
+<p>但是，这样的写法会暴露所有模块成员，内部状态可以被外部改写。比如，外部代码可以直接改变内部计数器的值。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">module1._count = 5;</div></pre></td></tr></table></figure>
+<h2 id="立即执行函数写法-1"><a href="#立即执行函数写法-1" class="headerlink" title="立即执行函数写法"></a>立即执行函数写法</h2><p>使用 立即执行函数（Immediately-Invoked Function Expression，IIFE），可以达到不暴露私有成员的目的。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">var module1 = (<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line"></div><div class="line">	//外部代码无法读取内部的_count变量</div><div class="line">	var _count = 0;</div><div class="line">	</div><div class="line">	var m1 = <span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">		//...</div><div class="line">	&#125;;</div><div class="line">	</div><div class="line">	var m2 = <span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">		//...</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="built_in">return</span> &#123;</div><div class="line">		m1 : m1,</div><div class="line">		m2 : m2</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
+<p>console.log(module1._count1)  //undefined</p>
+<p>这就是js模块化的基本写法，后续还会对这种方法进行扩展，模块比较大的时候，需要分成几个部分，并且模块间有继承的时候，就需要使用-放大模式(augmentation)</p>
+<h2 id="放大模式-augmentation"><a href="#放大模式-augmentation" class="headerlink" title="放大模式 (augmentation)"></a>放大模式 (augmentation)</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">var module1 = (<span class="keyword">function</span>(mod)&#123;</div><div class="line">	mod.m3 = <span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">		//...</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="built_in">return</span> mod</div><div class="line">	</div><div class="line">&#125;)(module1);</div></pre></td></tr></table></figure>
+<p>上面的代码为module1模块添加了一个新方法m3()，然后返回新的module1模块。</p>
+<h2 id="宽放大模式（Loose-augmentation）-1"><a href="#宽放大模式（Loose-augmentation）-1" class="headerlink" title="宽放大模式（Loose augmentation）"></a>宽放大模式（Loose augmentation）</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">var module1 = (<span class="keyword">function</span>(mod)&#123;</div><div class="line">	mod.m3 = <span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">		//...</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="built_in">return</span> mod</div><div class="line">	</div><div class="line">&#125;)(window.module1 || &#123;&#125;);</div></pre></td></tr></table></figure>
+<p>与”放大模式”相比，＂宽放大模式＂就是”立即执行函数”的参数可以是空对象。</p>
+<h2 id="输入全局变量-1"><a href="#输入全局变量-1" class="headerlink" title="输入全局变量"></a>输入全局变量</h2><p>独立性是模块的重要特点，模块内部最好不与程序的其他部分直接交互。</p>
+<p>为了在模块内部调用全局变量，必须显式地将其他变量输入模块。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var module1 = (<span class="keyword">function</span>($,Yahoo)&#123;</div><div class="line">	//...</div><div class="line">&#125;)(jQuery,YAHOO)</div></pre></td></tr></table></figure>
+<p>上面的module1模块需要使用jQuery库和YUI库，就把这两个库（其实是两个模块）当作参数输入module1。这样做除了保证模块的独立性，还使得模块之间的依赖关系变得明显。</p>
+<h2 id="如何规范地使用模块"><a href="#如何规范地使用模块" class="headerlink" title="如何规范地使用模块"></a>如何规范地使用模块</h2><p>有了模块，我们就可以更方便地使用别人的代码，想要什么功能，就加载什么模块。</p>
+<p>目前，通行的Javascript模块规范共有两种：CommonJS和AMD。</p>
+<p>node.js的 <a href="https://nodejs.org/docs/latest/api/modules.html" target="_blank" rel="external">模块系统</a>，就是参照<a href="http://wiki.commonjs.org/wiki/Modules/1.1" target="_blank" rel="external">CommonJS规范</a>实现的。</p>
+<p>在CommonJS中，有一个全局性方法require()，用于加载模块。</p>
+<p>假定有一个数学模块math.js，就可以像下面这样加载。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var math = require(<span class="string">'math'</span>);</div><div class="line">math.add(2,3)</div></pre></td></tr></table></figure>
+<h4 id="服务器端模块，所有的模块都存放在本地硬盘，可以同步加载完成"><a href="#服务器端模块，所有的模块都存放在本地硬盘，可以同步加载完成" class="headerlink" title="服务器端模块，所有的模块都存放在本地硬盘，可以同步加载完成"></a>服务器端模块，所有的模块都存放在本地硬盘，可以同步加载完成</h4><h4 id="浏览器端的模块，不能采用”同步加载”（synchronous），只能采用”异步加载”（asynchronous）。这就是AMD规范诞生的背景。"><a href="#浏览器端的模块，不能采用”同步加载”（synchronous），只能采用”异步加载”（asynchronous）。这就是AMD规范诞生的背景。" class="headerlink" title="浏览器端的模块，不能采用”同步加载”（synchronous），只能采用”异步加载”（asynchronous）。这就是AMD规范诞生的背景。"></a>浏览器端的模块，不能采用”同步加载”（synchronous），只能采用”异步加载”（asynchronous）。这就是AMD规范诞生的背景。</h4><h1 id="AMD"><a href="#AMD" class="headerlink" title="AMD"></a>AMD</h1><p><a href="https://github.com/amdjs/amdjs-api/wiki/AMD" target="_blank" rel="external">AMD</a>是”Asynchronous Module Definition”的缩写，意思就是”异步模块定义”。它采用异步方式加载模块，模块的加载不影响它后面语句的运行。所有依赖这个模块的语句，都定义在一个回调函数中，等到加载完成之后，这个回调函数才会运行。</p>
+<p>AMD也采用require()语句加载模块，但是不同于CommonJS，它要求两个参数：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">require([module], callback);</div></pre></td></tr></table></figure>
+<h4 id="第一个参数-module-，是一个数组，里面的成员就是要加载的模块；第二个参数callback，则是加载成功之后的回调函数。"><a href="#第一个参数-module-，是一个数组，里面的成员就是要加载的模块；第二个参数callback，则是加载成功之后的回调函数。" class="headerlink" title="第一个参数[module]，是一个数组，里面的成员就是要加载的模块；第二个参数callback，则是加载成功之后的回调函数。"></a>第一个参数[module]，是一个数组，里面的成员就是要加载的模块；第二个参数callback，则是加载成功之后的回调函数。</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">require([<span class="string">'math'</span>],<span class="keyword">function</span>(math)&#123;</div><div class="line">	//...</div><div class="line">	math.add(2,3) //5</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>math.add()与math模块加载不是同步的，浏览器不会发生假死。所以很显然，AMD比较适合浏览器环境。</p>
+<h2 id="为什么要用require-js"><a href="#为什么要用require-js" class="headerlink" title="为什么要用require.js"></a>为什么要用require.js</h2><p>最早的时候，所有Javascript代码都写在一个文件里面，只要加载这一个文件就够了。后来，代码越来越多，一个文件不够了，必须分成多个文件，依次加载。下面的网页代码，相信很多人都见过。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;script src=<span class="string">"1.js"</span>&gt;&lt;/script&gt;</div><div class="line">&lt;script src=<span class="string">"2.js"</span>&gt;&lt;/script&gt;</div><div class="line">&lt;script src=<span class="string">"3.js"</span>&gt;&lt;/script&gt;</div><div class="line">&lt;script src=<span class="string">"4.js"</span>&gt;&lt;/script&gt;</div><div class="line">&lt;script src=<span class="string">"5.js"</span>&gt;&lt;/script&gt;</div><div class="line">&lt;script src=<span class="string">"6.js"</span>&gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>这样的写法有很大的缺点。</p>
+<p>首先，加载的时候，浏览器会停止网页渲染，加载文件越多，网页失去响应的时间就会越长；</p>
+<p>其次，由于js文件之间存在依赖关系，因此必须严格保证加载顺序（比如上例的1.js要在2.js的前面），依赖性最大的模块一定要放到最后加载，当依赖关系很复杂的时候，代码的编写和维护都会变得困难。</p>
+<h3 id="require-js"><a href="#require-js" class="headerlink" title="require.js"></a>require.js</h3><h3 id="1、实现js文件的异步加载，避免网页失去响应；"><a href="#1、实现js文件的异步加载，避免网页失去响应；" class="headerlink" title="1、实现js文件的异步加载，避免网页失去响应；"></a>1、实现js文件的异步加载，避免网页失去响应；</h3><h3 id="2、管理模块之间的依赖性，便于代码的编写和维护。"><a href="#2、管理模块之间的依赖性，便于代码的编写和维护。" class="headerlink" title="2、管理模块之间的依赖性，便于代码的编写和维护。"></a>2、管理模块之间的依赖性，便于代码的编写和维护。</h3><h2 id="require-js的加载"><a href="#require-js的加载" class="headerlink" title="require.js的加载"></a>require.js的加载</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script src=<span class="string">"js/require.js"</span> data-main=<span class="string">"js/main"</span>&gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p><a href="http://www.ruanyifeng.com/blog/2012/11/require_js.html" target="_blank" rel="external">详见require.js的加载</a></p>
+<h2 id="主模块的写法"><a href="#主模块的写法" class="headerlink" title="主模块的写法"></a>主模块的写法</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// main.js</div><div class="line">require([<span class="string">'moduleA'</span>, <span class="string">'moduleB'</span>, <span class="string">'moduleC'</span>], <span class="keyword">function</span> (moduleA, moduleB, moduleC)&#123;</div><div class="line">	// some code here</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>require()函数接受两个参数。第一个参数是一个数组，表示所依赖的模块，上例就是[‘moduleA’, ‘moduleB’, ‘moduleC’]，即主模块依赖这三个模块；第二个参数是一个回调函数，当前面指定的模块都加载成功后，它将被调用。加载的模块会以参数形式传入该函数，从而在回调函数内部就可以使用这些模块。</p>
+<p>require()异步加载moduleA，moduleB和moduleC，浏览器不会失去响应；它指定的回调函数，只有前面的模块都加载成功后，才会运行，解决了依赖性的问题。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">require([<span class="string">'jquery'</span>, <span class="string">'underscore'</span>, <span class="string">'backbone'</span>], <span class="keyword">function</span> ($, _, Backbone)&#123;</div><div class="line">	// some code here</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>require.js会先加载jQuery、underscore和backbone，然后再运行回调函数。主模块的代码就写在回调函数中。</p>
+<h2 id="模块的加载"><a href="#模块的加载" class="headerlink" title="模块的加载"></a>模块的加载</h2><p>上一节最后的示例中，主模块的依赖模块是[‘jquery’, ‘underscore’, ‘backbone’]。默认情况下，require.js假定这三个模块与main.js在同一个目录，文件名分别为jquery.js，underscore.js和backbone.js，然后自动加载。</p>
+<p>使用require.config()方法，我们可以对模块的加载行为进行自定义。require.config()就写在主模块（main.js）的头部。参数就是一个对象，这个对象的paths属性指定各个模块的加载路径。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">//</div><div class="line">require.config(&#123;</div><div class="line">	paths: &#123;</div><div class="line">		<span class="string">"jquery"</span>: <span class="string">"jquery.min"</span>,</div><div class="line">		<span class="string">"underscore"</span>: <span class="string">"underscore.min"</span>,</div><div class="line">		<span class="string">"backbone"</span>: <span class="string">"backbone.min"</span></div><div class="line">	&#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">//如果这些模块在其他目录，比如js/lib目录，则有两种写法。一种是逐一指定路径。</div><div class="line">require.config(&#123;</div><div class="line">	paths: &#123;</div><div class="line">		<span class="string">"jquery"</span>: <span class="string">"lib/jquery.min"</span>,</div><div class="line">		<span class="string">"underscore"</span>: <span class="string">"lib/underscore.min"</span>,</div><div class="line">		<span class="string">"backbone"</span>: <span class="string">"lib/backbone.min"</span></div><div class="line">	&#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">//另一种则是直接改变基目录（baseUrl）</div><div class="line">require.config(&#123;</div><div class="line">	baseUrl: <span class="string">"js/lib"</span>,</div><div class="line">	paths: &#123;</div><div class="line">		<span class="string">"jquery"</span>: <span class="string">"jquery.min"</span>,</div><div class="line">		<span class="string">"underscore"</span>: <span class="string">"underscore.min"</span>,</div><div class="line">		<span class="string">"backbone"</span>: <span class="string">"backbone.min"</span></div><div class="line">	&#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">//如果某个模块在另一台主机上，也可以直接指定它的网址，比如：</div><div class="line">require.config(&#123;</div><div class="line">	paths: &#123;</div><div class="line">		<span class="string">"jquery"</span>: <span class="string">"https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min"</span></div><div class="line">	&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>require.js要求，每个模块是一个单独的js文件。这样的话，如果加载多个模块，就会发出多次HTTP请求，会影响网页的加载速度。因此，require.js提供了一个<a href="http://requirejs.org/docs/optimization.html" target="_blank" rel="external">优化工具</a>，当模块部署完毕以后，可以用这个工具将多个模块合并在一个文件中，减少HTTP请求数。</p>
+<p>待续….  <a href="http://www.ruanyifeng.com/blog/2012/11/require_js.html" target="_blank" rel="external">详见</a></p>
+<h4 id="源-http-www-ruanyifeng-com-blog-2012-10-javascript-module-html"><a href="#源-http-www-ruanyifeng-com-blog-2012-10-javascript-module-html" class="headerlink" title="源: http://www.ruanyifeng.com/blog/2012/10/javascript_module.html"></a><a href="http://www.ruanyifeng.com/blog/2012/10/javascript_module.html" target="_blank" rel="external">源: http://www.ruanyifeng.com/blog/2012/10/javascript_module.html</a></h4>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/28/JavaScript-模块化编程一/" data-id="cj0syydh2000gj0w77sem8dwq" class="article-share-link">Partager</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/03/28/JavaScript中this指针指向的彻底理解/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Récent</strong>
+      <div class="article-nav-title">
+        
+          JavaScript中this指针指向的彻底理解
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/03/28/jQuery.extend 和 jQuery.fn.extend 的区别/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ancien</strong>
+      <div class="article-nav-title">jQuery.extend 和 jQuery.fn.extend 的区别</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Mot-clés</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/MVVM/">MVVM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vuejs/">Vuejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/angular/">angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/baidu/">baidu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bower/">bower</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas/">canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fis/">fis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gulp/">gulp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html5/">html5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jquery/">jquery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mockjs/">mockjs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mvvm/">mvvm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/">npm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nvm/">nvm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/">react</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/svn/">svn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/this/">this</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue2/">vue2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/不错/">不错</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/作用域/">作用域</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/全局变量/">全局变量</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/其他/">其他</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前后端分离/">前后端分离</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/构建工具/">构建工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/模拟数据/">模拟数据</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/正则/">正则</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/版本控制/">版本控制</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/管理/">管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/规范/">规范</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/记录/">记录</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/转载/">转载</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/闭包/">闭包</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/阮一峰/">阮一峰</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面向对象/">面向对象</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Nuage de mot-clés</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/MVVM/" style="font-size: 13.33px;">MVVM</a> <a href="/tags/Vuejs/" style="font-size: 10px;">Vuejs</a> <a href="/tags/angular/" style="font-size: 15px;">angular</a> <a href="/tags/baidu/" style="font-size: 10px;">baidu</a> <a href="/tags/bower/" style="font-size: 10px;">bower</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/css/" style="font-size: 18.33px;">css</a> <a href="/tags/fis/" style="font-size: 10px;">fis</a> <a href="/tags/git/" style="font-size: 11.67px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/html/" style="font-size: 16.67px;">html</a> <a href="/tags/html5/" style="font-size: 10px;">html5</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/jquery/" style="font-size: 13.33px;">jquery</a> <a href="/tags/js/" style="font-size: 18.33px;">js</a> <a href="/tags/mockjs/" style="font-size: 10px;">mockjs</a> <a href="/tags/mvvm/" style="font-size: 13.33px;">mvvm</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/nvm/" style="font-size: 10px;">nvm</a> <a href="/tags/react/" style="font-size: 11.67px;">react</a> <a href="/tags/svn/" style="font-size: 11.67px;">svn</a> <a href="/tags/this/" style="font-size: 10px;">this</a> <a href="/tags/vue/" style="font-size: 11.67px;">vue</a> <a href="/tags/vue2/" style="font-size: 10px;">vue2</a> <a href="/tags/不错/" style="font-size: 10px;">不错</a> <a href="/tags/作用域/" style="font-size: 10px;">作用域</a> <a href="/tags/全局变量/" style="font-size: 10px;">全局变量</a> <a href="/tags/其他/" style="font-size: 11.67px;">其他</a> <a href="/tags/前后端分离/" style="font-size: 10px;">前后端分离</a> <a href="/tags/前端/" style="font-size: 10px;">前端</a> <a href="/tags/指针/" style="font-size: 10px;">指针</a> <a href="/tags/构建工具/" style="font-size: 11.67px;">构建工具</a> <a href="/tags/模拟数据/" style="font-size: 10px;">模拟数据</a> <a href="/tags/正则/" style="font-size: 10px;">正则</a> <a href="/tags/版本控制/" style="font-size: 10px;">版本控制</a> <a href="/tags/管理/" style="font-size: 10px;">管理</a> <a href="/tags/规范/" style="font-size: 10px;">规范</a> <a href="/tags/记录/" style="font-size: 10px;">记录</a> <a href="/tags/转载/" style="font-size: 18.33px;">转载</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a> <a href="/tags/阮一峰/" style="font-size: 10px;">阮一峰</a> <a href="/tags/面向对象/" style="font-size: 10px;">面向对象</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Articles récents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/03/28/项目总结/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/聊聊互联网产品的分类/">聊聊互联网产品的分类</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/管理岗是什么/">管理岗是什么鬼？</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/如何挑选适合的前端框架/">如何挑选适合的前端框架</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/一段小代码/">一段小代码</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
