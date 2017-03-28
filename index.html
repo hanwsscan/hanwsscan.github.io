@@ -55,6 +55,276 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-一段js代码的升级之旅" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/28/一段js代码的升级之旅/" class="article-date">
+  <time datetime="2017-03-28T03:14:11.841Z" itemprop="datePublished">2017-03-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/28/一段js代码的升级之旅/">一段代码的升级之旅...</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="需求：一个输入框里面字数的计数"><a href="#需求：一个输入框里面字数的计数" class="headerlink" title="需求：一个输入框里面字数的计数"></a>需求：一个输入框里面字数的计数</h4><p><img src="/2017/03/28/一段js代码的升级之旅/e676966.gif" alt="解决HTTP 1的请求数增加"></p>
+<p>最简单的全局变量写法：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"></div><div class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span>test<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"http://code.jquery.com/jquery-1.9.1.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line">			$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">				<span class="keyword">var</span> input = $(<span class="string">'#J_input'</span>);</div><div class="line">				<span class="comment">//用来获取字数</span></div><div class="line">				<span class="function"><span class="keyword">function</span> <span class="title">getNum</span>(<span class="params"></span>) </span>&#123;</div><div class="line">					<span class="keyword">return</span> input.val().length;</div><div class="line">				&#125;</div><div class="line">				<span class="comment">//渲染元素</span></div><div class="line">				<span class="function"><span class="keyword">function</span> <span class="title">render</span>(<span class="params"></span>) </span>&#123;</div><div class="line">					<span class="keyword">var</span> num = getNum();</div><div class="line">					<span class="comment">//没有字数的容器就新建一个</span></div><div class="line">					<span class="keyword">if</span> ($(<span class="string">'#J_input_count'</span>).length == <span class="number">0</span>) &#123;</div><div class="line">						input.after(<span class="string">'&lt;span id="J_input_count"&gt;&lt;/span&gt;'</span>);</div><div class="line">					&#125;;</div><div class="line">					$(<span class="string">'#J_input_count'</span>).html(num + <span class="string">'个字'</span>);</div><div class="line">				&#125;</div><div class="line">				<span class="comment">//监听事件</span></div><div class="line">				input.on(<span class="string">'keyup'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">					render();</div><div class="line">				&#125;);</div><div class="line">				<span class="comment">//初始化，第一次渲染</span></div><div class="line">				render();</div><div class="line">			&#125;)</div><div class="line">		<span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"></div><div class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"J_input"</span> /&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>这种写法在单独的页面，如活动页面使用没有问题，但如果在负责项目页面多的情况下，变量和函数命名到后期会变的相当混乱而无法维护！</p>
+<p>那么我们怎么解决这个问题呢，这就涉及到作用域的概念：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> textCount = &#123;</div><div class="line"> <span class="attr">input</span>: <span class="literal">null</span>,</div><div class="line"> <span class="attr">init</span>: <span class="function"><span class="keyword">function</span>(<span class="params">config</span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.input = $(config.id);</div><div class="line">  <span class="keyword">this</span>.bind();</div><div class="line">  <span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line"> &#125;,</div><div class="line"></div><div class="line"> <span class="attr">bind</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> self = <span class="keyword">this</span>;</div><div class="line">  <span class="keyword">this</span>.input.on(<span class="string">'keyup'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">   self.render()</div><div class="line">  &#125;)</div><div class="line"> &#125;,</div><div class="line"></div><div class="line"> <span class="attr">getNum</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.input.val().length</div><div class="line"> &#125;,</div><div class="line"></div><div class="line"> <span class="attr">render</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> num = <span class="keyword">this</span>.getNum()</div><div class="line">  $(<span class="string">'#J_input_count'</span>).html(num + <span class="string">'个字'</span>);</div><div class="line"> &#125;</div><div class="line"> </div><div class="line">&#125;</div><div class="line"></div><div class="line">$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line"> textCount.init(&#123;<span class="attr">id</span>:<span class="string">'#j_input'</span>&#125;).render()</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanwsscan.github.io/2017/03/28/一段js代码的升级之旅/" data-id="cj0t3mftf002hsww7sb1uehh2" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jquery/">jquery</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/作用域/">作用域</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/全局变量/">全局变量</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/闭包/">闭包</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/面向对象/">面向对象</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-聊聊互联网产品的分类" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/28/聊聊互联网产品的分类/" class="article-date">
+  <time datetime="2017-03-28T03:14:11.841Z" itemprop="datePublished">2017-03-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/28/聊聊互联网产品的分类/">聊聊互联网产品的分类</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>我在《淘宝十年产品事》里有一节的标题叫「产品经理都是分类控」，因为分类，是我们认识、理解世界最常用的方式之一。从抽象层面来说，优秀的分类应该是同一类之内的对象尽量接近，不同类之间的对象尽量不同，对全集而言，最好能符合<a href="http://baike.baidu.com/view/426528.htm">MECE</a>原则（Mutually Exclusive Collectively Exhaustive，中文意思是“相互独立，完全穷尽”）</p>
+<p>先做个设定，我们说的是互联网、最多扩大到IT类产品。<br>这里面应该有很多分类维度，先选个「用户需求」的角度试着说说，有这么几个：工具、内容、社交、交易、平台、游戏。<br></p>
+        
+          <p class="article-more-link">
+            <a href="/2017/03/28/聊聊互联网产品的分类/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanwsscan.github.io/2017/03/28/聊聊互联网产品的分类/" data-id="cj0t3mft6002asww723o5w00i" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/不错/">不错</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/其他/">其他</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/转载/">转载</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-管理岗是什么" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/28/管理岗是什么/" class="article-date">
+  <time datetime="2017-03-28T03:14:11.841Z" itemprop="datePublished">2017-03-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/28/管理岗是什么/">管理岗是什么鬼？</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>回想一下，你想要在公司里做管理的想法是从什么时候开始的？是什么让你产生想要做管理岗的想法的呢？</p>
+<p>大学时工商管理课程？看到现在公司的里的管理层工作又轻松，拿钱又多？周围有做管理的朋友，他让你觉得你不如他？</p>
+<p>各种MBA的招生广告，不知不觉植入你的脑海里的？</p>
+<p>电视广告里那些叱诧风云运筹帷幄的精英形象？</p>
+<p>某个电视剧里的人物？</p>
+<p>总之，这个社会环境有很多信息源的输入，让你感觉不做管理，就低人一等，就是个职场菜鸟，凡职业规划最后都得到C字头的职位。但是否真的要做管理岗，那是得好好想一想的。</p>
+<p>管理岗可能不是你想象的那么美好。首先，管理岗的工作压力更大。管理岗的工作内容庞杂，以中层管理为例，往往涉及到团队招募、成员培养、激励、职业规划，团队文化建设，涉及到业务层面的任务达成，部门协调（内部客户以及外部客户），发展规划，成本控制，行业动态洞察等多个方面。每个方面的工作都要消耗时间和精力，再加上个人成长和生活上的需要，不感觉到压力，那几乎是不可能的。</p>
+<p>其次，管理岗的竞争压力也大。大部分公司都是金字塔结构的，造成了越在行政级别上高，职位数量越少。所以晋升难，而跳槽也难。</p>
+<p>第三，可能薪资也没你想像的那么高。有些销售类的职位，基层销售的薪资可能比他们的经理，或者总监的高，因为有提成部分。有些替代性低的职位，薪资也是往往比他们的汇报对象高的。这是纵向来比。横向来比，有些行业内中利润水平一般的公司的管理岗的薪资，可能还不如行业中利润水平高的基层薪资。而有些公司，同一个公司内，技术性岗位的薪资完全可以匹敌管理岗，比如阿里的P线和M线。</p>
+<h5 id="管理岗可能不适合你"><a href="#管理岗可能不适合你" class="headerlink" title="管理岗可能不适合你"></a>管理岗可能不适合你</h5><p>你平常工作的时候，是喜欢专心做事，没人打搅吗？管理岗不是这样的，可能时不时有人来找你，可能是老板，下属，客户，合作伙伴，旁部门。</p>
+<p>还有你喜欢承担更大责任吗？下属犯错了，他可能一点事儿没有，但责任要算到管理者头上。</p>
+<p>你是怎么来计算自己的成就的？是自己亲手做出来的让你更有成就，还是事情是你下属做的，你只是协助他而已，这样让你更有成就？</p>
+<p>你愿意承担更大的不确定性吗？管理岗竞争激烈，压力又大，如果KPI不好，那可能换掉的时候管理者，而不是底层做事儿的人。</p>
+<p>你具备说服力吗？管理岗对说服力的要求可比其他岗位要高。除了说服力之外，管理岗涉及的每个方面都必须要有高水准，有短板的管理者都会比较平庸。相对于市场上的众多竞争者，管理岗的人需要在管理岗所涉及的各方面具备突出的技术性水准。每个管理岗的职责貌似都差不多，但绩效差距可能是个鸿沟。那些没有经过足够训练就登上管理岗的人，和那些水到渠成，或者因为条件具足而获得系统训练的管理者比较起来，差别是巨大的，而待遇当然也是巨大的了。大部分人的工作都只是训练了这个人某一个或者几个方面的技术性能力，而管理岗是一个要求更多方面复合能力的岗位。所以，最好的办法是假以时日。有些公司会给年轻的员工轮岗机会，但不见得最后这些人能成为成功的管理者。因为除了能力之外，还有其他软性的东西，比如个性、价值观、周围环境等各种原因来造就一个成功的管理者。</p>
+<p>绝大多数想做管理岗的职场人，可能是被误导的。市场容纳不了那么多管理者。职能上的技术性深度和广度才是市场所稀缺的。对于管理岗的关注，可能可以作为逃避持续在不那么激动人心的日常工作上的继续深入，也可以用来逃避认识什么样的工作才是适合自己的。而在努力转向管理岗的过程中，耗费了提升技术性能力的机会，也降低了自身的竞争力。</p>
+<p>到管理岗的最好的路径是水到渠成，保持管理岗的方向，但不拔苗助长。</p>
+<p><a href="http://my.oschina.net/u/1589651/blog/634083" target="_blank" rel="external">转自–jackruan–管理岗是什么鬼？</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanwsscan.github.io/2017/03/28/管理岗是什么/" data-id="cj0t3mft20025sww7sbmmzwk1" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/管理/">管理</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/转载/">转载</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-如何挑选适合的前端框架" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/28/如何挑选适合的前端框架/" class="article-date">
+  <time datetime="2017-03-28T03:14:11.841Z" itemprop="datePublished">2017-03-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/28/如何挑选适合的前端框架/">如何挑选适合的前端框架</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>如何挑选适合的前端框架</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanwsscan.github.io/2017/03/28/如何挑选适合的前端框架/" data-id="cj0t3mfsx0020sww76y74vgkw" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MVVM/">MVVM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angular/">angular</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-信息无障碍技术" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/28/信息无障碍技术/" class="article-date">
+  <time datetime="2017-03-28T03:14:11.841Z" itemprop="datePublished">2017-03-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/28/信息无障碍技术/">信息无障碍技术</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>产品在开发的时候，由于种种原因，会产生一些bug。这些bug有可能会影响到用户的使用，例如闪退，卡顿等。而不兼容无障碍其实就是这样一个bug，只不过更严重一些。它影响的是一群规模不小的特殊用户。由于这样的bug的出现，原本可以和普通人一样使用产品的特殊用户被隔离了起来。而作为产品和开发，需要做的其实就是解决掉这些bug，让这些特殊用户也可以和普通用户一样享受同等的体验。</p>
+<h5 id="如何开发出适合视障人访问的网页："><a href="#如何开发出适合视障人访问的网页：" class="headerlink" title="如何开发出适合视障人访问的网页："></a>如何开发出适合视障人访问的网页：</h5><p>针对网页的无障碍化，国外很早就开展了各种技术研究，并制订了详细的指导和技术文档。1999年，W3C就发布了WCAG1.0，作为推荐标准在欧美国家被广泛使用。2008年底，WCAG更新到2.0版本。）2.0涵盖范围广泛，涉及了一些建议。遵循这些原则不但能够让内容更易为广大残障人士所接受。也可让普通用户更容易访问您的Web内容。该文档规定了四大原则(可感知性、可操作性、可理解性、鲁棒性)和十二大准则。相信大家都已经看过这个文档了吧？不知道你们看了是啥感受，对我来说最大的感受就是，好长啊~~。不过话说回来，大家在了解怎么进行无障碍改造之前，希望都能去看一下这个文档。相信对你们后续的理解无障碍化和开发都有帮助。对于技术上怎么做，可以达到让视障者无障碍使用的目标，相信感兴趣的同学一定查阅了很多的资料，也一定有了自己的方法。我今天主要想通过一些元素和属性的用法问题来着重讲讲一些容易出问题的点。</p>
+<p>2.1，alt属性：alt是IMG的占位符，它的主要作用是用来描述图片的，那么我们就可以利用它来让视障者了解图片的内容(举例：apple官网的iOS9用户手册在线版，几乎每一个图片都使用了alt属性进行了描述，包括那些截屏图片)。同时，当某些原因导致IMG的图片地址失效的时候，alt中的内容还能作为占位符被显示出来。因此，原则上每个有意义的img都要有alt，且不能为空,虽然实际实现可能有一定难度，但仍需尽可能去实现。除非一个链接中包含了一个img,且链接本身已经有文字，此时则不需要alt。</p>
+<p>2.2,accesskey属性：accesskey属性是用来指定一个快捷键的。这在某些时候可以方便使用键盘的用户快速跳转到某个位置或者执行某一项功能。但这里需要注意两个问题，首先，不同的浏览器都会占用掉一些快捷键，在给accesskey取值的时候要避开这些已经被占用的快捷键，否则accesskey将失效（例如天猫宝贝页面的商品详情区域使用了accesskey=”D”）。其次，不同的浏览器对于accesskey的处理结果不同。比如对于一个可以被执行的链接或者按钮，在IE中按下accesskey定义的快捷键会将键盘焦点移动到该元素上，而在chrome中按下accesskey定义的快捷键后会直接激活该元素。因此，如果你需要使用accesskey来实现快速跳转到某个位置的话，就不应该将它们设置在可以被激活的元素上。</p>
+<p>2.3,tabindex属性：tabindex属性用来处理键盘tab键的访问。它的用途主要有两个。一是改变元素的tab访问顺序，以提升键盘访问的体验。另一个作用是可以让某些没有键盘焦点的元素获得焦点（例如用<span>模拟的按钮）。通过tabindex来改变元素的键盘访问顺序现在非常普遍，常见于一些网站的注册或者登录页面，以及一些论坛的发帖回帖页面。但我们并不太推荐使用这个方法，尤其是对于那些比较复杂的表单。如果改变了元素的tab顺序，可能会对读屏软件用户用光标听取表单附近的提示信息造成困扰。另一方面，谨慎使用tabindex的负值。当一个元素的tabindex设为负值的时候，这个元素将不再出现在tab访问的序列中。最安全的tabindex的值是0，它可以让元素获得焦点，且不会改变元素的tab键访问顺序。</span></p>
+<p>2.4,<label>标签：<label>标签为input元素定义标注。正确使用label标签，可以有效提升可用性。通常，我们可以将表单元素input边上的文字用label标签包裹起来并且给每个input指定一个单独的ID，然后将label中的for指向这个ID。这样当视障者使用读屏软件切换到这个表单元素时，就能准确读出label中包裹的内容。同时，对于使用鼠标的用户来说，它们也可以直接点击input边上的文字来选中或者执行这个表单元素。如果你不使用label或者input是一个IMG，就需要在input中使用title属性来给这个表单元素加上描述。</label></label></p>
+<p>2.5,<hn>元素：<hn>的作用是以标题样式显示文本。但现在很多前端同学往往把他当作控制字体大小和样式的方法。这是不可取的。h1…h6元素应该在页面中用于构建信息,这样不但能让你的页面看起来更有条理，也更方便读屏软件的阅读。读屏软件用户只要使用相应的快捷键就可以在这些标题之间进行切换。</hn></hn></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanwsscan.github.io/2017/03/28/信息无障碍技术/" data-id="cj0t3mfsn001vsww7iufhuxyd" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/其他/">其他</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-一段小代码" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/28/一段小代码/" class="article-date">
+  <time datetime="2017-03-28T03:14:11.841Z" itemprop="datePublished">2017-03-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/28/一段小代码/">一段小代码</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>记录搜集一些代码，整理知识点，比较散乱，只做记录</p>
+<h5 id="知识点：函数声明提升；"><a href="#知识点：函数声明提升；" class="headerlink" title="知识点：函数声明提升；"></a>知识点：函数声明提升；</h5><p>函数声明最重要的特征就是函数声明提升，也就是说，执行代码之前，会先读取函数声明，就意味着可以把函数声明放到调用它的后面；而函数表达式则不可以提前调用；</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">funName()</div><div class="line"><span class="comment">//正确执行，函数声明会在代码执行之前读取</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">funName</span>(<span class="params"></span>)</span>&#123;		</div><div class="line"> <span class="built_in">console</span>.log(<span class="keyword">this</span>)</div><div class="line">&#125;</div><div class="line"></div><div class="line">funName2()</div><div class="line"><span class="comment">//会报错，函数还不存在</span></div><div class="line"></div><div class="line"><span class="comment">//创建一个函数赋值给变量 funName2；这种函数也叫匿名函数，也叫拉姆达函数；</span></div><div class="line"><span class="keyword">var</span> funName2 = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line"> <span class="built_in">console</span>.log(<span class="string">'函数表达式 匿名函数 拉姆达函数'</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="下面这道题目，考点就是在于理解函数声明的提前读取；"><a href="#下面这道题目，考点就是在于理解函数声明的提前读取；" class="headerlink" title="下面这道题目，考点就是在于理解函数声明的提前读取；"></a>下面这道题目，考点就是在于理解函数声明的提前读取；</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params">s</span>)</span>&#123;</div><div class="line"> <span class="built_in">console</span>.log(s);</div><div class="line"> <span class="keyword">var</span> s = <span class="number">100</span>;				</div><div class="line"> <span class="function"><span class="keyword">function</span> <span class="title">s</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'hi'</span>)</div><div class="line"> &#125;</div><div class="line"> <span class="built_in">console</span>.log(s)</div><div class="line"> &#125;</div><div class="line">			</div><div class="line">fun(<span class="number">99</span>);</div></pre></td></tr></table></figure>
+<p><img src="/2017/03/28/一段小代码/dm02.jpg" alt="执行结果"><br><img src="/2017/03/28/一段小代码/dm03.jpg" alt="执行结果"><br><img src="/2017/03/28/一段小代码/dm01.jpg" alt="执行结果"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanwsscan.github.io/2017/03/28/一段小代码/" data-id="cj0t3mfsh001qsww7vkow03iv" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-项目总结" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/03/28/项目总结/" class="article-date">
@@ -81,7 +351,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hanwsscan.github.io/2017/03/28/项目总结/" data-id="cj0t3jp3l002i2sw7dqtplbti" class="article-share-link">Share</a>
+      <a data-url="http://hanwsscan.github.io/2017/03/28/项目总结/" data-id="cj0t3mft8002csww72yosoy35" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/总结/">总结</a></li></ul>
@@ -141,280 +411,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hanwsscan.github.io/2017/03/28/随笔集/" data-id="cj0t3jp3i002g2sw7s5kal3jz" class="article-share-link">Share</a>
+      <a data-url="http://hanwsscan.github.io/2017/03/28/随笔集/" data-id="cj0t3mftc002fsww74b7dzuww" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/记录/">记录</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/转载/">转载</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-聊聊互联网产品的分类" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/03/28/聊聊互联网产品的分类/" class="article-date">
-  <time datetime="2017-03-28T03:14:11.841Z" itemprop="datePublished">2017-03-28</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/28/聊聊互联网产品的分类/">聊聊互联网产品的分类</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>我在《淘宝十年产品事》里有一节的标题叫「产品经理都是分类控」，因为分类，是我们认识、理解世界最常用的方式之一。从抽象层面来说，优秀的分类应该是同一类之内的对象尽量接近，不同类之间的对象尽量不同，对全集而言，最好能符合<a href="http://baike.baidu.com/view/426528.htm">MECE</a>原则（Mutually Exclusive Collectively Exhaustive，中文意思是“相互独立，完全穷尽”）</p>
-<p>先做个设定，我们说的是互联网、最多扩大到IT类产品。<br>这里面应该有很多分类维度，先选个「用户需求」的角度试着说说，有这么几个：工具、内容、社交、交易、平台、游戏。<br></p>
-        
-          <p class="article-more-link">
-            <a href="/2017/03/28/聊聊互联网产品的分类/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hanwsscan.github.io/2017/03/28/聊聊互联网产品的分类/" data-id="cj0t3jp3g002d2sw7ic5ewzae" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/不错/">不错</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/其他/">其他</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/转载/">转载</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-管理岗是什么" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/03/28/管理岗是什么/" class="article-date">
-  <time datetime="2017-03-28T03:14:11.841Z" itemprop="datePublished">2017-03-28</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/28/管理岗是什么/">管理岗是什么鬼？</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>回想一下，你想要在公司里做管理的想法是从什么时候开始的？是什么让你产生想要做管理岗的想法的呢？</p>
-<p>大学时工商管理课程？看到现在公司的里的管理层工作又轻松，拿钱又多？周围有做管理的朋友，他让你觉得你不如他？</p>
-<p>各种MBA的招生广告，不知不觉植入你的脑海里的？</p>
-<p>电视广告里那些叱诧风云运筹帷幄的精英形象？</p>
-<p>某个电视剧里的人物？</p>
-<p>总之，这个社会环境有很多信息源的输入，让你感觉不做管理，就低人一等，就是个职场菜鸟，凡职业规划最后都得到C字头的职位。但是否真的要做管理岗，那是得好好想一想的。</p>
-<p>管理岗可能不是你想象的那么美好。首先，管理岗的工作压力更大。管理岗的工作内容庞杂，以中层管理为例，往往涉及到团队招募、成员培养、激励、职业规划，团队文化建设，涉及到业务层面的任务达成，部门协调（内部客户以及外部客户），发展规划，成本控制，行业动态洞察等多个方面。每个方面的工作都要消耗时间和精力，再加上个人成长和生活上的需要，不感觉到压力，那几乎是不可能的。</p>
-<p>其次，管理岗的竞争压力也大。大部分公司都是金字塔结构的，造成了越在行政级别上高，职位数量越少。所以晋升难，而跳槽也难。</p>
-<p>第三，可能薪资也没你想像的那么高。有些销售类的职位，基层销售的薪资可能比他们的经理，或者总监的高，因为有提成部分。有些替代性低的职位，薪资也是往往比他们的汇报对象高的。这是纵向来比。横向来比，有些行业内中利润水平一般的公司的管理岗的薪资，可能还不如行业中利润水平高的基层薪资。而有些公司，同一个公司内，技术性岗位的薪资完全可以匹敌管理岗，比如阿里的P线和M线。</p>
-<h5 id="管理岗可能不适合你"><a href="#管理岗可能不适合你" class="headerlink" title="管理岗可能不适合你"></a>管理岗可能不适合你</h5><p>你平常工作的时候，是喜欢专心做事，没人打搅吗？管理岗不是这样的，可能时不时有人来找你，可能是老板，下属，客户，合作伙伴，旁部门。</p>
-<p>还有你喜欢承担更大责任吗？下属犯错了，他可能一点事儿没有，但责任要算到管理者头上。</p>
-<p>你是怎么来计算自己的成就的？是自己亲手做出来的让你更有成就，还是事情是你下属做的，你只是协助他而已，这样让你更有成就？</p>
-<p>你愿意承担更大的不确定性吗？管理岗竞争激烈，压力又大，如果KPI不好，那可能换掉的时候管理者，而不是底层做事儿的人。</p>
-<p>你具备说服力吗？管理岗对说服力的要求可比其他岗位要高。除了说服力之外，管理岗涉及的每个方面都必须要有高水准，有短板的管理者都会比较平庸。相对于市场上的众多竞争者，管理岗的人需要在管理岗所涉及的各方面具备突出的技术性水准。每个管理岗的职责貌似都差不多，但绩效差距可能是个鸿沟。那些没有经过足够训练就登上管理岗的人，和那些水到渠成，或者因为条件具足而获得系统训练的管理者比较起来，差别是巨大的，而待遇当然也是巨大的了。大部分人的工作都只是训练了这个人某一个或者几个方面的技术性能力，而管理岗是一个要求更多方面复合能力的岗位。所以，最好的办法是假以时日。有些公司会给年轻的员工轮岗机会，但不见得最后这些人能成为成功的管理者。因为除了能力之外，还有其他软性的东西，比如个性、价值观、周围环境等各种原因来造就一个成功的管理者。</p>
-<p>绝大多数想做管理岗的职场人，可能是被误导的。市场容纳不了那么多管理者。职能上的技术性深度和广度才是市场所稀缺的。对于管理岗的关注，可能可以作为逃避持续在不那么激动人心的日常工作上的继续深入，也可以用来逃避认识什么样的工作才是适合自己的。而在努力转向管理岗的过程中，耗费了提升技术性能力的机会，也降低了自身的竞争力。</p>
-<p>到管理岗的最好的路径是水到渠成，保持管理岗的方向，但不拔苗助长。</p>
-<p><a href="http://my.oschina.net/u/1589651/blog/634083" target="_blank" rel="external">转自–jackruan–管理岗是什么鬼？</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hanwsscan.github.io/2017/03/28/管理岗是什么/" data-id="cj0t3jp3800282sw7dylrsl42" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/管理/">管理</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/转载/">转载</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-如何挑选适合的前端框架" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/03/28/如何挑选适合的前端框架/" class="article-date">
-  <time datetime="2017-03-28T03:14:11.841Z" itemprop="datePublished">2017-03-28</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/28/如何挑选适合的前端框架/">如何挑选适合的前端框架</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>如何挑选适合的前端框架</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hanwsscan.github.io/2017/03/28/如何挑选适合的前端框架/" data-id="cj0t3jp2r00212sw7cax98gd6" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MVVM/">MVVM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angular/">angular</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-信息无障碍技术" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/03/28/信息无障碍技术/" class="article-date">
-  <time datetime="2017-03-28T03:14:11.841Z" itemprop="datePublished">2017-03-28</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/28/信息无障碍技术/">信息无障碍技术</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>产品在开发的时候，由于种种原因，会产生一些bug。这些bug有可能会影响到用户的使用，例如闪退，卡顿等。而不兼容无障碍其实就是这样一个bug，只不过更严重一些。它影响的是一群规模不小的特殊用户。由于这样的bug的出现，原本可以和普通人一样使用产品的特殊用户被隔离了起来。而作为产品和开发，需要做的其实就是解决掉这些bug，让这些特殊用户也可以和普通用户一样享受同等的体验。</p>
-<h5 id="如何开发出适合视障人访问的网页："><a href="#如何开发出适合视障人访问的网页：" class="headerlink" title="如何开发出适合视障人访问的网页："></a>如何开发出适合视障人访问的网页：</h5><p>针对网页的无障碍化，国外很早就开展了各种技术研究，并制订了详细的指导和技术文档。1999年，W3C就发布了WCAG1.0，作为推荐标准在欧美国家被广泛使用。2008年底，WCAG更新到2.0版本。）2.0涵盖范围广泛，涉及了一些建议。遵循这些原则不但能够让内容更易为广大残障人士所接受。也可让普通用户更容易访问您的Web内容。该文档规定了四大原则(可感知性、可操作性、可理解性、鲁棒性)和十二大准则。相信大家都已经看过这个文档了吧？不知道你们看了是啥感受，对我来说最大的感受就是，好长啊~~。不过话说回来，大家在了解怎么进行无障碍改造之前，希望都能去看一下这个文档。相信对你们后续的理解无障碍化和开发都有帮助。对于技术上怎么做，可以达到让视障者无障碍使用的目标，相信感兴趣的同学一定查阅了很多的资料，也一定有了自己的方法。我今天主要想通过一些元素和属性的用法问题来着重讲讲一些容易出问题的点。</p>
-<p>2.1，alt属性：alt是IMG的占位符，它的主要作用是用来描述图片的，那么我们就可以利用它来让视障者了解图片的内容(举例：apple官网的iOS9用户手册在线版，几乎每一个图片都使用了alt属性进行了描述，包括那些截屏图片)。同时，当某些原因导致IMG的图片地址失效的时候，alt中的内容还能作为占位符被显示出来。因此，原则上每个有意义的img都要有alt，且不能为空,虽然实际实现可能有一定难度，但仍需尽可能去实现。除非一个链接中包含了一个img,且链接本身已经有文字，此时则不需要alt。</p>
-<p>2.2,accesskey属性：accesskey属性是用来指定一个快捷键的。这在某些时候可以方便使用键盘的用户快速跳转到某个位置或者执行某一项功能。但这里需要注意两个问题，首先，不同的浏览器都会占用掉一些快捷键，在给accesskey取值的时候要避开这些已经被占用的快捷键，否则accesskey将失效（例如天猫宝贝页面的商品详情区域使用了accesskey=”D”）。其次，不同的浏览器对于accesskey的处理结果不同。比如对于一个可以被执行的链接或者按钮，在IE中按下accesskey定义的快捷键会将键盘焦点移动到该元素上，而在chrome中按下accesskey定义的快捷键后会直接激活该元素。因此，如果你需要使用accesskey来实现快速跳转到某个位置的话，就不应该将它们设置在可以被激活的元素上。</p>
-<p>2.3,tabindex属性：tabindex属性用来处理键盘tab键的访问。它的用途主要有两个。一是改变元素的tab访问顺序，以提升键盘访问的体验。另一个作用是可以让某些没有键盘焦点的元素获得焦点（例如用<span>模拟的按钮）。通过tabindex来改变元素的键盘访问顺序现在非常普遍，常见于一些网站的注册或者登录页面，以及一些论坛的发帖回帖页面。但我们并不太推荐使用这个方法，尤其是对于那些比较复杂的表单。如果改变了元素的tab顺序，可能会对读屏软件用户用光标听取表单附近的提示信息造成困扰。另一方面，谨慎使用tabindex的负值。当一个元素的tabindex设为负值的时候，这个元素将不再出现在tab访问的序列中。最安全的tabindex的值是0，它可以让元素获得焦点，且不会改变元素的tab键访问顺序。</span></p>
-<p>2.4,<label>标签：<label>标签为input元素定义标注。正确使用label标签，可以有效提升可用性。通常，我们可以将表单元素input边上的文字用label标签包裹起来并且给每个input指定一个单独的ID，然后将label中的for指向这个ID。这样当视障者使用读屏软件切换到这个表单元素时，就能准确读出label中包裹的内容。同时，对于使用鼠标的用户来说，它们也可以直接点击input边上的文字来选中或者执行这个表单元素。如果你不使用label或者input是一个IMG，就需要在input中使用title属性来给这个表单元素加上描述。</label></label></p>
-<p>2.5,<hn>元素：<hn>的作用是以标题样式显示文本。但现在很多前端同学往往把他当作控制字体大小和样式的方法。这是不可取的。h1…h6元素应该在页面中用于构建信息,这样不但能让你的页面看起来更有条理，也更方便读屏软件的阅读。读屏软件用户只要使用相应的快捷键就可以在这些标题之间进行切换。</hn></hn></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hanwsscan.github.io/2017/03/28/信息无障碍技术/" data-id="cj0t3jp2r001w2sw7abrscrtx" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/其他/">其他</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-一段小代码" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/03/28/一段小代码/" class="article-date">
-  <time datetime="2017-03-28T03:14:11.841Z" itemprop="datePublished">2017-03-28</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/28/一段小代码/">一段小代码</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>记录搜集一些代码，整理知识点，比较散乱，只做记录</p>
-<h5 id="知识点：函数声明提升；"><a href="#知识点：函数声明提升；" class="headerlink" title="知识点：函数声明提升；"></a>知识点：函数声明提升；</h5><p>函数声明最重要的特征就是函数声明提升，也就是说，执行代码之前，会先读取函数声明，就意味着可以把函数声明放到调用它的后面；而函数表达式则不可以提前调用；</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">funName()</div><div class="line"><span class="comment">//正确执行，函数声明会在代码执行之前读取</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">funName</span>(<span class="params"></span>)</span>&#123;		</div><div class="line"> <span class="built_in">console</span>.log(<span class="keyword">this</span>)</div><div class="line">&#125;</div><div class="line"></div><div class="line">funName2()</div><div class="line"><span class="comment">//会报错，函数还不存在</span></div><div class="line"></div><div class="line"><span class="comment">//创建一个函数赋值给变量 funName2；这种函数也叫匿名函数，也叫拉姆达函数；</span></div><div class="line"><span class="keyword">var</span> funName2 = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line"> <span class="built_in">console</span>.log(<span class="string">'函数表达式 匿名函数 拉姆达函数'</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h5 id="下面这道题目，考点就是在于理解函数声明的提前读取；"><a href="#下面这道题目，考点就是在于理解函数声明的提前读取；" class="headerlink" title="下面这道题目，考点就是在于理解函数声明的提前读取；"></a>下面这道题目，考点就是在于理解函数声明的提前读取；</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params">s</span>)</span>&#123;</div><div class="line"> <span class="built_in">console</span>.log(s);</div><div class="line"> <span class="keyword">var</span> s = <span class="number">100</span>;				</div><div class="line"> <span class="function"><span class="keyword">function</span> <span class="title">s</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'hi'</span>)</div><div class="line"> &#125;</div><div class="line"> <span class="built_in">console</span>.log(s)</div><div class="line"> &#125;</div><div class="line">			</div><div class="line">fun(<span class="number">99</span>);</div></pre></td></tr></table></figure>
-<p><img src="/2017/03/28/一段小代码/dm02.jpg" alt="执行结果"><br><img src="/2017/03/28/一段小代码/dm03.jpg" alt="执行结果"><br><img src="/2017/03/28/一段小代码/dm01.jpg" alt="执行结果"></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hanwsscan.github.io/2017/03/28/一段小代码/" data-id="cj0t3jp2r001u2sw73i2dwu06" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-一段js代码的升级之旅" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/03/28/一段js代码的升级之旅/" class="article-date">
-  <time datetime="2017-03-28T03:14:11.841Z" itemprop="datePublished">2017-03-28</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/28/一段js代码的升级之旅/">一段代码的升级之旅...</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="需求：一个输入框里面字数的计数"><a href="#需求：一个输入框里面字数的计数" class="headerlink" title="需求：一个输入框里面字数的计数"></a>需求：一个输入框里面字数的计数</h4><p><img src="/2017/03/28/一段js代码的升级之旅/e676966.gif" alt="解决HTTP 1的请求数增加"></p>
-<p>最简单的全局变量写法：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"></div><div class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span>test<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"http://code.jquery.com/jquery-1.9.1.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line">			$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">				<span class="keyword">var</span> input = $(<span class="string">'#J_input'</span>);</div><div class="line">				<span class="comment">//用来获取字数</span></div><div class="line">				<span class="function"><span class="keyword">function</span> <span class="title">getNum</span>(<span class="params"></span>) </span>&#123;</div><div class="line">					<span class="keyword">return</span> input.val().length;</div><div class="line">				&#125;</div><div class="line">				<span class="comment">//渲染元素</span></div><div class="line">				<span class="function"><span class="keyword">function</span> <span class="title">render</span>(<span class="params"></span>) </span>&#123;</div><div class="line">					<span class="keyword">var</span> num = getNum();</div><div class="line">					<span class="comment">//没有字数的容器就新建一个</span></div><div class="line">					<span class="keyword">if</span> ($(<span class="string">'#J_input_count'</span>).length == <span class="number">0</span>) &#123;</div><div class="line">						input.after(<span class="string">'&lt;span id="J_input_count"&gt;&lt;/span&gt;'</span>);</div><div class="line">					&#125;;</div><div class="line">					$(<span class="string">'#J_input_count'</span>).html(num + <span class="string">'个字'</span>);</div><div class="line">				&#125;</div><div class="line">				<span class="comment">//监听事件</span></div><div class="line">				input.on(<span class="string">'keyup'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">					render();</div><div class="line">				&#125;);</div><div class="line">				<span class="comment">//初始化，第一次渲染</span></div><div class="line">				render();</div><div class="line">			&#125;)</div><div class="line">		<span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"></div><div class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"J_input"</span> /&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>这种写法在单独的页面，如活动页面使用没有问题，但如果在负责项目页面多的情况下，变量和函数命名到后期会变的相当混乱而无法维护！</p>
-<p>那么我们怎么解决这个问题呢，这就涉及到作用域的概念：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> textCount = &#123;</div><div class="line"> <span class="attr">input</span>: <span class="literal">null</span>,</div><div class="line"> <span class="attr">init</span>: <span class="function"><span class="keyword">function</span>(<span class="params">config</span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.input = $(config.id);</div><div class="line">  <span class="keyword">this</span>.bind();</div><div class="line">  <span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line"> &#125;,</div><div class="line"></div><div class="line"> <span class="attr">bind</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> self = <span class="keyword">this</span>;</div><div class="line">  <span class="keyword">this</span>.input.on(<span class="string">'keyup'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">   self.render()</div><div class="line">  &#125;)</div><div class="line"> &#125;,</div><div class="line"></div><div class="line"> <span class="attr">getNum</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.input.val().length</div><div class="line"> &#125;,</div><div class="line"></div><div class="line"> <span class="attr">render</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> num = <span class="keyword">this</span>.getNum()</div><div class="line">  $(<span class="string">'#J_input_count'</span>).html(num + <span class="string">'个字'</span>);</div><div class="line"> &#125;</div><div class="line"> </div><div class="line">&#125;</div><div class="line"></div><div class="line">$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line"> textCount.init(&#123;<span class="attr">id</span>:<span class="string">'#j_input'</span>&#125;).render()</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hanwsscan.github.io/2017/03/28/一段js代码的升级之旅/" data-id="cj0t3jp2c001s2sw77qm5b7nz" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jquery/">jquery</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/作用域/">作用域</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/全局变量/">全局变量</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/闭包/">闭包</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/面向对象/">面向对象</a></li></ul>
 
     </footer>
   </div>
@@ -455,7 +455,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hanwsscan.github.io/2017/03/28/根据分辨率改变html根的font-size的值/" data-id="cj0t3jp2r00262sw71nun3m2s" class="article-share-link">Share</a>
+      <a data-url="http://hanwsscan.github.io/2017/03/28/根据分辨率改变html根的font-size的值/" data-id="cj0t3mft00022sww7x622jyih" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/">html</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
@@ -467,9 +467,9 @@
 
 
   
-    <article id="post-nvm管理node" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-不可错过的javascript迷你库" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/03/28/nvm管理node/" class="article-date">
+    <a href="/2017/03/28/不可错过的javascript迷你库/" class="article-date">
   <time datetime="2017-03-28T03:14:11.825Z" itemprop="datePublished">2017-03-28</time>
 </a>
     
@@ -481,7 +481,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/28/nvm管理node/">nvm管理node</a>
+      <a class="article-title" href="/2017/03/28/不可错过的javascript迷你库/">不可错过的javascript迷你库</a>
     </h1>
   
 
@@ -489,15 +489,24 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="nvm管理node"><a href="#nvm管理node" class="headerlink" title="nvm管理node"></a>nvm管理node</h3><h3 id="下载nvm"><a href="#下载nvm" class="headerlink" title="下载nvm"></a>下载nvm</h3><h4 id="源-https-github-com-coreybutler-nvm-windows-releases"><a href="#源-https-github-com-coreybutler-nvm-windows-releases" class="headerlink" title="源: https://github.com/coreybutler/nvm-windows/releases"></a><a href="https://github.com/coreybutler/nvm-windows/releases" target="_blank" rel="external">源: https://github.com/coreybutler/nvm-windows/releases</a></h4><p><img src="/2017/03/28/nvm管理node/nvmgnode01.png" alt="下载nvm"></p>
-<h3 id="nvm-v-查看安装版本"><a href="#nvm-v-查看安装版本" class="headerlink" title="$ nvm -v 查看安装版本"></a>$ nvm -v 查看安装版本</h3><h3 id="nvm-ls-查看已安装node-版本"><a href="#nvm-ls-查看已安装node-版本" class="headerlink" title="$ nvm ls 查看已安装node 版本"></a>$ nvm ls 查看已安装node 版本</h3><h3 id="nvm-install-version-num"><a href="#nvm-install-version-num" class="headerlink" title="$ nvm install [version num]"></a>$ nvm install [version num]</h3><h4 id="nvm-install-6-10-0"><a href="#nvm-install-6-10-0" class="headerlink" title="$ nvm install 6.10.0"></a>$ nvm install 6.10.0</h4><h3 id="nvm-use-version-num"><a href="#nvm-use-version-num" class="headerlink" title="$ nvm use [version num]"></a>$ nvm use [version num]</h3><h4 id="nvm-use-6-10-0"><a href="#nvm-use-6-10-0" class="headerlink" title="$ nvm use 6.10.0"></a>$ nvm use 6.10.0</h4><h3 id="nvm-current-查看正在使用版本"><a href="#nvm-current-查看正在使用版本" class="headerlink" title="$ nvm current 查看正在使用版本"></a>$ nvm current 查看正在使用版本</h3><h3 id="node-v"><a href="#node-v" class="headerlink" title="$ node -v"></a>$ node -v</h3><h3 id="npm-v"><a href="#npm-v" class="headerlink" title="$ npm -v"></a>$ npm -v</h3>
+        <p>这些库的共性是非常小，而且功能单一。</p>
+<h3 id="cookie-js"><a href="#cookie-js" class="headerlink" title="cookie.js"></a><a href="https://github.com/florian/cookie.js" target="_blank" rel="external">cookie.js</a></h3><p>如果你操作过cookie的接口，那么你一定会感觉这东西的规范真的是太复杂了，根本记不住啊，其实你是对的，因为cookie的接口设计的是有问题的，也就是说设计的太底层了，根本不友好，那么来试试这个js库吧。</p>
+<h3 id="store-js"><a href="#store-js" class="headerlink" title="store.js"></a><a href="https://github.com/marcuswestin/store.js" target="_blank" rel="external">store.js</a></h3><p>再来说说浏览器的localStore吧，这东西太赞了，可惜尼玛每个浏览器都实现的各不相同，我也是醉了，如果你也有同样的烦恼，不如来试试这个迷你库，它有更简单的api，最重要的是他解决了跨浏览器问题，甚至解决了低版本浏览器(ie6)不支持localStore的问题。</p>
+<h3 id="template-js"><a href="#template-js" class="headerlink" title="template.js"></a><a href="https://github.com/yanhaijing/template.js" target="_blank" rel="external">template.js</a></h3><p>template.js 一款javascript模板引擎，简单，好用。</p>
+<h3 id="lodJS"><a href="#lodJS" class="headerlink" title="lodJS"></a><a href="https://github.com/yanhaijing/lodjs" target="_blank" rel="external">lodJS</a></h3><p>JavaScript模块加载器，基于AMD。迄今为止，对AMD理解最好的实现</p>
+<h3 id="Modernizr"><a href="#Modernizr" class="headerlink" title="Modernizr"></a><a href="https://modernizr.com/" target="_blank" rel="external">Modernizr</a></h3><p>这个就不过多解释了，各种html css js检测器，功能检测哦。</p>
+<h3 id="Move-js"><a href="#Move-js" class="headerlink" title="Move.js"></a><a href="http://visionmedia.github.io/move.js/" target="_blank" rel="external">Move.js</a></h3><p>如果你操作过css3的属性，一定会觉得非常痛苦的，那不如来试试合格，css3动画瞬间变得简单了。</p>
+<h3 id="device-js"><a href="#device-js" class="headerlink" title="device.js"></a><a href="http://matthewhudson.me/projects/device.js/" target="_blank" rel="external">device.js</a></h3><p>你想检测用户的设备，试试这个吧，比jq.browser全面多了。</p>
+<h3 id="parallax"><a href="#parallax" class="headerlink" title="parallax"></a><a href="https://github.com/wagerfield/parallax" target="_blank" rel="external">parallax</a></h3><p>先来看个视差效果的demo，是不是很赞，如果你也想实现这个效果，那么来试试这个吧。</p>
+<h3 id="notie-js"><a href="#notie-js" class="headerlink" title="notie.js"></a><a href="https://github.com/jaredreich/notie.js" target="_blank" rel="external">notie.js</a></h3><p>还在使用弹窗通知用户，太low了，快来试试这款非阻塞式，小清新的通知插件吧，对移动端有好，界面好到爆炸啊。</p>
+<h5 id="最后向大家推荐依稀microjs，这里收集了太多小而美的库，自己来淘宝吧。"><a href="#最后向大家推荐依稀microjs，这里收集了太多小而美的库，自己来淘宝吧。" class="headerlink" title="最后向大家推荐依稀microjs，这里收集了太多小而美的库，自己来淘宝吧。"></a>最后向大家推荐依稀<a href="http://microjs.com/" target="_blank" rel="external">microjs</a>，这里收集了太多小而美的库，自己来淘宝吧。</h5>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hanwsscan.github.io/2017/03/28/nvm管理node/" data-id="cj0t3jp2c001l2sw7fk1vw59d" class="article-share-link">Share</a>
+      <a data-url="http://hanwsscan.github.io/2017/03/28/不可错过的javascript迷你库/" data-id="cj0t3mfsj001ssww76bf3n4ra" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node/">node</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nvm/">nvm</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
 
     </footer>
   </div>
@@ -522,11 +531,7 @@
       <ul>
         
           <li>
-            <a href="/2017/03/28/项目总结/">项目总结</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/随笔集/">随笔集</a>
+            <a href="/2017/03/28/一段js代码的升级之旅/">一段代码的升级之旅...</a>
           </li>
         
           <li>
@@ -550,7 +555,11 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/一段js代码的升级之旅/">一段代码的升级之旅...</a>
+            <a href="/2017/03/28/项目总结/">项目总结</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/随笔集/">随笔集</a>
           </li>
         
           <li>
@@ -558,7 +567,7 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/nvm管理node/">nvm管理node</a>
+            <a href="/2017/03/28/不可错过的javascript迷你库/">不可错过的javascript迷你库</a>
           </li>
         
           <li>
@@ -578,11 +587,7 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/初识requirejs/">初识requirejs</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/不可错过的javascript迷你库/">不可错过的javascript迷你库</a>
+            <a href="/2017/03/28/nvm管理node/">nvm管理node</a>
           </li>
         
           <li>
@@ -594,31 +599,7 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/js设计模式/">js设计模式</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/JavaScript中this指针指向的彻底理解/">JavaScript中this指针指向的彻底理解</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/JavaScript-模块化编程一/">JavaScript 语言中 模块的写法</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/JavaScript-事件代理和委托/">JavaScript事件代理和委托（Delegation）</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/js语法规范错误提示代码/">Javascript语法规范错误提示代码</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/jQuery.extend 和 jQuery.fn.extend 的区别/">jQuery.extend 和 jQuery.fn.extend 的区别</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/javascript-匿名函数/">javascript 匿名函数</a>
+            <a href="/2017/03/28/初识requirejs/">初识requirejs</a>
           </li>
         
           <li>
@@ -626,7 +607,35 @@
           </li>
         
           <li>
+            <a href="/2017/03/28/js设计模式/">js设计模式</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/js语法规范错误提示代码/">Javascript语法规范错误提示代码</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/JavaScript中this指针指向的彻底理解/">JavaScript中this指针指向的彻底理解</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/JavaScript-事件代理和委托/">JavaScript事件代理和委托（Delegation）</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/JavaScript-模块化编程一/">JavaScript 语言中 模块的写法</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/jQuery.extend 和 jQuery.fn.extend 的区别/">jQuery.extend 和 jQuery.fn.extend 的区别</a>
+          </li>
+        
+          <li>
             <a href="/2017/03/28/javascript思维导图/">javascript思维导图</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/javascript-匿名函数/">javascript 匿名函数</a>
           </li>
         
           <li>
@@ -658,15 +667,27 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/gulp配置文档入门/">gulp配置文档入门</a>
+            <a href="/2017/03/28/fis3配置文档入门/">fis3配置文档</a>
           </li>
         
           <li>
-            <a href="/2017/03/28/hello-hexo/">Hello World</a>
+            <a href="/2017/03/28/git github gitlab/">git github gitlab...</a>
           </li>
         
           <li>
             <a href="/2017/03/28/git与svn/">git与svn</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/gulp配置文档入门/">gulp配置文档入门</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/CSS中Position、Float属性深入探讨/">CSS中Position、Float属性深入探讨</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/hello-hexo/">Hello World</a>
           </li>
         
           <li>
@@ -675,18 +696,6 @@
         
           <li>
             <a href="/2017/03/28/angular代码段/">angularjs代码</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/fis3配置文档入门/">fis3配置文档</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/CSS中Position、Float属性深入探讨/">CSS中Position、Float属性深入探讨</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/git github gitlab/">git github gitlab...</a>
           </li>
         
           <li>
