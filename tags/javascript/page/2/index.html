@@ -55,9 +55,9 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-JavaScript中this指针指向的彻底理解" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-javascript思维导图" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/03/28/JavaScript中this指针指向的彻底理解/" class="article-date">
+    <a href="/2017/03/28/javascript思维导图/" class="article-date">
   <time datetime="2017-03-28T03:14:11.809Z" itemprop="datePublished">2017-03-28</time>
 </a>
     
@@ -69,7 +69,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/28/JavaScript中this指针指向的彻底理解/">JavaScript中this指针指向的彻底理解</a>
+      <a class="article-title" href="/2017/03/28/javascript思维导图/">javascript思维导图</a>
     </h1>
   
 
@@ -77,125 +77,19 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>为什么要学习this？因为这是js中必须要掌握的东西。</p>
-<p>理解this的时候会有种琢磨不透的感觉，this的指向在函数定义的时候是确定不了的，只有函数执行的时候才能确定this到底指向谁，实际上this的最终指向的是那个调用它的对象。</p>
-<p>注意一点：在严格版中的默认的this不再是window，而是undefined。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">funName</span>(<span class="params"></span>)</span>&#123;</div><div class="line"> <span class="keyword">var</span> user = <span class="string">"hanwsscan"</span>;</div><div class="line"> <span class="built_in">console</span>.log(<span class="keyword">this</span>.user);</div><div class="line"> <span class="built_in">console</span>.log(<span class="keyword">this</span>);</div><div class="line">&#125;</div><div class="line">funName();</div></pre></td></tr></table></figure>
-<p><img src="/2017/03/28/JavaScript中this指针指向的彻底理解/" alt="Pic01"></p>
-<p>this指向的是window，所以上面代码就类似执行 window.funName();</p>
-<p>那么我们是不是可以看看，window.funName() 和 window.alert() 有什么区别呢？基本一样的。</p>
-<p>alert()是window的一个方法，我们自定义的funName()也成了window的一个方法！这时候的this就是window。</p>
-<p>那么继续：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> myObj = &#123;</div><div class="line"> <span class="attr">user</span>:<span class="string">"hanwsscan"</span>,</div><div class="line"> <span class="attr">funName</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.user);</div><div class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>);</div><div class="line"> &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">myObj.funName();</div></pre></td></tr></table></figure>
-<p><img src="/2017/03/28/JavaScript中this指针指向的彻底理解/" alt="Pic02"></p>
-<p>this指向的是一个对象 myObj，myObj调用了funName()方法，所以this指向的是myObj对象；</p>
-<h5 id="this谁调用的就指向谁"><a href="#this谁调用的就指向谁" class="headerlink" title="this谁调用的就指向谁"></a>this谁调用的就指向谁</h5><h5 id="this的指向在函数创建的时候是决定不了的，调用的时候才能决定，谁调用的就指向谁，一定要搞清楚这个。"><a href="#this的指向在函数创建的时候是决定不了的，调用的时候才能决定，谁调用的就指向谁，一定要搞清楚这个。" class="headerlink" title="this的指向在函数创建的时候是决定不了的，调用的时候才能决定，谁调用的就指向谁，一定要搞清楚这个。"></a>this的指向在函数创建的时候是决定不了的，调用的时候才能决定，谁调用的就指向谁，一定要搞清楚这个。</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> myObj = &#123;</div><div class="line"> <span class="attr">user</span>:<span class="string">"hanwsscan"</span>,</div><div class="line"> <span class="attr">funName</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.user);</div><div class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>);</div><div class="line"> &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">window</span>.myObj.funName();</div></pre></td></tr></table></figure>
-<p><img src="/2017/03/28/JavaScript中this指针指向的彻底理解/" alt="Pic02"></p>
-<p>执行的结果是什么呢？</p>
-<p>这里的this并么有指向window，为什么呢？</p>
-<p>再看下面这个：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> myObj = &#123;</div><div class="line"> <span class="attr">user</span>:<span class="string">"hanwsscan"</span>,</div><div class="line"> <span class="attr">myObj_O</span>:&#123;</div><div class="line">  <span class="attr">user</span>:<span class="string">"hanwsscan_myObj_O"</span>,</div><div class="line">  <span class="attr">funName</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">   <span class="built_in">console</span>.log(<span class="keyword">this</span>.user);</div><div class="line">   <span class="built_in">console</span>.log(<span class="keyword">this</span>);</div><div class="line">  &#125;</div><div class="line"> &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">myObj.myObj_O.funName();</div></pre></td></tr></table></figure>
-<p><img src="/2017/03/28/JavaScript中this指针指向的彻底理解/" alt="Pic03"></p>
-<p>上面三个例子我们只是为了说明：</p>
-<ul>
-<li>如果一个函数中有this，但是它没有被上一级的对象所调用，那么this指向的就是window。</li>
-<li>如果一个函数中有this，这个函数有被上一级的对象所调用，那么this指向的就是上一级的对象。</li>
-<li>如果一个函数中有this，这个函数中包含多个对象，尽管这个函数是被最外层的对象所调用，this指向的也只是它上一级的对象。</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> myObj = &#123;</div><div class="line"> <span class="attr">user</span>:<span class="string">"hanwsscan"</span>,</div><div class="line"> <span class="attr">myObj_O</span>:&#123;</div><div class="line">  <span class="comment">//user:"hanwsscan_myObj_O",</span></div><div class="line">  funName:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">   <span class="built_in">console</span>.log(<span class="keyword">this</span>.user);</div><div class="line">   <span class="built_in">console</span>.log(<span class="keyword">this</span>);</div><div class="line">  &#125;</div><div class="line"> &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">myObj.myObj_O.funName();</div></pre></td></tr></table></figure>
-<p><img src="/2017/03/28/JavaScript中this指针指向的彻底理解/" alt="Pic04"></p>
-<p>上面的例子说明就算是对象myObj_O中没有属性user，这个this指向的也是对象myObj_O，因为this只会指向它的上一级对象，不管这个对象中有没有this要的东西。</p>
-<p>那么再来一个让人懵圈的：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> myObj = &#123;</div><div class="line"> <span class="attr">user</span>:<span class="string">"hanwsscan"</span>,</div><div class="line"> <span class="attr">myObj_O</span>:&#123;</div><div class="line">  <span class="attr">user</span>:<span class="string">"hanwsscan_myObj_O"</span>,</div><div class="line">  <span class="attr">funName</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">   <span class="built_in">console</span>.log(<span class="keyword">this</span>.user);</div><div class="line">   <span class="built_in">console</span>.log(<span class="keyword">this</span>);</div><div class="line">  &#125;</div><div class="line"> &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//myObj.myObj_O.funName();</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> f = myObj.myObj_O.funName;</div><div class="line"></div><div class="line">f()</div></pre></td></tr></table></figure>
-<p><img src="/2017/03/28/JavaScript中this指针指向的彻底理解/" alt="Pic05"></p>
-<p>这里this指向的是window？…….</p>
-<p>this永远指向的是最后调用它的对象，也就是看它执行的时候是谁调用的；是谁调用的，是谁调用的，是谁调用的。</p>
-<p>上面的例子虽然funName被myObj_O引用，但是在将funName赋值给变量f的时候并没有执行，没有执行…所以最终指向的是window。</p>
-<p>所以 this 很难定义确定指向了谁，用调试工具跟踪吧…</p>
-<h4 id="构造函数里的this"><a href="#构造函数里的this" class="headerlink" title="构造函数里的this"></a>构造函数里的this</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Fn</span>(<span class="params"></span>)</span>&#123;</div><div class="line"> <span class="keyword">this</span>.user = <span class="string">"构造函数里的this"</span>;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> Fn();</div><div class="line"><span class="built_in">console</span>.log(a.user);</div></pre></td></tr></table></figure>
-<p><img src="/2017/03/28/JavaScript中this指针指向的彻底理解/" alt="Pic06"></p>
-<p>为什么this会指向a？new关键字可以改变this的指向，首先new关键字会创建一个空的对象，然后会自动调用一个函数apply方法，将this指向这个空对象，这样的话函数内部的this就会被这个空的对象替代。</p>
-<p>改变this指向的方法还有call,apply,bind等，具体可以查看 <a href="http://www.cnblogs.com/pssp/p/5215621.html" target="_blank" rel="external">JavaScript中call,apply,bind方法的总结</a></p>
-<h4 id="当this碰到return时"><a href="#当this碰到return时" class="headerlink" title="当this碰到return时"></a>当this碰到return时</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//================================</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;  </div><div class="line"> <span class="keyword">this</span>.test = <span class="string">'当this碰到return时'</span>;  </div><div class="line"> <span class="keyword">return</span> &#123;&#125;;  </div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> fn;  </div><div class="line"><span class="built_in">console</span>.log(a.test); <span class="comment">//undefined</span></div><div class="line"><span class="comment">//================================</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;  </div><div class="line"> <span class="keyword">this</span>.test = <span class="string">'当this碰到return时'</span>;  </div><div class="line"> <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> fn;  </div><div class="line"><span class="built_in">console</span>.log(a.test); <span class="comment">//undefined</span></div><div class="line"><span class="comment">//================================</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;  </div><div class="line"> <span class="keyword">this</span>.test = <span class="string">'当this碰到return时'</span>;  </div><div class="line"> <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> fn;  </div><div class="line"><span class="built_in">console</span>.log(a.test); <span class="comment">//当this碰到return时</span></div></pre></td></tr></table></figure>
-<p>如果返回值是一个对象，那么this指向的就是那个返回的对象，如果返回值不是一个对象那么this还是指向函数的实例。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;  </div><div class="line"> <span class="keyword">this</span>.test = <span class="string">'当this碰到return时'</span>;  </div><div class="line"> <span class="keyword">return</span> <span class="literal">undefined</span>;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> fn;  </div><div class="line"><span class="built_in">console</span>.log(a); <span class="comment">//fn &#123;user: "当this碰到return时"&#125;</span></div></pre></td></tr></table></figure>
-<p>null也是对象，但是在这里this还是指向那个函数的实例，因为null比较特殊。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;  </div><div class="line"> <span class="keyword">this</span>.test = <span class="string">'当this碰到return时'</span>;  </div><div class="line"> <span class="keyword">return</span> <span class="literal">null</span>;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> fn;  </div><div class="line"><span class="built_in">console</span>.log(a.test); <span class="comment">//当this碰到return时</span></div></pre></td></tr></table></figure>
-<p><a href="http://www.cnblogs.com/pssp/p/5216085.html" target="_blank" rel="external">本文参考 追梦子的博文</a></p>
+        <p><img src="/2017/03/28/javascript思维导图/" alt="变量"></p>
+<p><img src="/2017/03/28/javascript思维导图/" alt="运算符"></p>
+<p><img src="/2017/03/28/javascript思维导图/" alt="数组"></p>
+<p><img src="/2017/03/28/javascript思维导图/" alt="流程语句"></p>
+<p><img src="/2017/03/28/javascript思维导图/" alt="字符串函数"></p>
+<p><img src="/2017/03/28/javascript思维导图/" alt="基本dom操作"></p>
+<p><img src="/2017/03/28/javascript思维导图/" alt="函数基础"></p>
+<p><img src="/2017/03/28/javascript思维导图/" alt="正则表达式"></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hanwsscan.github.io/2017/03/28/JavaScript中this指针指向的彻底理解/" data-id="cj0t1b4ur000i68w7e4pbxgxo" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/this/">this</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/指针/">指针</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-JavaScript-事件代理和委托" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/03/28/JavaScript-事件代理和委托/" class="article-date">
-  <time datetime="2017-03-28T03:14:11.809Z" itemprop="datePublished">2017-03-28</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/28/JavaScript-事件代理和委托/">JavaScript事件代理和委托（Delegation）</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在javasript中delegate这个词经常出现，看字面的意思，代理、委托。那么它究竟在什么样的情况下使用？它的原理又是什么？在各种框架中，也经常能看到delegate相关的接口。这些接口又有什么特殊的用法呢？这篇文章就主要介绍一下javascript delegate的用法和原理，以及Dojo，jQuery等框架中delegate的接口。</p>
-<h2 id="JavaScript事件代理"><a href="#JavaScript事件代理" class="headerlink" title="JavaScript事件代理"></a>JavaScript事件代理</h2><p>首先介绍一下JavaScript的事件代理。事件代理在JS世界中一个非常有用也很有趣的功能。当我们需要对很多元素添加事件的时候，可以通过将事件添加到它们的父节点而将事件委托给父节点来触发处理函数。这主要得益于浏览器的事件冒泡机制，后面会详细介绍。下面我们具体举个例子来解释如何使用这个特性。这个例子主要取自<a href="https://davidwalsh.name/" target="_blank" rel="external">David Walsh</a>的相关文章<a href="https://davidwalsh.name/event-delegate" target="_blank" rel="external">（How JavaScript Event Delegation Works）</a>。</p>
-<h4 id="假设有一个-UL-的父节点，包含了很多个-Li-的子节点："><a href="#假设有一个-UL-的父节点，包含了很多个-Li-的子节点：" class="headerlink" title="假设有一个 UL 的父节点，包含了很多个 Li 的子节点："></a>假设有一个 UL 的父节点，包含了很多个 Li 的子节点：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;ul id=<span class="string">"parent-list"</span>&gt;</div><div class="line">  &lt;li id=<span class="string">"post-1"</span>&gt;Item 1&lt;/li&gt;</div><div class="line">  &lt;li id=<span class="string">"post-2"</span>&gt;Item 2&lt;/li&gt;</div><div class="line">  &lt;li id=<span class="string">"post-3"</span>&gt;Item 3&lt;/li&gt;</div><div class="line">  &lt;li id=<span class="string">"post-4"</span>&gt;Item 4&lt;/li&gt;</div><div class="line">  &lt;li id=<span class="string">"post-5"</span>&gt;Item 5&lt;/li&gt;</div><div class="line">  &lt;li id=<span class="string">"post-6"</span>&gt;Item 6&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure>
-<p>当我们的鼠标移到Li上的时候，需要获取此Li的相关信息并飘出悬浮窗以显示详细信息，或者当某个Li被点击的时候需要触发相应的处理事件。我们通常的写法，是为每个Li都添加一些类似onMouseOver或者onClick之类的事件监听。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> addListeners4Li(liNode)&#123;</div><div class="line">    liNode.onclick = <span class="keyword">function</span> <span class="function"><span class="title">clickHandler</span></span>()&#123;...&#125;;</div><div class="line">    liNode.onmouseover = <span class="keyword">function</span> <span class="function"><span class="title">mouseOverHandler</span></span>()&#123;...&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">window.onload = <span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">    var ulNode = document.getElementById(<span class="string">"parent-list"</span>);</div><div class="line">    var liNodes = ulNode.getElementByTagName(<span class="string">"Li"</span>);</div><div class="line">    <span class="keyword">for</span>(var i=0, l = liNodes.length; i &lt; l; i++)&#123;</div><div class="line">        addListeners4Li(liNodes[i]);</div><div class="line">    &#125;   </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>如果这个UL中的Li子元素会频繁地添加或者删除，我们就需要在每次添加Li的时候都调用这个addListeners4Li方法来为每个Li节点添加事件处理函数。这就添加的复杂度和出错的可能性。</p>
-<p>更简单的方法是使用事件代理机制，当事件被抛到更上层的父节点的时候，我们通过检查事件的目标对象（target）来判断并获取事件源Li。下面的代码可以完成我们想要的效果：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">// 获取父节点，并为它添加一个click事件</div><div class="line">document.getElementById(<span class="string">"parent-list"</span>).addEventListener(<span class="string">"click"</span>,<span class="keyword">function</span>(e) &#123;</div><div class="line">  // 检查事件源e.targe是否为Li</div><div class="line">  <span class="keyword">if</span>(e.target &amp;&amp; e.target.nodeName.toUpperCase == <span class="string">"LI"</span>) &#123;</div><div class="line">    // 真正的处理过程在这里</div><div class="line">    console.log(<span class="string">"List item "</span>,e.target.id.replace(<span class="string">"post-"</span>),<span class="string">" was clicked!"</span>);</div><div class="line">  &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>为父节点添加一个click事件，当子节点被点击的时候，click事件会从子节点开始向上冒泡。父节点捕获到事件之后，通过判断e.target.nodeName来判断是否为我们需要处理的节点。并且通过e.target拿到了被点击的Li节点。从而可以获取到相应的信息，并作处理。</p>
-<h2 id="事件冒泡及捕获"><a href="#事件冒泡及捕获" class="headerlink" title="事件冒泡及捕获"></a>事件冒泡及捕获</h2><p>之前的介绍中已经说到了浏览器的事件冒泡机制。这里再详细介绍一下浏览器处理DOM事件的过程。对于事件的捕获和处理，不同的浏览器厂商有不同的处理机制，这里我们主要介绍W3C对DOM2.0定义的标准事件。</p>
-<p>DOM2.0模型将事件处理流程分为三个阶段：一、事件捕获阶段，二、事件目标阶段，三、事件起泡阶段。如图：</p>
-<p><img src="http://images.cnitblog.com/blog/477973/201302/18141423-8bd09a9c1e184df9a13b6e26b88348f3.jpg" alt="images"></p>
-<p>事件捕获：当某个元素触发某个事件（如onclick），顶层对象document就会发出一个事件流，随着DOM树的节点向目标元素节点流去，直到到达事件真正发生的目标元素。在这个过程中，事件相应的监听函数是不会被触发的。</p>
-<p>事件目标：当到达目标元素之后，执行目标元素该事件相应的处理函数。如果没有绑定监听函数，那就不执行。</p>
-<p>事件起泡：从目标元素开始，往顶层元素传播。途中如果有节点绑定了相应的事件处理函数，这些函数都会被一次触发。如果想阻止事件起泡，可以使用e.stopPropagation()（Firefox）或者e.cancelBubble=true（IE）来组织事件的冒泡传播。</p>
-<h2 id="jQuery和Dojo中delegate函数"><a href="#jQuery和Dojo中delegate函数" class="headerlink" title="jQuery和Dojo中delegate函数"></a>jQuery和Dojo中delegate函数</h2><p>下面看一下Dojo和jQuery中提供的事件代理接口的使用方法。</p>
-<p>首先是jQuery：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"#link-list"</span>).delegate(<span class="string">"a"</span>, <span class="string">"click"</span>, <span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">  // <span class="string">"<span class="variable">$(this)</span>"</span> is the node that was clicked</div><div class="line">  console.log(<span class="string">"you clicked a link!"</span>,$(this));</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>jQuery的delegate的方法需要三个参数，一个选择器，一个时间名称，和事件处理函数。</p>
-<p>而Dojo的与jQuery相似，仅是两者的编程风格上的差别：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">require([<span class="string">"dojo/query"</span>,<span class="string">"dojox/NodeList/delegate"</span>], <span class="keyword">function</span>(query,delegate)&#123;</div><div class="line"></div><div class="line">    query(<span class="string">"#link-list"</span>).delegate(<span class="string">"a"</span>,<span class="string">"onclick"</span>,<span class="keyword">function</span>(event) &#123;</div><div class="line">    // <span class="string">"this.node"</span> is the node that was clicked</div><div class="line">    console.log(<span class="string">"you clicked a link!"</span>,this);</div><div class="line">  &#125;);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p>Dojo的delegate模块在dojox.NodeList中，提供的接口与jQuery一样，参数也相同。</p>
-<h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><p>通过上面的介绍，大家应该能够体会到使用事件委托对于web应用程序带来的几个优点：</p>
-<p>1.管理的函数变少了。不需要为每个元素都添加监听函数。对于同一个父节点下面类似的子元素，可以通过委托给父元素的监听函数来处理事件。</p>
-<p>2.可以方便地动态添加和修改元素，不需要因为元素的改动而修改事件绑定。</p>
-<p>3.JavaScript和DOM节点之间的关联变少了，这样也就减少了因循环引用而带来的内存泄漏发生的概率。</p>
-<p>写到这里，突然想起了之前对于Dojo DataGrid的困惑：那么多的rows和cells，如何处理他们事件之间的关系。现在想想，使用委托就很简单了。所有的事件委托到grid最外层的节点上，当事件发生的时候通过一些方法来获取和添加事件的额外属性，如rowIndex, cellIndex，之后在分配到onRowClick,onCellClick之类的处理函数上。</p>
-<h2 id="在JavaScript编程中使用代理"><a href="#在JavaScript编程中使用代理" class="headerlink" title="在JavaScript编程中使用代理"></a>在JavaScript编程中使用代理</h2><p>上面介绍的是对DOM事件处理时，利用浏览器冒泡机制为DOM元素添加事件代理。其实在纯JS编程中，我们也可以使用这样的编程模式，来创建代理对象来操作目标对象。这里引用<a href="http://www.cnblogs.com/rubylouvre/archive/2009/08/09/1542174.html" target="_blank" rel="external">司徒正美相关文章</a>中的一个例子：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">var delegate = <span class="keyword">function</span>(client, clientMethod) &#123;</div><div class="line">        <span class="built_in">return</span> <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">            <span class="built_in">return</span> clientMethod.apply(client, arguments);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    var ClassA = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">        var _color = <span class="string">"red"</span>;</div><div class="line">        <span class="built_in">return</span> &#123;</div><div class="line">            getColor: <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">                console.log(<span class="string">"Color: "</span> + _color);</div><div class="line">            &#125;,</div><div class="line">            <span class="built_in">set</span>Color: <span class="keyword">function</span>(color) &#123;</div><div class="line">                _color = color;</div><div class="line">            &#125;</div><div class="line">        &#125;;</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    var a = new ClassA();</div><div class="line">    a.getColor();</div><div class="line">    a.setColor(<span class="string">"green"</span>);</div><div class="line">    a.getColor();</div><div class="line">    console.log(<span class="string">"执行代理！"</span>);</div><div class="line">    var d = delegate(a, a.setColor);</div><div class="line">    d(<span class="string">"blue"</span>);</div><div class="line">    console.log(<span class="string">"执行完毕！"</span>);</div><div class="line">    a.getColor();</div></pre></td></tr></table></figure>
-<p>上面的例子中，通过调用delegate()函数创建的代理函数d来操作对a的修改。这种方式尽管是使用了apply（call也可以）来实现了调用对象的转移，但是从编程模式上实现了对某些对象的隐藏，可以保护这些对象不被随便访问和修改。</p>
-<p>在很多框架中都引用了委托这个概念用来指定方法的运行作用域。比较典型的如dojo.hitch(scope,method)和ExtJS的createDelegate(obj,args)。有兴趣的同学可以看一下他们的源代码，主要也是js函数的apply方法来制定执行作用域。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hanwsscan.github.io/2017/03/28/JavaScript-事件代理和委托/" data-id="cj0t1b4uq000f68w7wt17vavu" class="article-share-link">Share</a>
+      <a data-url="http://hanwsscan.github.io/2017/03/28/javascript思维导图/" data-id="cj0t1j62t00192ww7jfapfedk" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
@@ -284,10 +178,50 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hanwsscan.github.io/2017/03/28/JavaScript-模块化编程一/" data-id="cj0t1b4u5000a68w75ulm3r7p" class="article-share-link">Share</a>
+      <a data-url="http://hanwsscan.github.io/2017/03/28/JavaScript-模块化编程一/" data-id="cj0t1j61s000f2ww781rmnssp" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-js设计模式" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/28/js设计模式/" class="article-date">
+  <time datetime="2017-03-28T03:14:11.809Z" itemprop="datePublished">2017-03-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/28/js设计模式/">js设计模式</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Constructor(构造器)模式<br>Module(模块)模式<br>Revealing Module(揭示模块)模式<br>Singleton(单例)模式<br>Observer(观察者)模式<br>Mediator(中介者)模式<br>Prototype(原型)模式<br>Command(命令)模式<br>Factory(工厂)模式<br>Mixin(混入)模式<br>Decorator(装饰者)模式<br>Flyweight(享元)模式</p>
+<h4 id="Constructor-构造器-模式"><a href="#Constructor-构造器-模式" class="headerlink" title="Constructor(构造器)模式"></a>Constructor(构造器)模式</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> newObj = &#123;&#125;;</div><div class="line"><span class="keyword">var</span> newObj = <span class="keyword">new</span> <span class="built_in">Object</span>();</div><div class="line"></div><div class="line"><span class="comment">//四种方法可以将键值赋值给一个对象</span></div><div class="line"><span class="comment">//1、点语法</span></div><div class="line">newObj.someKey = <span class="string">"Hello World"</span></div><div class="line"><span class="keyword">var</span> key = newObj.someKey;</div><div class="line"></div><div class="line"><span class="comment">//2、中括号语法</span></div><div class="line">newObj[<span class="string">"someKey"</span>] = <span class="string">"Hello World"</span>;</div><div class="line"><span class="keyword">var</span> key = newObj[<span class="string">"someKey"</span>]</div><div class="line"></div><div class="line"><span class="comment">//3、Object.defineProperty</span></div><div class="line"><span class="built_in">Object</span>.defineProperty(newObject,<span class="string">"someKey"</span>,&#123;</div><div class="line"> <span class="attr">value</span>:<span class="string">"for more control of the property is behavior"</span>,</div><div class="line"> <span class="attr">writable</span>:<span class="literal">true</span>,</div><div class="line"> <span class="attr">enumerable</span>:<span class="literal">true</span>,</div><div class="line"> <span class="attr">configurable</span>:<span class="literal">true</span></div><div class="line">&#125;)</div><div class="line"><span class="comment">//或</span></div><div class="line"><span class="keyword">var</span> defineProp = <span class="function"><span class="keyword">function</span>(<span class="params">obj,key,value</span>)</span>&#123;</div><div class="line"> config.value = value;</div><div class="line"> <span class="built_in">Object</span>.defineProperty(obj,key,config);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> person = <span class="built_in">Object</span>.creat(<span class="literal">null</span>)</div><div class="line"></div><div class="line">defineProp(person,<span class="string">"car"</span>,<span class="string">"Delorean"</span>);</div><div class="line">defineProp(person,<span class="string">"dateOfBirth"</span>,<span class="string">"1981"</span>);</div><div class="line">defineProp(person,<span class="string">"hasBeard"</span>,<span class="literal">false</span>);</div><div class="line"></div><div class="line"><span class="comment">//4、Object.definProperties(newObject,&#123;</span></div><div class="line"> <span class="string">"someKey"</span>:&#123;</div><div class="line">  <span class="attr">value</span>:<span class="string">"Hello World"</span>,</div><div class="line">  <span class="attr">writable</span>:<span class="literal">true</span></div><div class="line"> &#125;,</div><div class="line"> <span class="string">"anotherKey"</span>:&#123;</div><div class="line">  <span class="attr">value</span>:<span class="string">"Foo bar"</span>,</div><div class="line">  <span class="attr">writable</span>:<span class="literal">false</span></div><div class="line"> &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanwsscan.github.io/2017/03/28/js设计模式/" data-id="cj0t1j639001g2ww7umd8jv2m" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MVVM/">MVVM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angular/">angular</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
 
     </footer>
   </div>
@@ -334,7 +268,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hanwsscan.github.io/2017/03/28/JavaScript模板/" data-id="cj0t1b4ur000m68w7ah1w21cr" class="article-share-link">Share</a>
+      <a data-url="http://hanwsscan.github.io/2017/03/28/JavaScript模板/" data-id="cj0t1j61s000i2ww7rnpbpcxg" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
@@ -414,7 +348,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hanwsscan.github.io/2017/03/28/JavaScript-继承方法/" data-id="cj0t1b4ur000g68w7nk4w0uqe" class="article-share-link">Share</a>
+      <a data-url="http://hanwsscan.github.io/2017/03/28/JavaScript-继承方法/" data-id="cj0t1j61s000g2ww7kn6qbgsd" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
@@ -468,7 +402,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hanwsscan.github.io/2017/03/28/JavaScript-this/" data-id="cj0t1b4um000c68w7j1t8i9b8" class="article-share-link">Share</a>
+      <a data-url="http://hanwsscan.github.io/2017/03/28/JavaScript-this/" data-id="cj0t1j61s00082ww7x0ps52jp" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
@@ -517,7 +451,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hanwsscan.github.io/2017/03/28/JavaScript RegExp 对象/" data-id="cj0t1b4u5000868w7mcaqy3ui" class="article-share-link">Share</a>
+      <a data-url="http://hanwsscan.github.io/2017/03/28/JavaScript RegExp 对象/" data-id="cj0t1j61c00072ww7ga5qjye1" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
@@ -571,7 +505,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hanwsscan.github.io/2017/03/28/hello-hexo/" data-id="cj0t1b4v7001368w70d5c3we5" class="article-share-link">Share</a>
+      <a data-url="http://hanwsscan.github.io/2017/03/28/hello-hexo/" data-id="cj0t1j62t001b2ww7ix4xszn4" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/">html</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
@@ -625,7 +559,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hanwsscan.github.io/2017/03/28/hello-world/" data-id="cj0t1b4vm001768w7szo5l847" class="article-share-link">Share</a>
+      <a data-url="http://hanwsscan.github.io/2017/03/28/hello-world/" data-id="cj0t1j62t00132ww7utps5eny" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/">html</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
@@ -657,6 +591,10 @@
           </li>
         
           <li>
+            <a href="/2017/03/28/随笔集/">随笔集</a>
+          </li>
+        
+          <li>
             <a href="/2017/03/28/管理岗是什么/">管理岗是什么鬼？</a>
           </li>
         
@@ -681,31 +619,7 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/随笔集/">随笔集</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/初识requirejs/">初识requirejs</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/vue2-vue-cli/">vue2-vue-cli</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/MVC、MVP、MVVM的图示/">MVC、MVP、MVVM的图示</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/编写稳健、可维护和可扩展的 Sass/">编写稳健、可维护和可扩展的 Sass</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/What is the difference between Bower and npm/">What is the difference between Bower and npm?</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/Vuejs-class-and-style/">Vue-class-and-style 在Vue.js 里处理 class 和 style</a>
+            <a href="/2017/03/28/nvm管理node/">nvm管理node</a>
           </li>
         
           <li>
@@ -713,7 +627,19 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/svn主干分支合并/">svn主干分支合并</a>
+            <a href="/2017/03/28/MVC、MVP、MVVM的图示/">MVC、MVP、MVVM的图示</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/What is the difference between Bower and npm/">What is the difference between Bower and npm?</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/编写稳健、可维护和可扩展的 Sass/">编写稳健、可维护和可扩展的 Sass</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/初识requirejs/">初识requirejs</a>
           </li>
         
           <li>
@@ -721,31 +647,15 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/nvm管理node/">nvm管理node</a>
+            <a href="/2017/03/28/vue2-vue-cli/">vue2-vue-cli</a>
           </li>
         
           <li>
-            <a href="/2017/03/28/js设计模式/">js设计模式</a>
+            <a href="/2017/03/28/svn主干分支合并/">svn主干分支合并</a>
           </li>
         
           <li>
-            <a href="/2017/03/28/javascript-匿名函数/">javascript 匿名函数</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/js语法规范错误提示代码/">Javascript语法规范错误提示代码</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/JavaScript-模块化编程一/">JavaScript 语言中 模块的写法</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/jQuery.extend 和 jQuery.fn.extend 的区别/">jQuery.extend 和 jQuery.fn.extend 的区别</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/mockjs/">Mock.js使用记录</a>
+            <a href="/2017/03/28/Vuejs-class-and-style/">Vue-class-and-style 在Vue.js 里处理 class 和 style</a>
           </li>
         
           <li>
@@ -753,7 +663,31 @@
           </li>
         
           <li>
+            <a href="/2017/03/28/mockjs/">Mock.js使用记录</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/javascript-匿名函数/">javascript 匿名函数</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/js设计模式/">js设计模式</a>
+          </li>
+        
+          <li>
             <a href="/2017/03/28/JavaScript中this指针指向的彻底理解/">JavaScript中this指针指向的彻底理解</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/jQuery.extend 和 jQuery.fn.extend 的区别/">jQuery.extend 和 jQuery.fn.extend 的区别</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/JavaScript-模块化编程一/">JavaScript 语言中 模块的写法</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/js语法规范错误提示代码/">Javascript语法规范错误提示代码</a>
           </li>
         
           <li>
@@ -789,6 +723,18 @@
           </li>
         
           <li>
+            <a href="/2017/03/28/angular代码段/">angularjs代码</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/angularTodolist/">angularjs todolist</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/git github gitlab/">git github gitlab...</a>
+          </li>
+        
+          <li>
             <a href="/2017/03/28/fis3配置文档入门/">fis3配置文档</a>
           </li>
         
@@ -797,27 +743,15 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/gulp配置文档入门/">gulp配置文档入门</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/git github gitlab/">git github gitlab...</a>
-          </li>
-        
-          <li>
             <a href="/2017/03/28/CSS中Position、Float属性深入探讨/">CSS中Position、Float属性深入探讨</a>
           </li>
         
           <li>
+            <a href="/2017/03/28/gulp配置文档入门/">gulp配置文档入门</a>
+          </li>
+        
+          <li>
             <a href="/2017/03/28/hello-hexo/">Hello World</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/angularTodolist/">angularjs todolist</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/angular代码段/">angularjs代码</a>
           </li>
         
           <li>
