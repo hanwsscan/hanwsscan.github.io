@@ -55,141 +55,6 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-javascript思维导图" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/03/28/javascript思维导图/" class="article-date">
-  <time datetime="2017-03-28T03:14:11.809Z" itemprop="datePublished">2017-03-28</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/28/javascript思维导图/">javascript思维导图</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/2017/03/28/javascript思维导图/" alt="变量"></p>
-<p><img src="/2017/03/28/javascript思维导图/" alt="运算符"></p>
-<p><img src="/2017/03/28/javascript思维导图/" alt="数组"></p>
-<p><img src="/2017/03/28/javascript思维导图/" alt="流程语句"></p>
-<p><img src="/2017/03/28/javascript思维导图/" alt="字符串函数"></p>
-<p><img src="/2017/03/28/javascript思维导图/" alt="基本dom操作"></p>
-<p><img src="/2017/03/28/javascript思维导图/" alt="函数基础"></p>
-<p><img src="/2017/03/28/javascript思维导图/" alt="正则表达式"></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hanwsscan.github.io/2017/03/28/javascript思维导图/" data-id="cj0t1j62t00192ww7jfapfedk" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-JavaScript-模块化编程一" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/03/28/JavaScript-模块化编程一/" class="article-date">
-  <time datetime="2017-03-28T03:14:11.809Z" itemprop="datePublished">2017-03-28</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/28/JavaScript-模块化编程一/">JavaScript 语言中 模块的写法</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="模块就是实现特定功能的一组方法。"><a href="#模块就是实现特定功能的一组方法。" class="headerlink" title="模块就是实现特定功能的一组方法。"></a>模块就是实现特定功能的一组方法。</h2><h4 id="原始写法"><a href="#原始写法" class="headerlink" title="原始写法"></a>原始写法</h4><h4 id="对象写法"><a href="#对象写法" class="headerlink" title="对象写法"></a>对象写法</h4><h4 id="立即执行函数写法"><a href="#立即执行函数写法" class="headerlink" title="立即执行函数写法"></a>立即执行函数写法</h4><h4 id="放大模式"><a href="#放大模式" class="headerlink" title="放大模式"></a>放大模式</h4><h4 id="宽放大模式（Loose-augmentation）"><a href="#宽放大模式（Loose-augmentation）" class="headerlink" title="宽放大模式（Loose augmentation）"></a>宽放大模式（Loose augmentation）</h4><h4 id="输入全局变量"><a href="#输入全局变量" class="headerlink" title="输入全局变量"></a>输入全局变量</h4><h2 id="原始写法-1"><a href="#原始写法-1" class="headerlink" title="原始写法"></a>原始写法</h2><p>模块就是实现特定功能的一组方法。</p>
-<p>只要把不同的函数（以及记录状态的变量）简单地放在一起，就算是一个模块。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">m1</span></span>()&#123;</div><div class="line">	//...</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">function</span> <span class="function"><span class="title">m2</span></span>()&#123;</div><div class="line">	//...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>m1(),m2()就是模块，使用的时候直接调用</p>
-<p>这种做法缺点是污染了全局变量，无法保证命名不冲突，而且模块间的调用无法体现；</p>
-<h2 id="对象写法-1"><a href="#对象写法-1" class="headerlink" title="对象写法"></a>对象写法</h2><p>为解决方法一的缺点，可以把模块写出一个对象，模块成员都写到对象里</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">var module1 = new Object(&#123;</div><div class="line"></div><div class="line">	_count = 0,</div><div class="line">	</div><div class="line">	m1:<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">		//...</div><div class="line">	&#125;,</div><div class="line">	</div><div class="line">	m2:<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">		//...</div><div class="line">	&#125;</div><div class="line"></div><div class="line"></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p>m1(),m2()都封装在对象module1里，使用时调用 module1.m1(),module1.m2();</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">module1.m1()</div><div class="line">module1.m2()</div></pre></td></tr></table></figure>
-<p>但是，这样的写法会暴露所有模块成员，内部状态可以被外部改写。比如，外部代码可以直接改变内部计数器的值。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">module1._count = 5;</div></pre></td></tr></table></figure>
-<h2 id="立即执行函数写法-1"><a href="#立即执行函数写法-1" class="headerlink" title="立即执行函数写法"></a>立即执行函数写法</h2><p>使用 立即执行函数（Immediately-Invoked Function Expression，IIFE），可以达到不暴露私有成员的目的。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">var module1 = (<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line"></div><div class="line">	//外部代码无法读取内部的_count变量</div><div class="line">	var _count = 0;</div><div class="line">	</div><div class="line">	var m1 = <span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">		//...</div><div class="line">	&#125;;</div><div class="line">	</div><div class="line">	var m2 = <span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">		//...</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="built_in">return</span> &#123;</div><div class="line">		m1 : m1,</div><div class="line">		m2 : m2</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
-<p>console.log(module1._count1)  //undefined</p>
-<p>这就是js模块化的基本写法，后续还会对这种方法进行扩展，模块比较大的时候，需要分成几个部分，并且模块间有继承的时候，就需要使用-放大模式(augmentation)</p>
-<h2 id="放大模式-augmentation"><a href="#放大模式-augmentation" class="headerlink" title="放大模式 (augmentation)"></a>放大模式 (augmentation)</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">var module1 = (<span class="keyword">function</span>(mod)&#123;</div><div class="line">	mod.m3 = <span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">		//...</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="built_in">return</span> mod</div><div class="line">	</div><div class="line">&#125;)(module1);</div></pre></td></tr></table></figure>
-<p>上面的代码为module1模块添加了一个新方法m3()，然后返回新的module1模块。</p>
-<h2 id="宽放大模式（Loose-augmentation）-1"><a href="#宽放大模式（Loose-augmentation）-1" class="headerlink" title="宽放大模式（Loose augmentation）"></a>宽放大模式（Loose augmentation）</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">var module1 = (<span class="keyword">function</span>(mod)&#123;</div><div class="line">	mod.m3 = <span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">		//...</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="built_in">return</span> mod</div><div class="line">	</div><div class="line">&#125;)(window.module1 || &#123;&#125;);</div></pre></td></tr></table></figure>
-<p>与”放大模式”相比，＂宽放大模式＂就是”立即执行函数”的参数可以是空对象。</p>
-<h2 id="输入全局变量-1"><a href="#输入全局变量-1" class="headerlink" title="输入全局变量"></a>输入全局变量</h2><p>独立性是模块的重要特点，模块内部最好不与程序的其他部分直接交互。</p>
-<p>为了在模块内部调用全局变量，必须显式地将其他变量输入模块。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var module1 = (<span class="keyword">function</span>($,Yahoo)&#123;</div><div class="line">	//...</div><div class="line">&#125;)(jQuery,YAHOO)</div></pre></td></tr></table></figure>
-<p>上面的module1模块需要使用jQuery库和YUI库，就把这两个库（其实是两个模块）当作参数输入module1。这样做除了保证模块的独立性，还使得模块之间的依赖关系变得明显。</p>
-<h2 id="如何规范地使用模块"><a href="#如何规范地使用模块" class="headerlink" title="如何规范地使用模块"></a>如何规范地使用模块</h2><p>有了模块，我们就可以更方便地使用别人的代码，想要什么功能，就加载什么模块。</p>
-<p>目前，通行的Javascript模块规范共有两种：CommonJS和AMD。</p>
-<p>node.js的 <a href="https://nodejs.org/docs/latest/api/modules.html" target="_blank" rel="external">模块系统</a>，就是参照<a href="http://wiki.commonjs.org/wiki/Modules/1.1" target="_blank" rel="external">CommonJS规范</a>实现的。</p>
-<p>在CommonJS中，有一个全局性方法require()，用于加载模块。</p>
-<p>假定有一个数学模块math.js，就可以像下面这样加载。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var math = require(<span class="string">'math'</span>);</div><div class="line">math.add(2,3)</div></pre></td></tr></table></figure>
-<h4 id="服务器端模块，所有的模块都存放在本地硬盘，可以同步加载完成"><a href="#服务器端模块，所有的模块都存放在本地硬盘，可以同步加载完成" class="headerlink" title="服务器端模块，所有的模块都存放在本地硬盘，可以同步加载完成"></a>服务器端模块，所有的模块都存放在本地硬盘，可以同步加载完成</h4><h4 id="浏览器端的模块，不能采用”同步加载”（synchronous），只能采用”异步加载”（asynchronous）。这就是AMD规范诞生的背景。"><a href="#浏览器端的模块，不能采用”同步加载”（synchronous），只能采用”异步加载”（asynchronous）。这就是AMD规范诞生的背景。" class="headerlink" title="浏览器端的模块，不能采用”同步加载”（synchronous），只能采用”异步加载”（asynchronous）。这就是AMD规范诞生的背景。"></a>浏览器端的模块，不能采用”同步加载”（synchronous），只能采用”异步加载”（asynchronous）。这就是AMD规范诞生的背景。</h4><h1 id="AMD"><a href="#AMD" class="headerlink" title="AMD"></a>AMD</h1><p><a href="https://github.com/amdjs/amdjs-api/wiki/AMD" target="_blank" rel="external">AMD</a>是”Asynchronous Module Definition”的缩写，意思就是”异步模块定义”。它采用异步方式加载模块，模块的加载不影响它后面语句的运行。所有依赖这个模块的语句，都定义在一个回调函数中，等到加载完成之后，这个回调函数才会运行。</p>
-<p>AMD也采用require()语句加载模块，但是不同于CommonJS，它要求两个参数：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">require([module], callback);</div></pre></td></tr></table></figure>
-<h4 id="第一个参数-module-，是一个数组，里面的成员就是要加载的模块；第二个参数callback，则是加载成功之后的回调函数。"><a href="#第一个参数-module-，是一个数组，里面的成员就是要加载的模块；第二个参数callback，则是加载成功之后的回调函数。" class="headerlink" title="第一个参数[module]，是一个数组，里面的成员就是要加载的模块；第二个参数callback，则是加载成功之后的回调函数。"></a>第一个参数[module]，是一个数组，里面的成员就是要加载的模块；第二个参数callback，则是加载成功之后的回调函数。</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">require([<span class="string">'math'</span>],<span class="keyword">function</span>(math)&#123;</div><div class="line">	//...</div><div class="line">	math.add(2,3) //5</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p>math.add()与math模块加载不是同步的，浏览器不会发生假死。所以很显然，AMD比较适合浏览器环境。</p>
-<h2 id="为什么要用require-js"><a href="#为什么要用require-js" class="headerlink" title="为什么要用require.js"></a>为什么要用require.js</h2><p>最早的时候，所有Javascript代码都写在一个文件里面，只要加载这一个文件就够了。后来，代码越来越多，一个文件不够了，必须分成多个文件，依次加载。下面的网页代码，相信很多人都见过。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;script src=<span class="string">"1.js"</span>&gt;&lt;/script&gt;</div><div class="line">&lt;script src=<span class="string">"2.js"</span>&gt;&lt;/script&gt;</div><div class="line">&lt;script src=<span class="string">"3.js"</span>&gt;&lt;/script&gt;</div><div class="line">&lt;script src=<span class="string">"4.js"</span>&gt;&lt;/script&gt;</div><div class="line">&lt;script src=<span class="string">"5.js"</span>&gt;&lt;/script&gt;</div><div class="line">&lt;script src=<span class="string">"6.js"</span>&gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
-<p>这样的写法有很大的缺点。</p>
-<p>首先，加载的时候，浏览器会停止网页渲染，加载文件越多，网页失去响应的时间就会越长；</p>
-<p>其次，由于js文件之间存在依赖关系，因此必须严格保证加载顺序（比如上例的1.js要在2.js的前面），依赖性最大的模块一定要放到最后加载，当依赖关系很复杂的时候，代码的编写和维护都会变得困难。</p>
-<h3 id="require-js"><a href="#require-js" class="headerlink" title="require.js"></a>require.js</h3><h3 id="1、实现js文件的异步加载，避免网页失去响应；"><a href="#1、实现js文件的异步加载，避免网页失去响应；" class="headerlink" title="1、实现js文件的异步加载，避免网页失去响应；"></a>1、实现js文件的异步加载，避免网页失去响应；</h3><h3 id="2、管理模块之间的依赖性，便于代码的编写和维护。"><a href="#2、管理模块之间的依赖性，便于代码的编写和维护。" class="headerlink" title="2、管理模块之间的依赖性，便于代码的编写和维护。"></a>2、管理模块之间的依赖性，便于代码的编写和维护。</h3><h2 id="require-js的加载"><a href="#require-js的加载" class="headerlink" title="require.js的加载"></a>require.js的加载</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script src=<span class="string">"js/require.js"</span> data-main=<span class="string">"js/main"</span>&gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
-<p><a href="http://www.ruanyifeng.com/blog/2012/11/require_js.html" target="_blank" rel="external">详见require.js的加载</a></p>
-<h2 id="主模块的写法"><a href="#主模块的写法" class="headerlink" title="主模块的写法"></a>主模块的写法</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// main.js</div><div class="line">require([<span class="string">'moduleA'</span>, <span class="string">'moduleB'</span>, <span class="string">'moduleC'</span>], <span class="keyword">function</span> (moduleA, moduleB, moduleC)&#123;</div><div class="line">	// some code here</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>require()函数接受两个参数。第一个参数是一个数组，表示所依赖的模块，上例就是[‘moduleA’, ‘moduleB’, ‘moduleC’]，即主模块依赖这三个模块；第二个参数是一个回调函数，当前面指定的模块都加载成功后，它将被调用。加载的模块会以参数形式传入该函数，从而在回调函数内部就可以使用这些模块。</p>
-<p>require()异步加载moduleA，moduleB和moduleC，浏览器不会失去响应；它指定的回调函数，只有前面的模块都加载成功后，才会运行，解决了依赖性的问题。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">require([<span class="string">'jquery'</span>, <span class="string">'underscore'</span>, <span class="string">'backbone'</span>], <span class="keyword">function</span> ($, _, Backbone)&#123;</div><div class="line">	// some code here</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>require.js会先加载jQuery、underscore和backbone，然后再运行回调函数。主模块的代码就写在回调函数中。</p>
-<h2 id="模块的加载"><a href="#模块的加载" class="headerlink" title="模块的加载"></a>模块的加载</h2><p>上一节最后的示例中，主模块的依赖模块是[‘jquery’, ‘underscore’, ‘backbone’]。默认情况下，require.js假定这三个模块与main.js在同一个目录，文件名分别为jquery.js，underscore.js和backbone.js，然后自动加载。</p>
-<p>使用require.config()方法，我们可以对模块的加载行为进行自定义。require.config()就写在主模块（main.js）的头部。参数就是一个对象，这个对象的paths属性指定各个模块的加载路径。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">//</div><div class="line">require.config(&#123;</div><div class="line">	paths: &#123;</div><div class="line">		<span class="string">"jquery"</span>: <span class="string">"jquery.min"</span>,</div><div class="line">		<span class="string">"underscore"</span>: <span class="string">"underscore.min"</span>,</div><div class="line">		<span class="string">"backbone"</span>: <span class="string">"backbone.min"</span></div><div class="line">	&#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">//如果这些模块在其他目录，比如js/lib目录，则有两种写法。一种是逐一指定路径。</div><div class="line">require.config(&#123;</div><div class="line">	paths: &#123;</div><div class="line">		<span class="string">"jquery"</span>: <span class="string">"lib/jquery.min"</span>,</div><div class="line">		<span class="string">"underscore"</span>: <span class="string">"lib/underscore.min"</span>,</div><div class="line">		<span class="string">"backbone"</span>: <span class="string">"lib/backbone.min"</span></div><div class="line">	&#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">//另一种则是直接改变基目录（baseUrl）</div><div class="line">require.config(&#123;</div><div class="line">	baseUrl: <span class="string">"js/lib"</span>,</div><div class="line">	paths: &#123;</div><div class="line">		<span class="string">"jquery"</span>: <span class="string">"jquery.min"</span>,</div><div class="line">		<span class="string">"underscore"</span>: <span class="string">"underscore.min"</span>,</div><div class="line">		<span class="string">"backbone"</span>: <span class="string">"backbone.min"</span></div><div class="line">	&#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">//如果某个模块在另一台主机上，也可以直接指定它的网址，比如：</div><div class="line">require.config(&#123;</div><div class="line">	paths: &#123;</div><div class="line">		<span class="string">"jquery"</span>: <span class="string">"https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min"</span></div><div class="line">	&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>require.js要求，每个模块是一个单独的js文件。这样的话，如果加载多个模块，就会发出多次HTTP请求，会影响网页的加载速度。因此，require.js提供了一个<a href="http://requirejs.org/docs/optimization.html" target="_blank" rel="external">优化工具</a>，当模块部署完毕以后，可以用这个工具将多个模块合并在一个文件中，减少HTTP请求数。</p>
-<p>待续….  <a href="http://www.ruanyifeng.com/blog/2012/11/require_js.html" target="_blank" rel="external">详见</a></p>
-<h4 id="源-http-www-ruanyifeng-com-blog-2012-10-javascript-module-html"><a href="#源-http-www-ruanyifeng-com-blog-2012-10-javascript-module-html" class="headerlink" title="源: http://www.ruanyifeng.com/blog/2012/10/javascript_module.html"></a><a href="http://www.ruanyifeng.com/blog/2012/10/javascript_module.html" target="_blank" rel="external">源: http://www.ruanyifeng.com/blog/2012/10/javascript_module.html</a></h4>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hanwsscan.github.io/2017/03/28/JavaScript-模块化编程一/" data-id="cj0t1j61s000f2ww781rmnssp" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
     <article id="post-js设计模式" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/03/28/js设计模式/" class="article-date">
@@ -218,10 +83,127 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hanwsscan.github.io/2017/03/28/js设计模式/" data-id="cj0t1j639001g2ww7umd8jv2m" class="article-share-link">Share</a>
+      <a data-url="http://hanwsscan.github.io/2017/03/28/js设计模式/" data-id="cj0t1nppe001fuww7oyv9zcnq" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MVVM/">MVVM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angular/">angular</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-javascript-匿名函数" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/28/javascript-匿名函数/" class="article-date">
+  <time datetime="2017-03-28T03:14:11.809Z" itemprop="datePublished">2017-03-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/28/javascript-匿名函数/">javascript 匿名函数</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h2><p>匿名函数可以有效的保证在页面上写入Javascript，而不会造成全局变量的污染。Javascript库中也不乏大量使用。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">	//...</div><div class="line">&#125;)();</div><div class="line"></div><div class="line">(<span class="keyword">function</span>(arg)&#123;</div><div class="line">	//...</div><div class="line">&#125;)(<span class="string">'arg'</span>);</div></pre></td></tr></table></figure>
+<h4 id="在Javascript定义一个函数一般有如下三种方式："><a href="#在Javascript定义一个函数一般有如下三种方式：" class="headerlink" title="在Javascript定义一个函数一般有如下三种方式："></a>在Javascript定义一个函数一般有如下三种方式：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">//函数关键字</div><div class="line"><span class="keyword">function</span> sayHi(sName, sMessage) &#123;</div><div class="line">	alert(<span class="string">"Hello "</span> + sName + sMessage);</div><div class="line">&#125;	</div><div class="line">sayHi(<span class="string">"David"</span>, <span class="string">" Nice to meet you!"</span>)</div><div class="line"></div><div class="line">//函数字面量方式</div><div class="line">var sayHi = <span class="keyword">function</span>(<span class="string">"sName"</span>, <span class="string">"sMessage"</span>, <span class="string">"alert(\"Hello \" + sName + sMessage);"</span>);</div><div class="line"></div><div class="line">//构造函数Function</div><div class="line">var sayHi = new Function(<span class="string">"sName"</span>, <span class="string">"sMessage"</span>, <span class="string">"alert(\"Hello \" + sName + sMessage);"</span>);</div></pre></td></tr></table></figure>
+<h4 id="函数字面量和构造函数的区别"><a href="#函数字面量和构造函数的区别" class="headerlink" title="函数字面量和构造函数的区别"></a>函数字面量和构造函数的区别</h4><p>虽然函数字面量是一个匿名函数，但语法允许为其指定任意一个函数名，当写递归函数时可以调用它自己，使用Function()构造函数则不行。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var funName = <span class="keyword">function</span> funName(arg)&#123;</div><div class="line">	<span class="keyword">if</span>(arg &lt; 1)&#123;</div><div class="line">		<span class="built_in">return</span> 1;</div><div class="line">	&#125;<span class="keyword">else</span>&#123;</div><div class="line">		<span class="built_in">return</span> funName * (arg - 1); </div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Function()构造函数允许运行时Javascript代码动态的创建和编译。在这个方式上它类似全局函数eval()</p>
+<p>Function()构造函数每次执行时都解析函数主体，并创建一个新的函数对象。所以当在一个循环或者频繁执行的函数中调用Function()构造函数的效率是非常低的。相反，函数字面量却不是每次遇到都重新编译的。</p>
+<p>用Function()构造函数创建一个函数时并不遵循典型的作用域，它一直把它当作是顶级函数来执行。</p>
+<h4 id="匿名函数的代码模式"><a href="#匿名函数的代码模式" class="headerlink" title="匿名函数的代码模式"></a>匿名函数的代码模式</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">//错误模式：其无法工作，浏览器会报语法错。</div><div class="line"><span class="function"><span class="title">function</span></span> ()&#123;</div><div class="line">	//...</div><div class="line">&#125;</div><div class="line"></div><div class="line">//函数字面量：首先声明一个函数对象，然后执行它。</div><div class="line">(<span class="function"><span class="title">function</span></span> ()&#123;</div><div class="line">	alert(<span class="string">"fun"</span>);</div><div class="line">	//...</div><div class="line">&#125;)();</div><div class="line"></div><div class="line">//优先表达式</div><div class="line">(<span class="function"><span class="title">function</span></span> ()&#123;</div><div class="line">	alert(<span class="string">"fun"</span>);</div><div class="line">	//...</div><div class="line">&#125;()</div><div class="line">);</div><div class="line"></div><div class="line">//void	</div><div class="line"></div><div class="line">void <span class="function"><span class="title">function</span></span> ()&#123;</div><div class="line">	//...</div><div class="line">&#125;()</div></pre></td></tr></table></figure>
+<p>待续….</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanwsscan.github.io/2017/03/28/javascript-匿名函数/" data-id="cj0t1nppe001kuww7vpgiztli" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-JavaScript-事件代理和委托" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/28/JavaScript-事件代理和委托/" class="article-date">
+  <time datetime="2017-03-28T03:14:11.809Z" itemprop="datePublished">2017-03-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/28/JavaScript-事件代理和委托/">JavaScript事件代理和委托（Delegation）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在javasript中delegate这个词经常出现，看字面的意思，代理、委托。那么它究竟在什么样的情况下使用？它的原理又是什么？在各种框架中，也经常能看到delegate相关的接口。这些接口又有什么特殊的用法呢？这篇文章就主要介绍一下javascript delegate的用法和原理，以及Dojo，jQuery等框架中delegate的接口。</p>
+<h2 id="JavaScript事件代理"><a href="#JavaScript事件代理" class="headerlink" title="JavaScript事件代理"></a>JavaScript事件代理</h2><p>首先介绍一下JavaScript的事件代理。事件代理在JS世界中一个非常有用也很有趣的功能。当我们需要对很多元素添加事件的时候，可以通过将事件添加到它们的父节点而将事件委托给父节点来触发处理函数。这主要得益于浏览器的事件冒泡机制，后面会详细介绍。下面我们具体举个例子来解释如何使用这个特性。这个例子主要取自<a href="https://davidwalsh.name/" target="_blank" rel="external">David Walsh</a>的相关文章<a href="https://davidwalsh.name/event-delegate" target="_blank" rel="external">（How JavaScript Event Delegation Works）</a>。</p>
+<h4 id="假设有一个-UL-的父节点，包含了很多个-Li-的子节点："><a href="#假设有一个-UL-的父节点，包含了很多个-Li-的子节点：" class="headerlink" title="假设有一个 UL 的父节点，包含了很多个 Li 的子节点："></a>假设有一个 UL 的父节点，包含了很多个 Li 的子节点：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;ul id=<span class="string">"parent-list"</span>&gt;</div><div class="line">  &lt;li id=<span class="string">"post-1"</span>&gt;Item 1&lt;/li&gt;</div><div class="line">  &lt;li id=<span class="string">"post-2"</span>&gt;Item 2&lt;/li&gt;</div><div class="line">  &lt;li id=<span class="string">"post-3"</span>&gt;Item 3&lt;/li&gt;</div><div class="line">  &lt;li id=<span class="string">"post-4"</span>&gt;Item 4&lt;/li&gt;</div><div class="line">  &lt;li id=<span class="string">"post-5"</span>&gt;Item 5&lt;/li&gt;</div><div class="line">  &lt;li id=<span class="string">"post-6"</span>&gt;Item 6&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure>
+<p>当我们的鼠标移到Li上的时候，需要获取此Li的相关信息并飘出悬浮窗以显示详细信息，或者当某个Li被点击的时候需要触发相应的处理事件。我们通常的写法，是为每个Li都添加一些类似onMouseOver或者onClick之类的事件监听。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> addListeners4Li(liNode)&#123;</div><div class="line">    liNode.onclick = <span class="keyword">function</span> <span class="function"><span class="title">clickHandler</span></span>()&#123;...&#125;;</div><div class="line">    liNode.onmouseover = <span class="keyword">function</span> <span class="function"><span class="title">mouseOverHandler</span></span>()&#123;...&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">window.onload = <span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">    var ulNode = document.getElementById(<span class="string">"parent-list"</span>);</div><div class="line">    var liNodes = ulNode.getElementByTagName(<span class="string">"Li"</span>);</div><div class="line">    <span class="keyword">for</span>(var i=0, l = liNodes.length; i &lt; l; i++)&#123;</div><div class="line">        addListeners4Li(liNodes[i]);</div><div class="line">    &#125;   </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如果这个UL中的Li子元素会频繁地添加或者删除，我们就需要在每次添加Li的时候都调用这个addListeners4Li方法来为每个Li节点添加事件处理函数。这就添加的复杂度和出错的可能性。</p>
+<p>更简单的方法是使用事件代理机制，当事件被抛到更上层的父节点的时候，我们通过检查事件的目标对象（target）来判断并获取事件源Li。下面的代码可以完成我们想要的效果：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">// 获取父节点，并为它添加一个click事件</div><div class="line">document.getElementById(<span class="string">"parent-list"</span>).addEventListener(<span class="string">"click"</span>,<span class="keyword">function</span>(e) &#123;</div><div class="line">  // 检查事件源e.targe是否为Li</div><div class="line">  <span class="keyword">if</span>(e.target &amp;&amp; e.target.nodeName.toUpperCase == <span class="string">"LI"</span>) &#123;</div><div class="line">    // 真正的处理过程在这里</div><div class="line">    console.log(<span class="string">"List item "</span>,e.target.id.replace(<span class="string">"post-"</span>),<span class="string">" was clicked!"</span>);</div><div class="line">  &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>为父节点添加一个click事件，当子节点被点击的时候，click事件会从子节点开始向上冒泡。父节点捕获到事件之后，通过判断e.target.nodeName来判断是否为我们需要处理的节点。并且通过e.target拿到了被点击的Li节点。从而可以获取到相应的信息，并作处理。</p>
+<h2 id="事件冒泡及捕获"><a href="#事件冒泡及捕获" class="headerlink" title="事件冒泡及捕获"></a>事件冒泡及捕获</h2><p>之前的介绍中已经说到了浏览器的事件冒泡机制。这里再详细介绍一下浏览器处理DOM事件的过程。对于事件的捕获和处理，不同的浏览器厂商有不同的处理机制，这里我们主要介绍W3C对DOM2.0定义的标准事件。</p>
+<p>DOM2.0模型将事件处理流程分为三个阶段：一、事件捕获阶段，二、事件目标阶段，三、事件起泡阶段。如图：</p>
+<p><img src="http://images.cnitblog.com/blog/477973/201302/18141423-8bd09a9c1e184df9a13b6e26b88348f3.jpg" alt="images"></p>
+<p>事件捕获：当某个元素触发某个事件（如onclick），顶层对象document就会发出一个事件流，随着DOM树的节点向目标元素节点流去，直到到达事件真正发生的目标元素。在这个过程中，事件相应的监听函数是不会被触发的。</p>
+<p>事件目标：当到达目标元素之后，执行目标元素该事件相应的处理函数。如果没有绑定监听函数，那就不执行。</p>
+<p>事件起泡：从目标元素开始，往顶层元素传播。途中如果有节点绑定了相应的事件处理函数，这些函数都会被一次触发。如果想阻止事件起泡，可以使用e.stopPropagation()（Firefox）或者e.cancelBubble=true（IE）来组织事件的冒泡传播。</p>
+<h2 id="jQuery和Dojo中delegate函数"><a href="#jQuery和Dojo中delegate函数" class="headerlink" title="jQuery和Dojo中delegate函数"></a>jQuery和Dojo中delegate函数</h2><p>下面看一下Dojo和jQuery中提供的事件代理接口的使用方法。</p>
+<p>首先是jQuery：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"#link-list"</span>).delegate(<span class="string">"a"</span>, <span class="string">"click"</span>, <span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">  // <span class="string">"<span class="variable">$(this)</span>"</span> is the node that was clicked</div><div class="line">  console.log(<span class="string">"you clicked a link!"</span>,$(this));</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>jQuery的delegate的方法需要三个参数，一个选择器，一个时间名称，和事件处理函数。</p>
+<p>而Dojo的与jQuery相似，仅是两者的编程风格上的差别：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">require([<span class="string">"dojo/query"</span>,<span class="string">"dojox/NodeList/delegate"</span>], <span class="keyword">function</span>(query,delegate)&#123;</div><div class="line"></div><div class="line">    query(<span class="string">"#link-list"</span>).delegate(<span class="string">"a"</span>,<span class="string">"onclick"</span>,<span class="keyword">function</span>(event) &#123;</div><div class="line">    // <span class="string">"this.node"</span> is the node that was clicked</div><div class="line">    console.log(<span class="string">"you clicked a link!"</span>,this);</div><div class="line">  &#125;);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>Dojo的delegate模块在dojox.NodeList中，提供的接口与jQuery一样，参数也相同。</p>
+<h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><p>通过上面的介绍，大家应该能够体会到使用事件委托对于web应用程序带来的几个优点：</p>
+<p>1.管理的函数变少了。不需要为每个元素都添加监听函数。对于同一个父节点下面类似的子元素，可以通过委托给父元素的监听函数来处理事件。</p>
+<p>2.可以方便地动态添加和修改元素，不需要因为元素的改动而修改事件绑定。</p>
+<p>3.JavaScript和DOM节点之间的关联变少了，这样也就减少了因循环引用而带来的内存泄漏发生的概率。</p>
+<p>写到这里，突然想起了之前对于Dojo DataGrid的困惑：那么多的rows和cells，如何处理他们事件之间的关系。现在想想，使用委托就很简单了。所有的事件委托到grid最外层的节点上，当事件发生的时候通过一些方法来获取和添加事件的额外属性，如rowIndex, cellIndex，之后在分配到onRowClick,onCellClick之类的处理函数上。</p>
+<h2 id="在JavaScript编程中使用代理"><a href="#在JavaScript编程中使用代理" class="headerlink" title="在JavaScript编程中使用代理"></a>在JavaScript编程中使用代理</h2><p>上面介绍的是对DOM事件处理时，利用浏览器冒泡机制为DOM元素添加事件代理。其实在纯JS编程中，我们也可以使用这样的编程模式，来创建代理对象来操作目标对象。这里引用<a href="http://www.cnblogs.com/rubylouvre/archive/2009/08/09/1542174.html" target="_blank" rel="external">司徒正美相关文章</a>中的一个例子：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">var delegate = <span class="keyword">function</span>(client, clientMethod) &#123;</div><div class="line">        <span class="built_in">return</span> <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">            <span class="built_in">return</span> clientMethod.apply(client, arguments);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    var ClassA = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">        var _color = <span class="string">"red"</span>;</div><div class="line">        <span class="built_in">return</span> &#123;</div><div class="line">            getColor: <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">                console.log(<span class="string">"Color: "</span> + _color);</div><div class="line">            &#125;,</div><div class="line">            <span class="built_in">set</span>Color: <span class="keyword">function</span>(color) &#123;</div><div class="line">                _color = color;</div><div class="line">            &#125;</div><div class="line">        &#125;;</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    var a = new ClassA();</div><div class="line">    a.getColor();</div><div class="line">    a.setColor(<span class="string">"green"</span>);</div><div class="line">    a.getColor();</div><div class="line">    console.log(<span class="string">"执行代理！"</span>);</div><div class="line">    var d = delegate(a, a.setColor);</div><div class="line">    d(<span class="string">"blue"</span>);</div><div class="line">    console.log(<span class="string">"执行完毕！"</span>);</div><div class="line">    a.getColor();</div></pre></td></tr></table></figure>
+<p>上面的例子中，通过调用delegate()函数创建的代理函数d来操作对a的修改。这种方式尽管是使用了apply（call也可以）来实现了调用对象的转移，但是从编程模式上实现了对某些对象的隐藏，可以保护这些对象不被随便访问和修改。</p>
+<p>在很多框架中都引用了委托这个概念用来指定方法的运行作用域。比较典型的如dojo.hitch(scope,method)和ExtJS的createDelegate(obj,args)。有兴趣的同学可以看一下他们的源代码，主要也是js函数的apply方法来制定执行作用域。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanwsscan.github.io/2017/03/28/JavaScript-事件代理和委托/" data-id="cj0t1npno0008uww7mjtugp98" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
 
     </footer>
   </div>
@@ -268,7 +250,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hanwsscan.github.io/2017/03/28/JavaScript模板/" data-id="cj0t1j61s000i2ww7rnpbpcxg" class="article-share-link">Share</a>
+      <a data-url="http://hanwsscan.github.io/2017/03/28/JavaScript模板/" data-id="cj0t1npo3000cuww7y4813emb" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
@@ -348,7 +330,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hanwsscan.github.io/2017/03/28/JavaScript-继承方法/" data-id="cj0t1j61s000g2ww7kn6qbgsd" class="article-share-link">Share</a>
+      <a data-url="http://hanwsscan.github.io/2017/03/28/JavaScript-继承方法/" data-id="cj0t1npo3000guww7svv0sw2r" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
@@ -402,7 +384,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hanwsscan.github.io/2017/03/28/JavaScript-this/" data-id="cj0t1j61s00082ww7x0ps52jp" class="article-share-link">Share</a>
+      <a data-url="http://hanwsscan.github.io/2017/03/28/JavaScript-this/" data-id="cj0t1npo3000auww76qupe8al" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
@@ -451,7 +433,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hanwsscan.github.io/2017/03/28/JavaScript RegExp 对象/" data-id="cj0t1j61c00072ww7ga5qjye1" class="article-share-link">Share</a>
+      <a data-url="http://hanwsscan.github.io/2017/03/28/JavaScript RegExp 对象/" data-id="cj0t1npno0005uww7wt2emp30" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
@@ -505,7 +487,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hanwsscan.github.io/2017/03/28/hello-hexo/" data-id="cj0t1j62t001b2ww7ix4xszn4" class="article-share-link">Share</a>
+      <a data-url="http://hanwsscan.github.io/2017/03/28/hello-hexo/" data-id="cj0t1npoz0015uww7pdvvmyaq" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/">html</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
@@ -559,7 +541,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hanwsscan.github.io/2017/03/28/hello-world/" data-id="cj0t1j62t00132ww7utps5eny" class="article-share-link">Share</a>
+      <a data-url="http://hanwsscan.github.io/2017/03/28/hello-world/" data-id="cj0t1npoz0013uww74xov1vdm" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/">html</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
@@ -587,11 +569,19 @@
       <ul>
         
           <li>
+            <a href="/2017/03/28/一段小代码/">一段小代码</a>
+          </li>
+        
+          <li>
             <a href="/2017/03/28/项目总结/">项目总结</a>
           </li>
         
           <li>
             <a href="/2017/03/28/随笔集/">随笔集</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/聊聊互联网产品的分类/">聊聊互联网产品的分类</a>
           </li>
         
           <li>
@@ -607,19 +597,7 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/一段小代码/">一段小代码</a>
-          </li>
-        
-          <li>
             <a href="/2017/03/28/一段js代码的升级之旅/">一段代码的升级之旅...</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/聊聊互联网产品的分类/">聊聊互联网产品的分类</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/nvm管理node/">nvm管理node</a>
           </li>
         
           <li>
@@ -627,7 +605,15 @@
           </li>
         
           <li>
+            <a href="/2017/03/28/nvm管理node/">nvm管理node</a>
+          </li>
+        
+          <li>
             <a href="/2017/03/28/MVC、MVP、MVVM的图示/">MVC、MVP、MVVM的图示</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/Vuejs-class-and-style/">Vue-class-and-style 在Vue.js 里处理 class 和 style</a>
           </li>
         
           <li>
@@ -655,7 +641,7 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/Vuejs-class-and-style/">Vue-class-and-style 在Vue.js 里处理 class 和 style</a>
+            <a href="/2017/03/28/js语法规范错误提示代码/">Javascript语法规范错误提示代码</a>
           </li>
         
           <li>
@@ -663,23 +649,7 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/mockjs/">Mock.js使用记录</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/javascript-匿名函数/">javascript 匿名函数</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/js设计模式/">js设计模式</a>
-          </li>
-        
-          <li>
             <a href="/2017/03/28/JavaScript中this指针指向的彻底理解/">JavaScript中this指针指向的彻底理解</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/jQuery.extend 和 jQuery.fn.extend 的区别/">jQuery.extend 和 jQuery.fn.extend 的区别</a>
           </li>
         
           <li>
@@ -687,11 +657,23 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/js语法规范错误提示代码/">Javascript语法规范错误提示代码</a>
+            <a href="/2017/03/28/javascript-匿名函数/">javascript 匿名函数</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/jQuery.extend 和 jQuery.fn.extend 的区别/">jQuery.extend 和 jQuery.fn.extend 的区别</a>
           </li>
         
           <li>
             <a href="/2017/03/28/javascript思维导图/">javascript思维导图</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/mockjs/">Mock.js使用记录</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/js设计模式/">js设计模式</a>
           </li>
         
           <li>
@@ -723,19 +705,19 @@
           </li>
         
           <li>
+            <a href="/2017/03/28/hello-hexo/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/fis3配置文档入门/">fis3配置文档</a>
+          </li>
+        
+          <li>
             <a href="/2017/03/28/angular代码段/">angularjs代码</a>
           </li>
         
           <li>
             <a href="/2017/03/28/angularTodolist/">angularjs todolist</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/git github gitlab/">git github gitlab...</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/fis3配置文档入门/">fis3配置文档</a>
           </li>
         
           <li>
@@ -751,7 +733,7 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/hello-hexo/">Hello World</a>
+            <a href="/2017/03/28/git github gitlab/">git github gitlab...</a>
           </li>
         
           <li>
