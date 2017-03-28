@@ -55,36 +55,56 @@
       <div class="outer">
         <section id="main">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/03/28/mockjs/" class="archive-article-date">
-  <time datetime="2017-03-28T03:14:11.809Z" itemprop="datePublished">Mar 28</time>
+    <article id="post-mockjs" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/28/mockjs/" class="article-date">
+  <time datetime="2017-03-28T03:14:11.809Z" itemprop="datePublished">2017-03-28</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/28/mockjs/">Mock.js使用记录</a>
+      <a class="article-title" href="/2017/03/28/mockjs/">Mock.js使用记录</a>
     </h1>
   
 
-    </header>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="首先是需求，我希望在列表里循环出来10条模拟数据，包含4列，分别是用户昵称、姓名、手机号、状态"><a href="#首先是需求，我希望在列表里循环出来10条模拟数据，包含4列，分别是用户昵称、姓名、手机号、状态" class="headerlink" title="首先是需求，我希望在列表里循环出来10条模拟数据，包含4列，分别是用户昵称、姓名、手机号、状态"></a>首先是需求，我希望在列表里循环出来10条模拟数据，包含4列，分别是用户昵称、姓名、手机号、状态</h4><p><img src="/2017/03/28/mockjs/" alt="图示"></p>
+<h4 id="最开始我用这种，自己手动写个假的json，然后调用"><a href="#最开始我用这种，自己手动写个假的json，然后调用" class="headerlink" title="最开始我用这种，自己手动写个假的json，然后调用"></a>最开始我用这种，自己手动写个假的json，然后调用</h4><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">	"datalist":[&#123;</div><div class="line">		"name":"nnnn1",</div><div class="line">		"cname":"xxxx1",</div><div class="line">		"phoneNum":"13311111111",</div><div class="line">		"status":"使用中"</div><div class="line">		&#125;,&#123;</div><div class="line">		"name":"nnnn2",</div><div class="line">		"cname":"xxxx2",</div><div class="line">		"phoneNum":"13322222222",</div><div class="line">		"status":"已停用"		</div><div class="line">		&#125;,&#123;</div><div class="line">		"name":"nnnn3",</div><div class="line">		"cname":"xxxx3",</div><div class="line">		"phoneNum":"13333333333",</div><div class="line">		"status":"已停用"		</div><div class="line">		&#125;...</div><div class="line">	]</div><div class="line">`</div></pre></td></tr></table></figure>
+<p>复制10条，改每一条的数据来进行模拟…也还好，不算多…</p>
+<h4 id="但是Mockjs更吊-10行代码不用，满足需求，且往下看…"><a href="#但是Mockjs更吊-10行代码不用，满足需求，且往下看…" class="headerlink" title="但是Mockjs更吊,10行代码不用，满足需求，且往下看…"></a>但是Mockjs更吊,10行代码不用，满足需求，且往下看…</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> dataMock = Mock.mock(&#123;</div><div class="line">	<span class="string">'datalist|10'</span>: [&#123;</div><div class="line">	<span class="string">'id|+1'</span>: <span class="number">1</span>,</div><div class="line">	<span class="string">'name'</span>: <span class="string">'@name'</span>,</div><div class="line">	<span class="string">'cname'</span>: <span class="string">'@cname'</span>,</div><div class="line">	<span class="string">'phoneNum'</span>: <span class="regexp">/^13[0-9]&#123;9&#125;$/</span>,</div><div class="line">	<span class="string">'status|1'</span>: [<span class="string">"使用中"</span>, <span class="string">"已停用"</span>]</div><div class="line">	&#125;]</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h5 id="“datalist-10”-这样10条就，你可以改成50，100，就是这么方便，如果你不想固定，可以这么设定”datalist-1-100”-这回随机1-100条数据；"><a href="#“datalist-10”-这样10条就，你可以改成50，100，就是这么方便，如果你不想固定，可以这么设定”datalist-1-100”-这回随机1-100条数据；" class="headerlink" title="“datalist|10”,这样10条就，你可以改成50，100，就是这么方便，如果你不想固定，可以这么设定”datalist|1-100”,这回随机1-100条数据；"></a>“datalist|10”,这样10条就，你可以改成50，100，就是这么方便，如果你不想固定，可以这么设定”datalist|1-100”,这回随机1-100条数据；</h5><h5 id="‘id-1’-1-这个很简单，id自增；"><a href="#‘id-1’-1-这个很简单，id自增；" class="headerlink" title="‘id|+1’: 1,这个很简单，id自增；"></a>‘id|+1’: 1,这个很简单，id自增；</h5><h5 id="‘name’-‘-name’-name是mock自带的方法，会随机拼出英文名字；"><a href="#‘name’-‘-name’-name是mock自带的方法，会随机拼出英文名字；" class="headerlink" title="‘name’: ‘@name’, @name是mock自带的方法，会随机拼出英文名字；"></a>‘name’: ‘@name’, @name是mock自带的方法，会随机拼出英文名字；</h5><h5 id="‘cname’-‘-cname’-cname是mock自带的方法，会随机拼出中文名字；"><a href="#‘cname’-‘-cname’-cname是mock自带的方法，会随机拼出中文名字；" class="headerlink" title="‘cname’: ‘@cname’,@cname是mock自带的方法，会随机拼出中文名字；"></a>‘cname’: ‘@cname’,@cname是mock自带的方法，会随机拼出中文名字；</h5><h5 id="‘phoneNum’-13-0-9-9-这个稍微有点难理解，其实”属性值是正则表达式-RegExp”会反向生成可以匹配它的字符串；就是说，这里如果是正则，最终会生成根据正则随机出来的字符串…"><a href="#‘phoneNum’-13-0-9-9-这个稍微有点难理解，其实”属性值是正则表达式-RegExp”会反向生成可以匹配它的字符串；就是说，这里如果是正则，最终会生成根据正则随机出来的字符串…" class="headerlink" title="‘phoneNum’: /^13[0-9]{9}$/,这个稍微有点难理解，其实”属性值是正则表达式 RegExp”会反向生成可以匹配它的字符串；就是说，这里如果是正则，最终会生成根据正则随机出来的字符串…"></a>‘phoneNum’: /^13[0-9]{9}$/,这个稍微有点难理解，其实”属性值是正则表达式 RegExp”会反向生成可以匹配它的字符串；就是说，这里如果是正则，最终会生成根据正则随机出来的字符串…</h5><h5 id="‘status-1’-“使用中”-“已停用”-，这里是个数组，可以从数组中随机出来显示；属性值是数组-Array会随机选取-1-个元素显示；"><a href="#‘status-1’-“使用中”-“已停用”-，这里是个数组，可以从数组中随机出来显示；属性值是数组-Array会随机选取-1-个元素显示；" class="headerlink" title="‘status|1’: [“使用中”, “已停用”]，这里是个数组，可以从数组中随机出来显示；属性值是数组 Array会随机选取 1 个元素显示；"></a>‘status|1’: [“使用中”, “已停用”]，这里是个数组，可以从数组中随机出来显示；属性值是数组 Array会随机选取 1 个元素显示；</h5><p>延伸一下：Mock.js 的语法规范包括两部分：</p>
+<p><em>数据模板定义规范（Data Template Definition，DTD）
+</em>数据占位符定义规范（Data Placeholder Definition，DPD）</p>
+<p>数据模板中的每个属性由 3 部分构成：属性名、生成规则、属性值：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"> <span class="string">'id|+1'</span>:<span class="number">1</span></div><div class="line"><span class="comment">//属性名id，规则+1，属性值1</span></div></pre></td></tr></table></figure>
+<p>再往上看看，是不是明白了很多…</p>
+<h4 id="前后端分离：让前端攻城师独立于后端进行开发。"><a href="#前后端分离：让前端攻城师独立于后端进行开发。" class="headerlink" title="前后端分离：让前端攻城师独立于后端进行开发。"></a>前后端分离：让前端攻城师独立于后端进行开发。</h4><h4 id="数据类型丰富：支持生成随机的文本、数字、布尔值、日期、邮箱、链接、图片、颜色等。"><a href="#数据类型丰富：支持生成随机的文本、数字、布尔值、日期、邮箱、链接、图片、颜色等。" class="headerlink" title="数据类型丰富：支持生成随机的文本、数字、布尔值、日期、邮箱、链接、图片、颜色等。"></a>数据类型丰富：支持生成随机的文本、数字、布尔值、日期、邮箱、链接、图片、颜色等。</h4><h4 id="方便扩展：支持支持扩展更多数据类型，支持自定义函数和正则。"><a href="#方便扩展：支持支持扩展更多数据类型，支持自定义函数和正则。" class="headerlink" title="方便扩展：支持支持扩展更多数据类型，支持自定义函数和正则。"></a>方便扩展：支持支持扩展更多数据类型，支持自定义函数和正则。</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">ng-app</span>=<span class="string">"app"</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>mockjs模拟数据<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-controller</span>=<span class="string">"appCtrl"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">table</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">thead</span>&gt;</span></div><div class="line">					<span class="tag">&lt;<span class="name">th</span>&gt;</span>用户昵称<span class="tag">&lt;/<span class="name">th</span>&gt;</span></div><div class="line">					<span class="tag">&lt;<span class="name">th</span>&gt;</span>姓名<span class="tag">&lt;/<span class="name">th</span>&gt;</span></div><div class="line">					<span class="tag">&lt;<span class="name">th</span>&gt;</span>手机号<span class="tag">&lt;/<span class="name">th</span>&gt;</span></div><div class="line">					<span class="tag">&lt;<span class="name">th</span>&gt;</span>状态<span class="tag">&lt;/<span class="name">th</span>&gt;</span></div><div class="line">					<span class="tag">&lt;<span class="name">th</span>&gt;</span>操作<span class="tag">&lt;/<span class="name">th</span>&gt;</span></div><div class="line">				<span class="tag">&lt;/<span class="name">thead</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">tbody</span>&gt;</span></div><div class="line">					<span class="tag">&lt;<span class="name">tr</span> <span class="attr">ng-repeat</span>=<span class="string">"item in datalist"</span>&gt;</span></div><div class="line">						<span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;item.name&#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">						<span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;item.cname&#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">						<span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;item.phoneNum&#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">						<span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;item.status&#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">						<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"text-center"</span>&gt;</span></div><div class="line">							<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:;"</span> <span class="attr">class</span>=<span class="string">"btn"</span> <span class="attr">ui-sref</span>=<span class="string">""</span>&gt;</span>编辑<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">						<span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">					<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></div><div class="line">				<span class="tag">&lt;/<span class="name">tbody</span>&gt;</span></div><div class="line">			<span class="tag">&lt;/<span class="name">table</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"http://cdn.bootcss.com/angular.js/1.5.8/angular.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"http://mockjs.com/dist/mock.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line">angular.module(<span class="string">"app"</span>, []).controller(<span class="string">"appCtrl"</span>, [<span class="string">'$scope'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">$scope</span>) </span>&#123;</div><div class="line">		<span class="keyword">var</span> dataMock = Mock.mock(&#123;</div><div class="line">			<span class="string">'datalist|10'</span>: [&#123;</div><div class="line">				<span class="string">'id|+1'</span>: <span class="number">1</span>,</div><div class="line">				<span class="string">'name'</span>: <span class="string">'@name'</span>,</div><div class="line">				<span class="string">'cname'</span>: <span class="string">'@cname'</span>,</div><div class="line">				<span class="string">'phoneNum'</span>: <span class="regexp">/^13[0-9]&#123;9&#125;$/</span>,</div><div class="line">				<span class="string">'status|1'</span>: [<span class="string">"使用中"</span>, <span class="string">"已停用"</span>]</div><div class="line">			&#125;]</div><div class="line">		&#125;);</div><div class="line"></div><div class="line">		<span class="comment">// Mock模拟数据，输出结果</span></div><div class="line">		$scope.datalist = dataMock.datalist;</div><div class="line"></div><div class="line">	&#125;</div><div class="line">]);</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>Mock.js 生成随机数据，我只用到了这里。了解本文还需要一点点的Angularjs知识，这里不做介绍…</p>
+<p><a href="http://mockjs.com/" target="_blank" rel="external">更多请移步到官网 API</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanwsscan.github.io/2017/03/28/mockjs/" data-id="cj0t1b4w2001o68w7wf8hpp4r" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mockjs/">mockjs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前后端分离/">前后端分离</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/模拟数据/">模拟数据</a></li></ul>
+
+    </footer>
   </div>
+  
 </article>
-  
-  
-    </div></section>
+
+
   
 
 </section>
@@ -99,10 +119,6 @@
         
           <li>
             <a href="/2017/03/28/项目总结/">项目总结</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/聊聊互联网产品的分类/">聊聊互联网产品的分类</a>
           </li>
         
           <li>
@@ -126,15 +142,19 @@
           </li>
         
           <li>
+            <a href="/2017/03/28/聊聊互联网产品的分类/">聊聊互联网产品的分类</a>
+          </li>
+        
+          <li>
             <a href="/2017/03/28/随笔集/">随笔集</a>
           </li>
         
           <li>
-            <a href="/2017/03/28/What is the difference between Bower and npm/">What is the difference between Bower and npm?</a>
+            <a href="/2017/03/28/初识requirejs/">初识requirejs</a>
           </li>
         
           <li>
-            <a href="/2017/03/28/不可错过的javascript迷你库/">不可错过的javascript迷你库</a>
+            <a href="/2017/03/28/vue2-vue-cli/">vue2-vue-cli</a>
           </li>
         
           <li>
@@ -142,7 +162,11 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/初识requirejs/">初识requirejs</a>
+            <a href="/2017/03/28/编写稳健、可维护和可扩展的 Sass/">编写稳健、可维护和可扩展的 Sass</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/What is the difference between Bower and npm/">What is the difference between Bower and npm?</a>
           </li>
         
           <li>
@@ -154,47 +178,15 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/编写稳健、可维护和可扩展的 Sass/">编写稳健、可维护和可扩展的 Sass</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/nvm管理node/">nvm管理node</a>
-          </li>
-        
-          <li>
             <a href="/2017/03/28/svn主干分支合并/">svn主干分支合并</a>
           </li>
         
           <li>
-            <a href="/2017/03/28/vue2-vue-cli/">vue2-vue-cli</a>
+            <a href="/2017/03/28/不可错过的javascript迷你库/">不可错过的javascript迷你库</a>
           </li>
         
           <li>
-            <a href="/2017/03/28/js语法规范错误提示代码/">Javascript语法规范错误提示代码</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/mockjs/">Mock.js使用记录</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/javascript思维导图/">javascript思维导图</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/JavaScript-模块化编程一/">JavaScript 语言中 模块的写法</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/JavaScript中this指针指向的彻底理解/">JavaScript中this指针指向的彻底理解</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/jQuery.extend 和 jQuery.fn.extend 的区别/">jQuery.extend 和 jQuery.fn.extend 的区别</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/JavaScript-事件代理和委托/">JavaScript事件代理和委托（Delegation）</a>
+            <a href="/2017/03/28/nvm管理node/">nvm管理node</a>
           </li>
         
           <li>
@@ -203,6 +195,34 @@
         
           <li>
             <a href="/2017/03/28/javascript-匿名函数/">javascript 匿名函数</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/js语法规范错误提示代码/">Javascript语法规范错误提示代码</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/JavaScript-模块化编程一/">JavaScript 语言中 模块的写法</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/jQuery.extend 和 jQuery.fn.extend 的区别/">jQuery.extend 和 jQuery.fn.extend 的区别</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/mockjs/">Mock.js使用记录</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/JavaScript-事件代理和委托/">JavaScript事件代理和委托（Delegation）</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/JavaScript中this指针指向的彻底理解/">JavaScript中this指针指向的彻底理解</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/javascript思维导图/">javascript思维导图</a>
           </li>
         
           <li>
@@ -234,10 +254,6 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/git github gitlab/">git github gitlab...</a>
-          </li>
-        
-          <li>
             <a href="/2017/03/28/fis3配置文档入门/">fis3配置文档</a>
           </li>
         
@@ -246,7 +262,11 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/hello-hexo/">Hello World</a>
+            <a href="/2017/03/28/gulp配置文档入门/">gulp配置文档入门</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/git github gitlab/">git github gitlab...</a>
           </li>
         
           <li>
@@ -254,11 +274,11 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/angularTodolist/">angularjs todolist</a>
+            <a href="/2017/03/28/hello-hexo/">Hello World</a>
           </li>
         
           <li>
-            <a href="/2017/03/28/gulp配置文档入门/">gulp配置文档入门</a>
+            <a href="/2017/03/28/angularTodolist/">angularjs todolist</a>
           </li>
         
           <li>

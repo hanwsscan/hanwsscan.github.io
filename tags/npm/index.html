@@ -55,36 +55,51 @@
       <div class="outer">
         <section id="main">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/03/28/What is the difference between Bower and npm/" class="archive-article-date">
-  <time datetime="2017-03-28T03:14:11.825Z" itemprop="datePublished">Mar 28</time>
+    <article id="post-What is the difference between Bower and npm" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/28/What is the difference between Bower and npm/" class="article-date">
+  <time datetime="2017-03-28T03:14:11.825Z" itemprop="datePublished">2017-03-28</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/28/What is the difference between Bower and npm/">What is the difference between Bower and npm?</a>
+      <a class="article-title" href="/2017/03/28/What is the difference between Bower and npm/">What is the difference between Bower and npm?</a>
     </h1>
   
 
-    </header>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>npm下来的包都很大，bower下来的包小。</p>
+<p>要讲出问题本质。npm install jquery 和 bower install jquery 到底区别在哪里？难道 npm install 出来的 jquery.js 就不能被浏览器加载了吗？</p>
+<p>关键在于npm的依赖管理是奇特的倒向树结构（不同于linux越底层依赖越小）。一个普通的前端包的依赖树非常冗长，甚至可能触及windows下256字符的路径长度限制。同时和其它安装包不能共享依赖代码。导致文件非常多，不适合前端代码部署。而bower让模块开发者定义了简洁的输出文件。</p>
+<p>不过下一代 npm3 会从根本上改善这一问题，所有依赖包会水平处理共享。随着CommonJS普及，前后端今后统一使用npm是大势所趋。</p>
+<p>npm是node js的包管理器，用来下载安装node js的第三方工具包，也可以用来发布你自己开发的工具包。bower是一个前端库管理的工具，管理一些js库，比如说jQuery，bootstrap等。通过bower，你就不用自己去找jQuery文件了，通过配置文件就可以自动完成了。通过npm可以安装bower，命令如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g bower</div></pre></td></tr></table></figure>
+<p><a href="http://stackoverflow.com/questions/18641899/what-is-the-difference-between-bower-and-npm" target="_blank" rel="external">What is the difference between Bower and npm</a></p>
+<p><a href="https://segmentfault.com/q/1010000002855012" target="_blank" rel="external">npm和bower的区别</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanwsscan.github.io/2017/03/28/What is the difference between Bower and npm/" data-id="cj0t1b4ur000p68w7p78jt9am" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bower/">bower</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/npm/">npm</a></li></ul>
+
+    </footer>
   </div>
+  
 </article>
-  
-  
-    </div></section>
+
+
   
 
 </section>
@@ -99,10 +114,6 @@
         
           <li>
             <a href="/2017/03/28/项目总结/">项目总结</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/聊聊互联网产品的分类/">聊聊互联网产品的分类</a>
           </li>
         
           <li>
@@ -126,15 +137,19 @@
           </li>
         
           <li>
+            <a href="/2017/03/28/聊聊互联网产品的分类/">聊聊互联网产品的分类</a>
+          </li>
+        
+          <li>
             <a href="/2017/03/28/随笔集/">随笔集</a>
           </li>
         
           <li>
-            <a href="/2017/03/28/What is the difference between Bower and npm/">What is the difference between Bower and npm?</a>
+            <a href="/2017/03/28/初识requirejs/">初识requirejs</a>
           </li>
         
           <li>
-            <a href="/2017/03/28/不可错过的javascript迷你库/">不可错过的javascript迷你库</a>
+            <a href="/2017/03/28/vue2-vue-cli/">vue2-vue-cli</a>
           </li>
         
           <li>
@@ -142,7 +157,11 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/初识requirejs/">初识requirejs</a>
+            <a href="/2017/03/28/编写稳健、可维护和可扩展的 Sass/">编写稳健、可维护和可扩展的 Sass</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/What is the difference between Bower and npm/">What is the difference between Bower and npm?</a>
           </li>
         
           <li>
@@ -154,47 +173,15 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/编写稳健、可维护和可扩展的 Sass/">编写稳健、可维护和可扩展的 Sass</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/nvm管理node/">nvm管理node</a>
-          </li>
-        
-          <li>
             <a href="/2017/03/28/svn主干分支合并/">svn主干分支合并</a>
           </li>
         
           <li>
-            <a href="/2017/03/28/vue2-vue-cli/">vue2-vue-cli</a>
+            <a href="/2017/03/28/不可错过的javascript迷你库/">不可错过的javascript迷你库</a>
           </li>
         
           <li>
-            <a href="/2017/03/28/js语法规范错误提示代码/">Javascript语法规范错误提示代码</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/mockjs/">Mock.js使用记录</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/javascript思维导图/">javascript思维导图</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/JavaScript-模块化编程一/">JavaScript 语言中 模块的写法</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/JavaScript中this指针指向的彻底理解/">JavaScript中this指针指向的彻底理解</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/jQuery.extend 和 jQuery.fn.extend 的区别/">jQuery.extend 和 jQuery.fn.extend 的区别</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/JavaScript-事件代理和委托/">JavaScript事件代理和委托（Delegation）</a>
+            <a href="/2017/03/28/nvm管理node/">nvm管理node</a>
           </li>
         
           <li>
@@ -203,6 +190,34 @@
         
           <li>
             <a href="/2017/03/28/javascript-匿名函数/">javascript 匿名函数</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/js语法规范错误提示代码/">Javascript语法规范错误提示代码</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/JavaScript-模块化编程一/">JavaScript 语言中 模块的写法</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/jQuery.extend 和 jQuery.fn.extend 的区别/">jQuery.extend 和 jQuery.fn.extend 的区别</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/mockjs/">Mock.js使用记录</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/JavaScript-事件代理和委托/">JavaScript事件代理和委托（Delegation）</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/JavaScript中this指针指向的彻底理解/">JavaScript中this指针指向的彻底理解</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/javascript思维导图/">javascript思维导图</a>
           </li>
         
           <li>
@@ -234,10 +249,6 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/git github gitlab/">git github gitlab...</a>
-          </li>
-        
-          <li>
             <a href="/2017/03/28/fis3配置文档入门/">fis3配置文档</a>
           </li>
         
@@ -246,7 +257,11 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/hello-hexo/">Hello World</a>
+            <a href="/2017/03/28/gulp配置文档入门/">gulp配置文档入门</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/git github gitlab/">git github gitlab...</a>
           </li>
         
           <li>
@@ -254,11 +269,11 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/angularTodolist/">angularjs todolist</a>
+            <a href="/2017/03/28/hello-hexo/">Hello World</a>
           </li>
         
           <li>
-            <a href="/2017/03/28/gulp配置文档入门/">gulp配置文档入门</a>
+            <a href="/2017/03/28/angularTodolist/">angularjs todolist</a>
           </li>
         
           <li>

@@ -55,93 +55,163 @@
       <div class="outer">
         <section id="main">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/03/28/如何挑选适合的前端框架/" class="archive-article-date">
-  <time datetime="2017-03-28T03:14:11.841Z" itemprop="datePublished">Mar 28</time>
+    <article id="post-如何挑选适合的前端框架" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/28/如何挑选适合的前端框架/" class="article-date">
+  <time datetime="2017-03-28T03:14:11.841Z" itemprop="datePublished">2017-03-28</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/28/如何挑选适合的前端框架/">如何挑选适合的前端框架</a>
+      <a class="article-title" href="/2017/03/28/如何挑选适合的前端框架/">如何挑选适合的前端框架</a>
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/03/28/js设计模式/" class="archive-article-date">
-  <time datetime="2017-03-28T03:14:11.809Z" itemprop="datePublished">Mar 28</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
+        <p>如何挑选适合的前端框架</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanwsscan.github.io/2017/03/28/如何挑选适合的前端框架/" data-id="cj0t1b4wh002168w7f6139avy" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MVVM/">MVVM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angular/">angular</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-js设计模式" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/28/js设计模式/" class="article-date">
+  <time datetime="2017-03-28T03:14:11.809Z" itemprop="datePublished">2017-03-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/28/js设计模式/">js设计模式</a>
+      <a class="article-title" href="/2017/03/28/js设计模式/">js设计模式</a>
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/03/28/angularTodolist/" class="archive-article-date">
-  <time datetime="2017-03-28T03:14:11.781Z" itemprop="datePublished">Mar 28</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
+        <p>Constructor(构造器)模式<br>Module(模块)模式<br>Revealing Module(揭示模块)模式<br>Singleton(单例)模式<br>Observer(观察者)模式<br>Mediator(中介者)模式<br>Prototype(原型)模式<br>Command(命令)模式<br>Factory(工厂)模式<br>Mixin(混入)模式<br>Decorator(装饰者)模式<br>Flyweight(享元)模式</p>
+<h4 id="Constructor-构造器-模式"><a href="#Constructor-构造器-模式" class="headerlink" title="Constructor(构造器)模式"></a>Constructor(构造器)模式</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> newObj = &#123;&#125;;</div><div class="line"><span class="keyword">var</span> newObj = <span class="keyword">new</span> <span class="built_in">Object</span>();</div><div class="line"></div><div class="line"><span class="comment">//四种方法可以将键值赋值给一个对象</span></div><div class="line"><span class="comment">//1、点语法</span></div><div class="line">newObj.someKey = <span class="string">"Hello World"</span></div><div class="line"><span class="keyword">var</span> key = newObj.someKey;</div><div class="line"></div><div class="line"><span class="comment">//2、中括号语法</span></div><div class="line">newObj[<span class="string">"someKey"</span>] = <span class="string">"Hello World"</span>;</div><div class="line"><span class="keyword">var</span> key = newObj[<span class="string">"someKey"</span>]</div><div class="line"></div><div class="line"><span class="comment">//3、Object.defineProperty</span></div><div class="line"><span class="built_in">Object</span>.defineProperty(newObject,<span class="string">"someKey"</span>,&#123;</div><div class="line"> <span class="attr">value</span>:<span class="string">"for more control of the property is behavior"</span>,</div><div class="line"> <span class="attr">writable</span>:<span class="literal">true</span>,</div><div class="line"> <span class="attr">enumerable</span>:<span class="literal">true</span>,</div><div class="line"> <span class="attr">configurable</span>:<span class="literal">true</span></div><div class="line">&#125;)</div><div class="line"><span class="comment">//或</span></div><div class="line"><span class="keyword">var</span> defineProp = <span class="function"><span class="keyword">function</span>(<span class="params">obj,key,value</span>)</span>&#123;</div><div class="line"> config.value = value;</div><div class="line"> <span class="built_in">Object</span>.defineProperty(obj,key,config);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> person = <span class="built_in">Object</span>.creat(<span class="literal">null</span>)</div><div class="line"></div><div class="line">defineProp(person,<span class="string">"car"</span>,<span class="string">"Delorean"</span>);</div><div class="line">defineProp(person,<span class="string">"dateOfBirth"</span>,<span class="string">"1981"</span>);</div><div class="line">defineProp(person,<span class="string">"hasBeard"</span>,<span class="literal">false</span>);</div><div class="line"></div><div class="line"><span class="comment">//4、Object.definProperties(newObject,&#123;</span></div><div class="line"> <span class="string">"someKey"</span>:&#123;</div><div class="line">  <span class="attr">value</span>:<span class="string">"Hello World"</span>,</div><div class="line">  <span class="attr">writable</span>:<span class="literal">true</span></div><div class="line"> &#125;,</div><div class="line"> <span class="string">"anotherKey"</span>:&#123;</div><div class="line">  <span class="attr">value</span>:<span class="string">"Foo bar"</span>,</div><div class="line">  <span class="attr">writable</span>:<span class="literal">false</span></div><div class="line"> &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanwsscan.github.io/2017/03/28/js设计模式/" data-id="cj0t1b4vm001b68w75xvsemwr" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MVVM/">MVVM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angular/">angular</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-angularTodolist" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/28/angularTodolist/" class="article-date">
+  <time datetime="2017-03-28T03:14:11.781Z" itemprop="datePublished">2017-03-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/28/angularTodolist/">angularjs todolist</a>
+      <a class="article-title" href="/2017/03/28/angularTodolist/">angularjs todolist</a>
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/03/28/angular代码段/" class="archive-article-date">
-  <time datetime="2017-03-28T03:14:11.781Z" itemprop="datePublished">Mar 28</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
+        <h4 id="直接上代码"><a href="#直接上代码" class="headerlink" title="直接上代码"></a>直接上代码</h4><p><img src="/2017/03/28/angularTodolist/" alt="图示"></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">ng-app</span>=<span class="string">"testTodolist"</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>Todolist<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-controller</span>=<span class="string">"todolist"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">ng-model</span>=<span class="string">"testTit"</span> /&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">ng-model</span>=<span class="string">"testUrl"</span> /&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:;"</span> <span class="attr">ng-click</span>=<span class="string">"btnAdd()"</span>&gt;</span>添加<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-repeat</span>=<span class="string">"item in testMsg"</span>&gt;</span></div><div class="line">			标题:<span class="tag">&lt;<span class="name">span</span> <span class="attr">ng-bind</span>=<span class="string">"&#123;&#123;item.testTit&#125;&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span>链接:<span class="tag">&lt;<span class="name">span</span> <span class="attr">ng-bind</span>=<span class="string">"&#123;&#123;item.testUrl&#125;&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:;"</span> <span class="attr">ng-click</span>=<span class="string">"testMsg.splice($index,1)"</span>&gt;</span>删除<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"//cdn.bootcss.com/angular.js/1.5.8/angular.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line">	angular.module(<span class="string">"testTodolist"</span>, []).controller(<span class="string">"todolist"</span>, [<span class="string">'$scope'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">$scope</span>) </span>&#123;</div><div class="line">		<span class="comment">//添加</span></div><div class="line">		$scope.testMsg = [];</div><div class="line">		$scope.btnAdd = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">			<span class="keyword">if</span>(!$scope.testTit == <span class="string">""</span> || !$scope.testTit == <span class="literal">null</span> || !$scope.testUrl == <span class="string">""</span> || !$scope.testUrl == <span class="literal">null</span>) &#123;</div><div class="line">				$scope.testMsg.push(<span class="keyword">new</span> Addtest($scope.testTit, $scope.testUrl));</div><div class="line">				$scope.testTit = <span class="string">""</span>;</div><div class="line">				$scope.testUrl = <span class="string">""</span>;</div><div class="line">				<span class="built_in">console</span>.log($scope.testMsg)</div><div class="line">			&#125; <span class="keyword">else</span> &#123;</div><div class="line">				alert(<span class="string">"请输入"</span>)</div><div class="line">			&#125;</div><div class="line">		&#125;;</div><div class="line"></div><div class="line">		<span class="function"><span class="keyword">function</span> <span class="title">Addtest</span>(<span class="params">testTit, testUrl</span>) </span>&#123;</div><div class="line">			<span class="keyword">this</span>.testTit = testTit;</div><div class="line">			<span class="keyword">this</span>.testUrl = testUrl;</div><div class="line">		&#125;</div><div class="line">	&#125;])</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanwsscan.github.io/2017/03/28/angularTodolist/" data-id="cj0t1b4ur000s68w7zztjdyrp" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angular/">angular</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mvvm/">mvvm</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-angular代码段" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/28/angular代码段/" class="article-date">
+  <time datetime="2017-03-28T03:14:11.781Z" itemprop="datePublished">2017-03-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/28/angular代码段/">angularjs代码</a>
+      <a class="article-title" href="/2017/03/28/angular代码段/">angularjs代码</a>
     </h1>
   
 
-    </header>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="项目里在用angular，记录一点放到这里"><a href="#项目里在用angular，记录一点放到这里" class="headerlink" title="项目里在用angular，记录一点放到这里"></a>项目里在用angular，记录一点放到这里</h4><h5 id="目录规划"><a href="#目录规划" class="headerlink" title="目录规划"></a>目录规划</h5><p>-css<br>-img<br>-js<br>-view<br>–dashboard<br>–member<br>–goods<br>–reprot<br>–template</p>
+<p>css     样式目录<br>img     图片<br>js        js资源<br>view     模版</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//根据数组长度同步赋值给页面元素显示</span></div><div class="line">$scope.shopnum = <span class="literal">null</span>;</div><div class="line">	$scope.$watch(<span class="string">"shopnum"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">	<span class="keyword">if</span>($scope.shopnum == <span class="literal">null</span>) &#123;</div><div class="line">		$scope.shopnumLeg = <span class="number">0</span></div><div class="line">	&#125; <span class="keyword">else</span> &#123;</div><div class="line">		<span class="built_in">console</span>.log($scope.shopnum.length)</div><div class="line">		$scope.shopnumLeg = $scope.shopnum.length</div><div class="line">	&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanwsscan.github.io/2017/03/28/angular代码段/" data-id="cj0t1b4v7000t68w7s87p2m0c" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angular/">angular</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mvvm/">mvvm</a></li></ul>
+
+    </footer>
   </div>
+  
 </article>
-  
-  
-    </div></section>
+
+
   
 
 </section>
@@ -156,10 +226,6 @@
         
           <li>
             <a href="/2017/03/28/项目总结/">项目总结</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/聊聊互联网产品的分类/">聊聊互联网产品的分类</a>
           </li>
         
           <li>
@@ -183,15 +249,19 @@
           </li>
         
           <li>
+            <a href="/2017/03/28/聊聊互联网产品的分类/">聊聊互联网产品的分类</a>
+          </li>
+        
+          <li>
             <a href="/2017/03/28/随笔集/">随笔集</a>
           </li>
         
           <li>
-            <a href="/2017/03/28/What is the difference between Bower and npm/">What is the difference between Bower and npm?</a>
+            <a href="/2017/03/28/初识requirejs/">初识requirejs</a>
           </li>
         
           <li>
-            <a href="/2017/03/28/不可错过的javascript迷你库/">不可错过的javascript迷你库</a>
+            <a href="/2017/03/28/vue2-vue-cli/">vue2-vue-cli</a>
           </li>
         
           <li>
@@ -199,7 +269,11 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/初识requirejs/">初识requirejs</a>
+            <a href="/2017/03/28/编写稳健、可维护和可扩展的 Sass/">编写稳健、可维护和可扩展的 Sass</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/What is the difference between Bower and npm/">What is the difference between Bower and npm?</a>
           </li>
         
           <li>
@@ -211,47 +285,15 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/编写稳健、可维护和可扩展的 Sass/">编写稳健、可维护和可扩展的 Sass</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/nvm管理node/">nvm管理node</a>
-          </li>
-        
-          <li>
             <a href="/2017/03/28/svn主干分支合并/">svn主干分支合并</a>
           </li>
         
           <li>
-            <a href="/2017/03/28/vue2-vue-cli/">vue2-vue-cli</a>
+            <a href="/2017/03/28/不可错过的javascript迷你库/">不可错过的javascript迷你库</a>
           </li>
         
           <li>
-            <a href="/2017/03/28/js语法规范错误提示代码/">Javascript语法规范错误提示代码</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/mockjs/">Mock.js使用记录</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/javascript思维导图/">javascript思维导图</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/JavaScript-模块化编程一/">JavaScript 语言中 模块的写法</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/JavaScript中this指针指向的彻底理解/">JavaScript中this指针指向的彻底理解</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/jQuery.extend 和 jQuery.fn.extend 的区别/">jQuery.extend 和 jQuery.fn.extend 的区别</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/JavaScript-事件代理和委托/">JavaScript事件代理和委托（Delegation）</a>
+            <a href="/2017/03/28/nvm管理node/">nvm管理node</a>
           </li>
         
           <li>
@@ -260,6 +302,34 @@
         
           <li>
             <a href="/2017/03/28/javascript-匿名函数/">javascript 匿名函数</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/js语法规范错误提示代码/">Javascript语法规范错误提示代码</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/JavaScript-模块化编程一/">JavaScript 语言中 模块的写法</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/jQuery.extend 和 jQuery.fn.extend 的区别/">jQuery.extend 和 jQuery.fn.extend 的区别</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/mockjs/">Mock.js使用记录</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/JavaScript-事件代理和委托/">JavaScript事件代理和委托（Delegation）</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/JavaScript中this指针指向的彻底理解/">JavaScript中this指针指向的彻底理解</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/javascript思维导图/">javascript思维导图</a>
           </li>
         
           <li>
@@ -291,10 +361,6 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/git github gitlab/">git github gitlab...</a>
-          </li>
-        
-          <li>
             <a href="/2017/03/28/fis3配置文档入门/">fis3配置文档</a>
           </li>
         
@@ -303,7 +369,11 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/hello-hexo/">Hello World</a>
+            <a href="/2017/03/28/gulp配置文档入门/">gulp配置文档入门</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/git github gitlab/">git github gitlab...</a>
           </li>
         
           <li>
@@ -311,11 +381,11 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/angularTodolist/">angularjs todolist</a>
+            <a href="/2017/03/28/hello-hexo/">Hello World</a>
           </li>
         
           <li>
-            <a href="/2017/03/28/gulp配置文档入门/">gulp配置文档入门</a>
+            <a href="/2017/03/28/angularTodolist/">angularjs todolist</a>
           </li>
         
           <li>

@@ -55,36 +55,52 @@
       <div class="outer">
         <section id="main">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/03/28/HTTP-2对前端的影响/" class="archive-article-date">
-  <time datetime="2017-03-28T03:14:11.801Z" itemprop="datePublished">Mar 28</time>
+    <article id="post-HTTP-2对前端的影响" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/28/HTTP-2对前端的影响/" class="article-date">
+  <time datetime="2017-03-28T03:14:11.801Z" itemprop="datePublished">2017-03-28</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/28/HTTP-2对前端的影响/">HTTP 2 对于前端的影响</a>
+      <a class="article-title" href="/2017/03/28/HTTP-2对前端的影响/">HTTP 2 对于前端的影响</a>
     </h1>
   
 
-    </header>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="HTTP-1的缺点与HTTP-2的改进"><a href="#HTTP-1的缺点与HTTP-2的改进" class="headerlink" title="HTTP 1的缺点与HTTP 2的改进"></a>HTTP 1的缺点与HTTP 2的改进</h3><p>HTTP 1时代，每个TCP连接一次只能下载一个资源。</p>
+<p>比如浏览器发送一个请求获取index.html的数据，服务端收到后只会返回index.html，随后浏览器会解析index.html，如果里面含有 a.css、b.js ，则会再次向服务器发送请求，获取a.css和b.js的数据。 这一过程会产生三个问题：</p>
+<p>1、如果index.html里含有多个js和css文件，请求数则随之增加，从而导致在TCP往返连接所耗费的时间增多。<br>2、每次发送的请求，HTTP头部信息基本是一样的，从而导致一定的头部信息冗余，耗费了不必要的流量。<br>3、index.html与内部的资源文件之间会产生了一个延时，而非同步获取。</p>
+<p>在HTTP 2中多个请求是可以合并为一个的，如下图，多个数据请求允许在同一路中传输（Multiplexed），这样也就可以解决了HTTP 1 请求过程中产生的问题1：</p>
+<h5 id="HTTP-2优点：预先加载，合并请求，缩小数据，提升性能。"><a href="#HTTP-2优点：预先加载，合并请求，缩小数据，提升性能。" class="headerlink" title="HTTP 2优点：预先加载，合并请求，缩小数据，提升性能。"></a>HTTP 2优点：预先加载，合并请求，缩小数据，提升性能。</h5>
+        
+          <p class="article-more-link">
+            <a href="/2017/03/28/HTTP-2对前端的影响/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanwsscan.github.io/2017/03/28/HTTP-2对前端的影响/" data-id="cj0t1b4u5000768w7mt8yntw6" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/转载/">转载</a></li></ul>
+
+    </footer>
   </div>
+  
 </article>
-  
-  
-    </div></section>
+
+
   
 
 </section>
@@ -99,10 +115,6 @@
         
           <li>
             <a href="/2017/03/28/项目总结/">项目总结</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/聊聊互联网产品的分类/">聊聊互联网产品的分类</a>
           </li>
         
           <li>
@@ -126,15 +138,19 @@
           </li>
         
           <li>
+            <a href="/2017/03/28/聊聊互联网产品的分类/">聊聊互联网产品的分类</a>
+          </li>
+        
+          <li>
             <a href="/2017/03/28/随笔集/">随笔集</a>
           </li>
         
           <li>
-            <a href="/2017/03/28/What is the difference between Bower and npm/">What is the difference between Bower and npm?</a>
+            <a href="/2017/03/28/初识requirejs/">初识requirejs</a>
           </li>
         
           <li>
-            <a href="/2017/03/28/不可错过的javascript迷你库/">不可错过的javascript迷你库</a>
+            <a href="/2017/03/28/vue2-vue-cli/">vue2-vue-cli</a>
           </li>
         
           <li>
@@ -142,7 +158,11 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/初识requirejs/">初识requirejs</a>
+            <a href="/2017/03/28/编写稳健、可维护和可扩展的 Sass/">编写稳健、可维护和可扩展的 Sass</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/What is the difference between Bower and npm/">What is the difference between Bower and npm?</a>
           </li>
         
           <li>
@@ -154,47 +174,15 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/编写稳健、可维护和可扩展的 Sass/">编写稳健、可维护和可扩展的 Sass</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/nvm管理node/">nvm管理node</a>
-          </li>
-        
-          <li>
             <a href="/2017/03/28/svn主干分支合并/">svn主干分支合并</a>
           </li>
         
           <li>
-            <a href="/2017/03/28/vue2-vue-cli/">vue2-vue-cli</a>
+            <a href="/2017/03/28/不可错过的javascript迷你库/">不可错过的javascript迷你库</a>
           </li>
         
           <li>
-            <a href="/2017/03/28/js语法规范错误提示代码/">Javascript语法规范错误提示代码</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/mockjs/">Mock.js使用记录</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/javascript思维导图/">javascript思维导图</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/JavaScript-模块化编程一/">JavaScript 语言中 模块的写法</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/JavaScript中this指针指向的彻底理解/">JavaScript中this指针指向的彻底理解</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/jQuery.extend 和 jQuery.fn.extend 的区别/">jQuery.extend 和 jQuery.fn.extend 的区别</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/JavaScript-事件代理和委托/">JavaScript事件代理和委托（Delegation）</a>
+            <a href="/2017/03/28/nvm管理node/">nvm管理node</a>
           </li>
         
           <li>
@@ -203,6 +191,34 @@
         
           <li>
             <a href="/2017/03/28/javascript-匿名函数/">javascript 匿名函数</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/js语法规范错误提示代码/">Javascript语法规范错误提示代码</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/JavaScript-模块化编程一/">JavaScript 语言中 模块的写法</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/jQuery.extend 和 jQuery.fn.extend 的区别/">jQuery.extend 和 jQuery.fn.extend 的区别</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/mockjs/">Mock.js使用记录</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/JavaScript-事件代理和委托/">JavaScript事件代理和委托（Delegation）</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/JavaScript中this指针指向的彻底理解/">JavaScript中this指针指向的彻底理解</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/javascript思维导图/">javascript思维导图</a>
           </li>
         
           <li>
@@ -234,10 +250,6 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/git github gitlab/">git github gitlab...</a>
-          </li>
-        
-          <li>
             <a href="/2017/03/28/fis3配置文档入门/">fis3配置文档</a>
           </li>
         
@@ -246,7 +258,11 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/hello-hexo/">Hello World</a>
+            <a href="/2017/03/28/gulp配置文档入门/">gulp配置文档入门</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/git github gitlab/">git github gitlab...</a>
           </li>
         
           <li>
@@ -254,11 +270,11 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/angularTodolist/">angularjs todolist</a>
+            <a href="/2017/03/28/hello-hexo/">Hello World</a>
           </li>
         
           <li>
-            <a href="/2017/03/28/gulp配置文档入门/">gulp配置文档入门</a>
+            <a href="/2017/03/28/angularTodolist/">angularjs todolist</a>
           </li>
         
           <li>

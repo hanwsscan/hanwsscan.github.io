@@ -55,74 +55,146 @@
       <div class="outer">
         <section id="main">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/03/28/一段js代码的升级之旅/" class="archive-article-date">
-  <time datetime="2017-03-28T03:14:11.841Z" itemprop="datePublished">Mar 28</time>
+    <article id="post-一段js代码的升级之旅" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/28/一段js代码的升级之旅/" class="article-date">
+  <time datetime="2017-03-28T03:14:11.841Z" itemprop="datePublished">2017-03-28</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/28/一段js代码的升级之旅/">一段代码的升级之旅...</a>
+      <a class="article-title" href="/2017/03/28/一段js代码的升级之旅/">一段代码的升级之旅...</a>
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/03/28/jQuery.extend 和 jQuery.fn.extend 的区别/" class="archive-article-date">
-  <time datetime="2017-03-28T03:14:11.809Z" itemprop="datePublished">Mar 28</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
+        <h4 id="需求：一个输入框里面字数的计数"><a href="#需求：一个输入框里面字数的计数" class="headerlink" title="需求：一个输入框里面字数的计数"></a>需求：一个输入框里面字数的计数</h4><p><img src="/2017/03/28/一段js代码的升级之旅/" alt="解决HTTP 1的请求数增加"></p>
+<p>最简单的全局变量写法：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"></div><div class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span>test<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"http://code.jquery.com/jquery-1.9.1.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line">			$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">				<span class="keyword">var</span> input = $(<span class="string">'#J_input'</span>);</div><div class="line">				<span class="comment">//用来获取字数</span></div><div class="line">				<span class="function"><span class="keyword">function</span> <span class="title">getNum</span>(<span class="params"></span>) </span>&#123;</div><div class="line">					<span class="keyword">return</span> input.val().length;</div><div class="line">				&#125;</div><div class="line">				<span class="comment">//渲染元素</span></div><div class="line">				<span class="function"><span class="keyword">function</span> <span class="title">render</span>(<span class="params"></span>) </span>&#123;</div><div class="line">					<span class="keyword">var</span> num = getNum();</div><div class="line">					<span class="comment">//没有字数的容器就新建一个</span></div><div class="line">					<span class="keyword">if</span> ($(<span class="string">'#J_input_count'</span>).length == <span class="number">0</span>) &#123;</div><div class="line">						input.after(<span class="string">'&lt;span id="J_input_count"&gt;&lt;/span&gt;'</span>);</div><div class="line">					&#125;;</div><div class="line">					$(<span class="string">'#J_input_count'</span>).html(num + <span class="string">'个字'</span>);</div><div class="line">				&#125;</div><div class="line">				<span class="comment">//监听事件</span></div><div class="line">				input.on(<span class="string">'keyup'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">					render();</div><div class="line">				&#125;);</div><div class="line">				<span class="comment">//初始化，第一次渲染</span></div><div class="line">				render();</div><div class="line">			&#125;)</div><div class="line">		<span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"></div><div class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"J_input"</span> /&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>这种写法在单独的页面，如活动页面使用没有问题，但如果在负责项目页面多的情况下，变量和函数命名到后期会变的相当混乱而无法维护！</p>
+<p>那么我们怎么解决这个问题呢，这就涉及到作用域的概念：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> textCount = &#123;</div><div class="line"> <span class="attr">input</span>: <span class="literal">null</span>,</div><div class="line"> <span class="attr">init</span>: <span class="function"><span class="keyword">function</span>(<span class="params">config</span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.input = $(config.id);</div><div class="line">  <span class="keyword">this</span>.bind();</div><div class="line">  <span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line"> &#125;,</div><div class="line"></div><div class="line"> <span class="attr">bind</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> self = <span class="keyword">this</span>;</div><div class="line">  <span class="keyword">this</span>.input.on(<span class="string">'keyup'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">   self.render()</div><div class="line">  &#125;)</div><div class="line"> &#125;,</div><div class="line"></div><div class="line"> <span class="attr">getNum</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.input.val().length</div><div class="line"> &#125;,</div><div class="line"></div><div class="line"> <span class="attr">render</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> num = <span class="keyword">this</span>.getNum()</div><div class="line">  $(<span class="string">'#J_input_count'</span>).html(num + <span class="string">'个字'</span>);</div><div class="line"> &#125;</div><div class="line"> </div><div class="line">&#125;</div><div class="line"></div><div class="line">$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line"> textCount.init(&#123;<span class="attr">id</span>:<span class="string">'#j_input'</span>&#125;).render()</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanwsscan.github.io/2017/03/28/一段js代码的升级之旅/" data-id="cj0t1b4w2001q68w76zdwx0qb" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jquery/">jquery</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/作用域/">作用域</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/全局变量/">全局变量</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/闭包/">闭包</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/面向对象/">面向对象</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-jQuery.extend 和 jQuery.fn.extend 的区别" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/28/jQuery.extend 和 jQuery.fn.extend 的区别/" class="article-date">
+  <time datetime="2017-03-28T03:14:11.809Z" itemprop="datePublished">2017-03-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/28/jQuery.extend 和 jQuery.fn.extend 的区别/">jQuery.extend 和 jQuery.fn.extend 的区别</a>
+      <a class="article-title" href="/2017/03/28/jQuery.extend 和 jQuery.fn.extend 的区别/">jQuery.extend 和 jQuery.fn.extend 的区别</a>
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/03/28/A love letter to jQuery/" class="archive-article-date">
-  <time datetime="2017-03-28T02:58:22.042Z" itemprop="datePublished">Mar 28</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
+        <h4 id="jQuery-extend"><a href="#jQuery-extend" class="headerlink" title="jQuery.extend"></a>jQuery.extend</h4><p>jQuery.extend可以扩展jQuery对象本身。用来在jQuery命名空间上增加新函数，或者合并对象。</p>
+<h5 id="1-增加方法："><a href="#1-增加方法：" class="headerlink" title="1.增加方法："></a>1.增加方法：</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$.extend(&#123;</div><div class="line"> <span class="attr">hello</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>)<span class="comment">//function jQuery(selector, context)</span></div><div class="line"> &#125;</div><div class="line">&#125;);</div><div class="line"> </div><div class="line">$.hello();</div></pre></td></tr></table></figure>
+<h5 id="2-合并对象"><a href="#2-合并对象" class="headerlink" title="2.合并对象"></a>2.合并对象</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj1 = &#123;<span class="string">'name'</span> : <span class="string">'sheng00'</span>&#125;;</div><div class="line"><span class="keyword">var</span> obj2 = &#123;<span class="string">'sex'</span> : <span class="string">'Male'</span>&#125;;</div><div class="line"> </div><div class="line">$.extend(obj1, obj2);</div><div class="line"> </div><div class="line"><span class="built_in">console</span>.log(obj1)<span class="comment">//Object &#123;name: "sheng00", sex: "Male"&#125;</span></div></pre></td></tr></table></figure>
+<h4 id="jQuery-fn-extend"><a href="#jQuery-fn-extend" class="headerlink" title="jQuery.fn.extend"></a>jQuery.fn.extend</h4><p>用来扩展 jQuery 元素集来提供新的方法（通常用来制作插件）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">jQuery.fn.extend(&#123;</div><div class="line"><span class="comment">//$.fn.extend(&#123;</span></div><div class="line"> turn_red: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.each(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">   <span class="keyword">this</span>.style.color = <span class="string">'red'</span></div><div class="line">  &#125;);</div><div class="line"> &#125;</div><div class="line">&#125;);</div><div class="line"> </div><div class="line">$(<span class="string">'.elements'</span>).turn_red(); <span class="comment">// sets color to red</span></div></pre></td></tr></table></figure>
+<p>效果和 </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">jQuery.fn.turn_red = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="comment">//..&#125; 是一样的</span></div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanwsscan.github.io/2017/03/28/jQuery.extend 和 jQuery.fn.extend 的区别/" data-id="cj0t1b4v7001568w7z3zreyrn" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jquery/">jquery</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-A love letter to jQuery" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/28/A love letter to jQuery/" class="article-date">
+  <time datetime="2017-03-28T02:58:22.042Z" itemprop="datePublished">2017-03-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/28/A love letter to jQuery/">A love letter to jQuery</a>
+      <a class="article-title" href="/2017/03/28/A love letter to jQuery/">A love letter to jQuery</a>
     </h1>
   
 
-    </header>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>jQuery I love you. We’ve been together for 10 years and that’s more than 50 years in JavaScript framework lifetimes. I might see you now less often than I did once, but I need you now no less than when we first met.</p>
+<p>I’ll never forget our first function together:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line"> alert(‘page loaded’);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>Ha! I hope you will forgive me for that alert. That’s how we did things then and I wanted to be sure you worked; of course you worked, I would never doubt it now. We don’t do $(document).ready() very much these days, but I still remember the good times we had. I also remember the pain I had trying to do this without you!</p>
+<p>You were always there for me when things were tough. You made things consistent, how they should be, often without me even realising you were doing it. The web was a scary place and you brought order to it. You gave me confidence.</p>
+<p>You were there for me too when I had no clue what I was doing. You helped me achieve things I would have never achieved on my own. In some ways, you made it too easy for me and I did some things I should have never done; I’m sorry, that was my fault not yours.</p>
+<p>Shallow though it might be, I like the way you look. I can recognise your form anywhere. I love your neat and tidy closures and your chainable methods that keep me wanting more. I look upon you with comfort and familiarity. You always make me smile.</p>
+<p>You are selfless. So selfless in fact, that you made me less reliant on you. You taught me how to think. And not just me, but the world around us has been shaped by your influence. Everytime I hear someone say “Native JavaScript” I smile and I think of you. You are so brilliant they needed a term to describe your absence. You have been my fearless leader and guiding light. That’s why I love you jQuery.</p>
+<p>I wish those that didn’t know you as well as I do, would treat you with more respect. Younger suitors like Angular and React will come and go; some will make their mark and one day they might even be worthy of comparison. But you will always be my first love; my one true love.</p>
+<p>It hurts me when I hear them say things like “you don’t need jQuery”. They don’t remember how dark it was before your light. We needed you then and we still need you now. I like the way you do things and although the years have passed, for certain tasks, you still do what you do better than anyone else could. I trust you. I know you and you know me. There will always be other ways we could do things, but I know I can rely on you and you’re always there when I need you to be.</p>
+<p>So thank you jQuery! It’s been a wonderful 10 years. I hope we have another 10, but if we don’t it will always be with dignity and respect that I remember you and never less, because you do the perfect job of making yourself redundant. It is befitting that you do this so gracefully. If the time does come to say goodbye it will be because you have given us all that you can. To not be needed does not mean you will not forever be important to the me and the web.</p>
+<p>Thank you jQuery.</p>
+<p>的确，jquery是我接触的第一个也是一直用到现在的js库，直到现在，也不敢说已经掌握了其精髓，继续学习吧！虽然新的不断涌现，期望jquery一直在…jQuery I love you too,Thank you jQuery!</p>
+<p>本文来源 <a href="http://madebymike.com.au/writing/love-letter-to-jquery/" target="_blank" rel="external">A love letter to jQuery</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hanwsscan.github.io/2017/03/28/A love letter to jQuery/" data-id="cj0t1b4t9000068w7ztwv6pbm" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jquery/">jquery</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/转载/">转载</a></li></ul>
+
+    </footer>
   </div>
+  
 </article>
-  
-  
-    </div></section>
+
+
   
 
 </section>
@@ -137,10 +209,6 @@
         
           <li>
             <a href="/2017/03/28/项目总结/">项目总结</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/聊聊互联网产品的分类/">聊聊互联网产品的分类</a>
           </li>
         
           <li>
@@ -164,15 +232,19 @@
           </li>
         
           <li>
+            <a href="/2017/03/28/聊聊互联网产品的分类/">聊聊互联网产品的分类</a>
+          </li>
+        
+          <li>
             <a href="/2017/03/28/随笔集/">随笔集</a>
           </li>
         
           <li>
-            <a href="/2017/03/28/What is the difference between Bower and npm/">What is the difference between Bower and npm?</a>
+            <a href="/2017/03/28/初识requirejs/">初识requirejs</a>
           </li>
         
           <li>
-            <a href="/2017/03/28/不可错过的javascript迷你库/">不可错过的javascript迷你库</a>
+            <a href="/2017/03/28/vue2-vue-cli/">vue2-vue-cli</a>
           </li>
         
           <li>
@@ -180,7 +252,11 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/初识requirejs/">初识requirejs</a>
+            <a href="/2017/03/28/编写稳健、可维护和可扩展的 Sass/">编写稳健、可维护和可扩展的 Sass</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/What is the difference between Bower and npm/">What is the difference between Bower and npm?</a>
           </li>
         
           <li>
@@ -192,47 +268,15 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/编写稳健、可维护和可扩展的 Sass/">编写稳健、可维护和可扩展的 Sass</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/nvm管理node/">nvm管理node</a>
-          </li>
-        
-          <li>
             <a href="/2017/03/28/svn主干分支合并/">svn主干分支合并</a>
           </li>
         
           <li>
-            <a href="/2017/03/28/vue2-vue-cli/">vue2-vue-cli</a>
+            <a href="/2017/03/28/不可错过的javascript迷你库/">不可错过的javascript迷你库</a>
           </li>
         
           <li>
-            <a href="/2017/03/28/js语法规范错误提示代码/">Javascript语法规范错误提示代码</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/mockjs/">Mock.js使用记录</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/javascript思维导图/">javascript思维导图</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/JavaScript-模块化编程一/">JavaScript 语言中 模块的写法</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/JavaScript中this指针指向的彻底理解/">JavaScript中this指针指向的彻底理解</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/jQuery.extend 和 jQuery.fn.extend 的区别/">jQuery.extend 和 jQuery.fn.extend 的区别</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/JavaScript-事件代理和委托/">JavaScript事件代理和委托（Delegation）</a>
+            <a href="/2017/03/28/nvm管理node/">nvm管理node</a>
           </li>
         
           <li>
@@ -241,6 +285,34 @@
         
           <li>
             <a href="/2017/03/28/javascript-匿名函数/">javascript 匿名函数</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/js语法规范错误提示代码/">Javascript语法规范错误提示代码</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/JavaScript-模块化编程一/">JavaScript 语言中 模块的写法</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/jQuery.extend 和 jQuery.fn.extend 的区别/">jQuery.extend 和 jQuery.fn.extend 的区别</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/mockjs/">Mock.js使用记录</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/JavaScript-事件代理和委托/">JavaScript事件代理和委托（Delegation）</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/JavaScript中this指针指向的彻底理解/">JavaScript中this指针指向的彻底理解</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/javascript思维导图/">javascript思维导图</a>
           </li>
         
           <li>
@@ -272,10 +344,6 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/git github gitlab/">git github gitlab...</a>
-          </li>
-        
-          <li>
             <a href="/2017/03/28/fis3配置文档入门/">fis3配置文档</a>
           </li>
         
@@ -284,7 +352,11 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/hello-hexo/">Hello World</a>
+            <a href="/2017/03/28/gulp配置文档入门/">gulp配置文档入门</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/git github gitlab/">git github gitlab...</a>
           </li>
         
           <li>
@@ -292,11 +364,11 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/angularTodolist/">angularjs todolist</a>
+            <a href="/2017/03/28/hello-hexo/">Hello World</a>
           </li>
         
           <li>
-            <a href="/2017/03/28/gulp配置文档入门/">gulp配置文档入门</a>
+            <a href="/2017/03/28/angularTodolist/">angularjs todolist</a>
           </li>
         
           <li>
