@@ -15,17 +15,17 @@
 <meta property="og:description" content="HTTP 1的缺点与HTTP 2的改进HTTP 1时代，每个TCP连接一次只能下载一个资源。
 比如浏览器发送一个请求获取index.html的数据，服务端收到后只会返回index.html，随后浏览器会解析index.html，如果里面含有 a.css、b.js ，则会再次向服务器发送请求，获取a.css和b.js的数据。 这一过程会产生三个问题：
 1、如果index.html里含有多个js和cs">
-<meta property="og:image" content="http://hanwsscan.github.io/2017/03/28/HTTP-2对前端的影响/">
-<meta property="og:image" content="http://hanwsscan.github.io/2017/03/28/HTTP-2对前端的影响/">
-<meta property="og:image" content="http://hanwsscan.github.io/2017/03/28/HTTP-2对前端的影响/">
-<meta property="og:image" content="http://hanwsscan.github.io/2017/03/28/HTTP-2对前端的影响/">
-<meta property="og:updated_time" content="2016-03-03T08:19:21.169Z">
+<meta property="og:image" content="http://hanwsscan.github.io/2017/03/28/HTTP-2对前端的影响/h02.jpg">
+<meta property="og:image" content="http://hanwsscan.github.io/2017/03/28/HTTP-2对前端的影响/h03.jpg">
+<meta property="og:image" content="http://hanwsscan.github.io/2017/03/28/HTTP-2对前端的影响/h04.jpg">
+<meta property="og:image" content="http://hanwsscan.github.io/2017/03/28/HTTP-2对前端的影响/h05.jpg">
+<meta property="og:updated_time" content="2017-03-28T05:03:28.280Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTTP 2 对于前端的影响">
 <meta name="twitter:description" content="HTTP 1的缺点与HTTP 2的改进HTTP 1时代，每个TCP连接一次只能下载一个资源。
 比如浏览器发送一个请求获取index.html的数据，服务端收到后只会返回index.html，随后浏览器会解析index.html，如果里面含有 a.css、b.js ，则会再次向服务器发送请求，获取a.css和b.js的数据。 这一过程会产生三个问题：
 1、如果index.html里含有多个js和cs">
-<meta name="twitter:image" content="http://hanwsscan.github.io/2017/03/28/HTTP-2对前端的影响/">
+<meta name="twitter:image" content="http://hanwsscan.github.io/2017/03/28/HTTP-2对前端的影响/h02.jpg">
   
   
     <link rel="icon" href="/favicon.png">
@@ -95,14 +95,14 @@
 <p>1、如果index.html里含有多个js和css文件，请求数则随之增加，从而导致在TCP往返连接所耗费的时间增多。<br>2、每次发送的请求，HTTP头部信息基本是一样的，从而导致一定的头部信息冗余，耗费了不必要的流量。<br>3、index.html与内部的资源文件之间会产生了一个延时，而非同步获取。</p>
 <p>在HTTP 2中多个请求是可以合并为一个的，如下图，多个数据请求允许在同一路中传输（Multiplexed），这样也就可以解决了HTTP 1 请求过程中产生的问题1：</p>
 <h5 id="HTTP-2优点：预先加载，合并请求，缩小数据，提升性能。"><a href="#HTTP-2优点：预先加载，合并请求，缩小数据，提升性能。" class="headerlink" title="HTTP 2优点：预先加载，合并请求，缩小数据，提升性能。"></a>HTTP 2优点：预先加载，合并请求，缩小数据，提升性能。</h5><a id="more"></a>
-<p><img src="/2017/03/28/HTTP-2对前端的影响/" alt="解决HTTP 1的请求数增加"></p>
+<p><img src="/2017/03/28/HTTP-2对前端的影响/h02.jpg" alt="解决HTTP 1的请求数增加"></p>
 <p>而因为是同一个请求，因此 HTTP头信息 只需要有一个就足够，下图可看出，HTTP 2中一个请求头中允许有多个方法，既可以GET，也可以PUT，在切换到下一个方法时，只需要获取数据即可，而不用再次获取头信息。</p>
-<p><img src="/2017/03/28/HTTP-2对前端的影响/" alt="解决HTTP 1的头部信息冗余"></p>
+<p><img src="/2017/03/28/HTTP-2对前端的影响/h03.jpg" alt="解决HTTP 1的头部信息冗余"></p>
 <p>HTTP 2将头信息进行了压缩<a href="https://http2.github.io/faq/#why-hpack" target="_blank" rel="external">参见HPACK</a>，进一步的减少了头信息的大小，因此 问题2 得到了解决。</p>
 <p>同时，HTTP 2 新加入了 PUSH 方法，该方法的主要作用就是<b>让服务器试探性的去推送信息给客户端</b>，如 问题3 中所述情况，当请求index.html时，服务器在返回index.html的同时，会主动把a.css和b.js一同发送给浏览器。这样当浏览器解析DOM，准备发送请求获取a.css和b.js的时候，也许两个资源已经下载完了，只需要从缓存中获取即可。这样就大大减少了网络请求的时间。</p>
-<p><img src="/2017/03/28/HTTP-2对前端的影响/" alt="解决HTTP 1的头部信息冗余"></p>
+<p><img src="/2017/03/28/HTTP-2对前端的影响/h04.jpg" alt="解决HTTP 1的头部信息冗余"></p>
 <h3 id="HTTP-2给前端带来哪些影响？"><a href="#HTTP-2给前端带来哪些影响？" class="headerlink" title="HTTP 2给前端带来哪些影响？"></a>HTTP 2给前端带来哪些影响？</h3><p>HTTP 2是在协议方面的改进，其机制也对目前前端的部分优化方案产生一定影响…</p>
-<h5 id="HTTP-2协议的目的之一想把开发环境与生产环境的部署尽量保持一致，减少因为打包合并而产生一些不必要的麻烦。你可以不再为了减少一次请求而进行css、js合并，页面中的请求数可以不用再去特意优化，但资源文件的压缩还是有必要的，毕竟获取一个小文件的时间比大文件更短。"><a href="#HTTP-2协议的目的之一想把开发环境与生产环境的部署尽量保持一致，减少因为打包合并而产生一些不必要的麻烦。你可以不再为了减少一次请求而进行css、js合并，页面中的请求数可以不用再去特意优化，但资源文件的压缩还是有必要的，毕竟获取一个小文件的时间比大文件更短。" class="headerlink" title="HTTP 2协议的目的之一想把开发环境与生产环境的部署尽量保持一致，减少因为打包合并而产生一些不必要的麻烦。你可以不再为了减少一次请求而进行css、js合并，页面中的请求数可以不用再去特意优化，但资源文件的压缩还是有必要的，毕竟获取一个小文件的时间比大文件更短。"></a>HTTP 2协议的目的之一想把开发环境与生产环境的部署尽量保持一致，减少因为打包合并而产生一些不必要的麻烦。你可以不再为了减少一次请求而进行css、js合并，页面中的请求数可以不用再去特意优化，但资源文件的压缩还是有必要的，毕竟获取一个小文件的时间比大文件更短。</h5><p><img src="/2017/03/28/HTTP-2对前端的影响/" alt="Time To First Byte"></p>
+<h5 id="HTTP-2协议的目的之一想把开发环境与生产环境的部署尽量保持一致，减少因为打包合并而产生一些不必要的麻烦。你可以不再为了减少一次请求而进行css、js合并，页面中的请求数可以不用再去特意优化，但资源文件的压缩还是有必要的，毕竟获取一个小文件的时间比大文件更短。"><a href="#HTTP-2协议的目的之一想把开发环境与生产环境的部署尽量保持一致，减少因为打包合并而产生一些不必要的麻烦。你可以不再为了减少一次请求而进行css、js合并，页面中的请求数可以不用再去特意优化，但资源文件的压缩还是有必要的，毕竟获取一个小文件的时间比大文件更短。" class="headerlink" title="HTTP 2协议的目的之一想把开发环境与生产环境的部署尽量保持一致，减少因为打包合并而产生一些不必要的麻烦。你可以不再为了减少一次请求而进行css、js合并，页面中的请求数可以不用再去特意优化，但资源文件的压缩还是有必要的，毕竟获取一个小文件的时间比大文件更短。"></a>HTTP 2协议的目的之一想把开发环境与生产环境的部署尽量保持一致，减少因为打包合并而产生一些不必要的麻烦。你可以不再为了减少一次请求而进行css、js合并，页面中的请求数可以不用再去特意优化，但资源文件的压缩还是有必要的，毕竟获取一个小文件的时间比大文件更短。</h5><p><img src="/2017/03/28/HTTP-2对前端的影响/h05.jpg" alt="Time To First Byte"></p>
 <p>如上图所示，其中TTFB时间明显减少，所谓TTFB（Time To First Byte），即从浏览器发送请求开始，到接受到来自服务器的返回的第一字节信息（HTTP头信息）结束，之间所耗费的时间。这里就会包含 TCP连接往返（round trip）＋服务器处理时间（如SQL执行）。 因为<b>浏览器在第一次发送请求后，服务器已经预先把其他资源文件一同推送给了浏览器，因此后续的资源请求中，TTFB的时间得到了缩小。</b></p>
 <p>之前我们在前端中所做的 关于减少HTTP请求的最佳实践都不再适用，如合并JS、CSS文件（Concatenation），多个图片或图标合并（Spriting）,将较小的JS或CSS文件内嵌到HTML中（Inlining），合并HTML文件（Vulcanize），根据 此网站 的测试结果显示，在使用HTTP 2后，合并为一个大文件的加载时间反而会比不合并更长。</p>
 <p>其他方面请阅读本文来源 <a href="http://hectorguo.com/zh/http2-starter/#http2" target="_blank" rel="external">谈谈HTTP/2对前端的影响</a></p>
@@ -110,7 +110,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hanwsscan.github.io/2017/03/28/HTTP-2对前端的影响/" data-id="cj0t1npno0007uww7taop407w" class="article-share-link">Share</a>
+      <a data-url="http://hanwsscan.github.io/2017/03/28/HTTP-2对前端的影响/" data-id="cj0t30ji40008yww795y64osh" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/转载/">转载</a></li></ul>
@@ -152,7 +152,11 @@
       <ul>
         
           <li>
-            <a href="/2017/03/28/一段小代码/">一段小代码</a>
+            <a href="/2017/03/28/聊聊互联网产品的分类/">聊聊互联网产品的分类</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/管理岗是什么/">管理岗是什么鬼？</a>
           </li>
         
           <li>
@@ -164,14 +168,6 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/聊聊互联网产品的分类/">聊聊互联网产品的分类</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/管理岗是什么/">管理岗是什么鬼？</a>
-          </li>
-        
-          <li>
             <a href="/2017/03/28/如何挑选适合的前端框架/">如何挑选适合的前端框架</a>
           </li>
         
@@ -180,11 +176,11 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/一段js代码的升级之旅/">一段代码的升级之旅...</a>
+            <a href="/2017/03/28/一段小代码/">一段小代码</a>
           </li>
         
           <li>
-            <a href="/2017/03/28/根据分辨率改变html根的font-size的值/">根据分辨率改变html根的font-size的值</a>
+            <a href="/2017/03/28/一段js代码的升级之旅/">一段代码的升级之旅...</a>
           </li>
         
           <li>
@@ -196,6 +192,10 @@
           </li>
         
           <li>
+            <a href="/2017/03/28/编写稳健、可维护和可扩展的 Sass/">编写稳健、可维护和可扩展的 Sass</a>
+          </li>
+        
+          <li>
             <a href="/2017/03/28/Vuejs-class-and-style/">Vue-class-and-style 在Vue.js 里处理 class 和 style</a>
           </li>
         
@@ -204,7 +204,7 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/编写稳健、可维护和可扩展的 Sass/">编写稳健、可维护和可扩展的 Sass</a>
+            <a href="/2017/03/28/根据分辨率改变html根的font-size的值/">根据分辨率改变html根的font-size的值</a>
           </li>
         
           <li>
@@ -212,7 +212,7 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/不可错过的javascript迷你库/">不可错过的javascript迷你库</a>
+            <a href="/2017/03/28/svn主干分支合并/">svn主干分支合并</a>
           </li>
         
           <li>
@@ -220,23 +220,7 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/svn主干分支合并/">svn主干分支合并</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/js语法规范错误提示代码/">Javascript语法规范错误提示代码</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/JavaScript-事件代理和委托/">JavaScript事件代理和委托（Delegation）</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/JavaScript中this指针指向的彻底理解/">JavaScript中this指针指向的彻底理解</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/JavaScript-模块化编程一/">JavaScript 语言中 模块的写法</a>
+            <a href="/2017/03/28/不可错过的javascript迷你库/">不可错过的javascript迷你库</a>
           </li>
         
           <li>
@@ -244,7 +228,7 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/jQuery.extend 和 jQuery.fn.extend 的区别/">jQuery.extend 和 jQuery.fn.extend 的区别</a>
+            <a href="/2017/03/28/js设计模式/">js设计模式</a>
           </li>
         
           <li>
@@ -252,11 +236,27 @@
           </li>
         
           <li>
+            <a href="/2017/03/28/JavaScript中this指针指向的彻底理解/">JavaScript中this指针指向的彻底理解</a>
+          </li>
+        
+          <li>
             <a href="/2017/03/28/mockjs/">Mock.js使用记录</a>
           </li>
         
           <li>
-            <a href="/2017/03/28/js设计模式/">js设计模式</a>
+            <a href="/2017/03/28/js语法规范错误提示代码/">Javascript语法规范错误提示代码</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/jQuery.extend 和 jQuery.fn.extend 的区别/">jQuery.extend 和 jQuery.fn.extend 的区别</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/JavaScript-事件代理和委托/">JavaScript事件代理和委托（Delegation）</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/JavaScript-模块化编程一/">JavaScript 语言中 模块的写法</a>
           </li>
         
           <li>
@@ -288,19 +288,7 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/hello-hexo/">Hello World</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/fis3配置文档入门/">fis3配置文档</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/angular代码段/">angularjs代码</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/angularTodolist/">angularjs todolist</a>
+            <a href="/2017/03/28/gulp配置文档入门/">gulp配置文档入门</a>
           </li>
         
           <li>
@@ -308,15 +296,27 @@
           </li>
         
           <li>
+            <a href="/2017/03/28/angularTodolist/">angularjs todolist</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/angular代码段/">angularjs代码</a>
+          </li>
+        
+          <li>
             <a href="/2017/03/28/CSS中Position、Float属性深入探讨/">CSS中Position、Float属性深入探讨</a>
           </li>
         
           <li>
-            <a href="/2017/03/28/gulp配置文档入门/">gulp配置文档入门</a>
+            <a href="/2017/03/28/fis3配置文档入门/">fis3配置文档</a>
           </li>
         
           <li>
             <a href="/2017/03/28/git github gitlab/">git github gitlab...</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/hello-hexo/">Hello World</a>
           </li>
         
           <li>

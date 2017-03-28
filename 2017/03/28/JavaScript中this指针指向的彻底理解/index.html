@@ -17,21 +17,21 @@
 理解this的时候会有种琢磨不透的感觉，this的指向在函数定义的时候是确定不了的，只有函数执行的时候才能确定this到底指向谁，实际上this的最终指向的是那个调用它的对象。
 注意一点：在严格版中的默认的this不再是window，而是undefined。
 123456function funName()&amp;#123; var user =">
-<meta property="og:image" content="http://hanwsscan.github.io/2017/03/28/JavaScript中this指针指向的彻底理解/">
-<meta property="og:image" content="http://hanwsscan.github.io/2017/03/28/JavaScript中this指针指向的彻底理解/">
-<meta property="og:image" content="http://hanwsscan.github.io/2017/03/28/JavaScript中this指针指向的彻底理解/">
-<meta property="og:image" content="http://hanwsscan.github.io/2017/03/28/JavaScript中this指针指向的彻底理解/">
-<meta property="og:image" content="http://hanwsscan.github.io/2017/03/28/JavaScript中this指针指向的彻底理解/">
-<meta property="og:image" content="http://hanwsscan.github.io/2017/03/28/JavaScript中this指针指向的彻底理解/">
-<meta property="og:image" content="http://hanwsscan.github.io/2017/03/28/JavaScript中this指针指向的彻底理解/">
-<meta property="og:updated_time" content="2016-04-11T07:50:23.852Z">
+<meta property="og:image" content="http://hanwsscan.github.io/2017/03/28/JavaScript中this指针指向的彻底理解/p01.jpg">
+<meta property="og:image" content="http://hanwsscan.github.io/2017/03/28/JavaScript中this指针指向的彻底理解/p02.jpg">
+<meta property="og:image" content="http://hanwsscan.github.io/2017/03/28/JavaScript中this指针指向的彻底理解/p02.jpg">
+<meta property="og:image" content="http://hanwsscan.github.io/2017/03/28/JavaScript中this指针指向的彻底理解/p03.jpg">
+<meta property="og:image" content="http://hanwsscan.github.io/2017/03/28/JavaScript中this指针指向的彻底理解/p04.jpg">
+<meta property="og:image" content="http://hanwsscan.github.io/2017/03/28/JavaScript中this指针指向的彻底理解/p05.jpg">
+<meta property="og:image" content="http://hanwsscan.github.io/2017/03/28/JavaScript中this指针指向的彻底理解/p06.jpg">
+<meta property="og:updated_time" content="2017-03-28T05:04:54.320Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript中this指针指向的彻底理解">
 <meta name="twitter:description" content="为什么要学习this？因为这是js中必须要掌握的东西。
 理解this的时候会有种琢磨不透的感觉，this的指向在函数定义的时候是确定不了的，只有函数执行的时候才能确定this到底指向谁，实际上this的最终指向的是那个调用它的对象。
 注意一点：在严格版中的默认的this不再是window，而是undefined。
 123456function funName()&amp;#123; var user =">
-<meta name="twitter:image" content="http://hanwsscan.github.io/2017/03/28/JavaScript中this指针指向的彻底理解/">
+<meta name="twitter:image" content="http://hanwsscan.github.io/2017/03/28/JavaScript中this指针指向的彻底理解/p01.jpg">
   
   
     <link rel="icon" href="/favicon.png">
@@ -100,21 +100,21 @@
 <p>理解this的时候会有种琢磨不透的感觉，this的指向在函数定义的时候是确定不了的，只有函数执行的时候才能确定this到底指向谁，实际上this的最终指向的是那个调用它的对象。</p>
 <p>注意一点：在严格版中的默认的this不再是window，而是undefined。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">funName</span>(<span class="params"></span>)</span>&#123;</div><div class="line"> <span class="keyword">var</span> user = <span class="string">"hanwsscan"</span>;</div><div class="line"> <span class="built_in">console</span>.log(<span class="keyword">this</span>.user);</div><div class="line"> <span class="built_in">console</span>.log(<span class="keyword">this</span>);</div><div class="line">&#125;</div><div class="line">funName();</div></pre></td></tr></table></figure>
-<p><img src="/2017/03/28/JavaScript中this指针指向的彻底理解/" alt="Pic01"></p>
+<p><img src="/2017/03/28/JavaScript中this指针指向的彻底理解/p01.jpg" alt="Pic01"></p>
 <p>this指向的是window，所以上面代码就类似执行 window.funName();</p>
 <p>那么我们是不是可以看看，window.funName() 和 window.alert() 有什么区别呢？基本一样的。</p>
 <p>alert()是window的一个方法，我们自定义的funName()也成了window的一个方法！这时候的this就是window。</p>
 <p>那么继续：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> myObj = &#123;</div><div class="line"> <span class="attr">user</span>:<span class="string">"hanwsscan"</span>,</div><div class="line"> <span class="attr">funName</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.user);</div><div class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>);</div><div class="line"> &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">myObj.funName();</div></pre></td></tr></table></figure>
-<p><img src="/2017/03/28/JavaScript中this指针指向的彻底理解/" alt="Pic02"></p>
+<p><img src="/2017/03/28/JavaScript中this指针指向的彻底理解/p02.jpg" alt="Pic02"></p>
 <p>this指向的是一个对象 myObj，myObj调用了funName()方法，所以this指向的是myObj对象；</p>
 <h5 id="this谁调用的就指向谁"><a href="#this谁调用的就指向谁" class="headerlink" title="this谁调用的就指向谁"></a>this谁调用的就指向谁</h5><h5 id="this的指向在函数创建的时候是决定不了的，调用的时候才能决定，谁调用的就指向谁，一定要搞清楚这个。"><a href="#this的指向在函数创建的时候是决定不了的，调用的时候才能决定，谁调用的就指向谁，一定要搞清楚这个。" class="headerlink" title="this的指向在函数创建的时候是决定不了的，调用的时候才能决定，谁调用的就指向谁，一定要搞清楚这个。"></a>this的指向在函数创建的时候是决定不了的，调用的时候才能决定，谁调用的就指向谁，一定要搞清楚这个。</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> myObj = &#123;</div><div class="line"> <span class="attr">user</span>:<span class="string">"hanwsscan"</span>,</div><div class="line"> <span class="attr">funName</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.user);</div><div class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>);</div><div class="line"> &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">window</span>.myObj.funName();</div></pre></td></tr></table></figure>
-<p><img src="/2017/03/28/JavaScript中this指针指向的彻底理解/" alt="Pic02"></p>
+<p><img src="/2017/03/28/JavaScript中this指针指向的彻底理解/p02.jpg" alt="Pic02"></p>
 <p>执行的结果是什么呢？</p>
 <p>这里的this并么有指向window，为什么呢？</p>
 <p>再看下面这个：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> myObj = &#123;</div><div class="line"> <span class="attr">user</span>:<span class="string">"hanwsscan"</span>,</div><div class="line"> <span class="attr">myObj_O</span>:&#123;</div><div class="line">  <span class="attr">user</span>:<span class="string">"hanwsscan_myObj_O"</span>,</div><div class="line">  <span class="attr">funName</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">   <span class="built_in">console</span>.log(<span class="keyword">this</span>.user);</div><div class="line">   <span class="built_in">console</span>.log(<span class="keyword">this</span>);</div><div class="line">  &#125;</div><div class="line"> &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">myObj.myObj_O.funName();</div></pre></td></tr></table></figure>
-<p><img src="/2017/03/28/JavaScript中this指针指向的彻底理解/" alt="Pic03"></p>
+<p><img src="/2017/03/28/JavaScript中this指针指向的彻底理解/p03.jpg" alt="Pic03"></p>
 <p>上面三个例子我们只是为了说明：</p>
 <ul>
 <li>如果一个函数中有this，但是它没有被上一级的对象所调用，那么this指向的就是window。</li>
@@ -122,17 +122,17 @@
 <li>如果一个函数中有this，这个函数中包含多个对象，尽管这个函数是被最外层的对象所调用，this指向的也只是它上一级的对象。</li>
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> myObj = &#123;</div><div class="line"> <span class="attr">user</span>:<span class="string">"hanwsscan"</span>,</div><div class="line"> <span class="attr">myObj_O</span>:&#123;</div><div class="line">  <span class="comment">//user:"hanwsscan_myObj_O",</span></div><div class="line">  funName:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">   <span class="built_in">console</span>.log(<span class="keyword">this</span>.user);</div><div class="line">   <span class="built_in">console</span>.log(<span class="keyword">this</span>);</div><div class="line">  &#125;</div><div class="line"> &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">myObj.myObj_O.funName();</div></pre></td></tr></table></figure>
-<p><img src="/2017/03/28/JavaScript中this指针指向的彻底理解/" alt="Pic04"></p>
+<p><img src="/2017/03/28/JavaScript中this指针指向的彻底理解/p04.jpg" alt="Pic04"></p>
 <p>上面的例子说明就算是对象myObj_O中没有属性user，这个this指向的也是对象myObj_O，因为this只会指向它的上一级对象，不管这个对象中有没有this要的东西。</p>
 <p>那么再来一个让人懵圈的：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> myObj = &#123;</div><div class="line"> <span class="attr">user</span>:<span class="string">"hanwsscan"</span>,</div><div class="line"> <span class="attr">myObj_O</span>:&#123;</div><div class="line">  <span class="attr">user</span>:<span class="string">"hanwsscan_myObj_O"</span>,</div><div class="line">  <span class="attr">funName</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">   <span class="built_in">console</span>.log(<span class="keyword">this</span>.user);</div><div class="line">   <span class="built_in">console</span>.log(<span class="keyword">this</span>);</div><div class="line">  &#125;</div><div class="line"> &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//myObj.myObj_O.funName();</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> f = myObj.myObj_O.funName;</div><div class="line"></div><div class="line">f()</div></pre></td></tr></table></figure>
-<p><img src="/2017/03/28/JavaScript中this指针指向的彻底理解/" alt="Pic05"></p>
+<p><img src="/2017/03/28/JavaScript中this指针指向的彻底理解/p05.jpg" alt="Pic05"></p>
 <p>这里this指向的是window？…….</p>
 <p>this永远指向的是最后调用它的对象，也就是看它执行的时候是谁调用的；是谁调用的，是谁调用的，是谁调用的。</p>
 <p>上面的例子虽然funName被myObj_O引用，但是在将funName赋值给变量f的时候并没有执行，没有执行…所以最终指向的是window。</p>
 <p>所以 this 很难定义确定指向了谁，用调试工具跟踪吧…</p>
 <h4 id="构造函数里的this"><a href="#构造函数里的this" class="headerlink" title="构造函数里的this"></a>构造函数里的this</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Fn</span>(<span class="params"></span>)</span>&#123;</div><div class="line"> <span class="keyword">this</span>.user = <span class="string">"构造函数里的this"</span>;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> Fn();</div><div class="line"><span class="built_in">console</span>.log(a.user);</div></pre></td></tr></table></figure>
-<p><img src="/2017/03/28/JavaScript中this指针指向的彻底理解/" alt="Pic06"></p>
+<p><img src="/2017/03/28/JavaScript中this指针指向的彻底理解/p06.jpg" alt="Pic06"></p>
 <p>为什么this会指向a？new关键字可以改变this的指向，首先new关键字会创建一个空的对象，然后会自动调用一个函数apply方法，将this指向这个空对象，这样的话函数内部的this就会被这个空的对象替代。</p>
 <p>改变this指向的方法还有call,apply,bind等，具体可以查看 <a href="http://www.cnblogs.com/pssp/p/5215621.html" target="_blank" rel="external">JavaScript中call,apply,bind方法的总结</a></p>
 <h4 id="当this碰到return时"><a href="#当this碰到return时" class="headerlink" title="当this碰到return时"></a>当this碰到return时</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//================================</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;  </div><div class="line"> <span class="keyword">this</span>.test = <span class="string">'当this碰到return时'</span>;  </div><div class="line"> <span class="keyword">return</span> &#123;&#125;;  </div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> fn;  </div><div class="line"><span class="built_in">console</span>.log(a.test); <span class="comment">//undefined</span></div><div class="line"><span class="comment">//================================</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;  </div><div class="line"> <span class="keyword">this</span>.test = <span class="string">'当this碰到return时'</span>;  </div><div class="line"> <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> fn;  </div><div class="line"><span class="built_in">console</span>.log(a.test); <span class="comment">//undefined</span></div><div class="line"><span class="comment">//================================</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;  </div><div class="line"> <span class="keyword">this</span>.test = <span class="string">'当this碰到return时'</span>;  </div><div class="line"> <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> fn;  </div><div class="line"><span class="built_in">console</span>.log(a.test); <span class="comment">//当this碰到return时</span></div></pre></td></tr></table></figure>
@@ -145,7 +145,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hanwsscan.github.io/2017/03/28/JavaScript中this指针指向的彻底理解/" data-id="cj0t1npo3000iuww7ss9hixyg" class="article-share-link">Share</a>
+      <a data-url="http://hanwsscan.github.io/2017/03/28/JavaScript中this指针指向的彻底理解/" data-id="cj0t30jik000fyww72y0qa2fi" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/this/">this</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/指针/">指针</a></li></ul>
@@ -156,19 +156,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2017/03/28/JavaScript-事件代理和委托/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/03/28/javascript思维导图/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          JavaScript事件代理和委托（Delegation）
+          javascript思维导图
         
       </div>
     </a>
   
   
-    <a href="/2017/03/28/JavaScript-模块化编程一/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/03/28/mockjs/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">JavaScript 语言中 模块的写法</div>
+      <div class="article-nav-title">Mock.js使用记录</div>
     </a>
   
 </nav>
@@ -187,7 +187,11 @@
       <ul>
         
           <li>
-            <a href="/2017/03/28/一段小代码/">一段小代码</a>
+            <a href="/2017/03/28/聊聊互联网产品的分类/">聊聊互联网产品的分类</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/管理岗是什么/">管理岗是什么鬼？</a>
           </li>
         
           <li>
@@ -199,14 +203,6 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/聊聊互联网产品的分类/">聊聊互联网产品的分类</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/管理岗是什么/">管理岗是什么鬼？</a>
-          </li>
-        
-          <li>
             <a href="/2017/03/28/如何挑选适合的前端框架/">如何挑选适合的前端框架</a>
           </li>
         
@@ -215,11 +211,11 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/一段js代码的升级之旅/">一段代码的升级之旅...</a>
+            <a href="/2017/03/28/一段小代码/">一段小代码</a>
           </li>
         
           <li>
-            <a href="/2017/03/28/根据分辨率改变html根的font-size的值/">根据分辨率改变html根的font-size的值</a>
+            <a href="/2017/03/28/一段js代码的升级之旅/">一段代码的升级之旅...</a>
           </li>
         
           <li>
@@ -231,6 +227,10 @@
           </li>
         
           <li>
+            <a href="/2017/03/28/编写稳健、可维护和可扩展的 Sass/">编写稳健、可维护和可扩展的 Sass</a>
+          </li>
+        
+          <li>
             <a href="/2017/03/28/Vuejs-class-and-style/">Vue-class-and-style 在Vue.js 里处理 class 和 style</a>
           </li>
         
@@ -239,7 +239,7 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/编写稳健、可维护和可扩展的 Sass/">编写稳健、可维护和可扩展的 Sass</a>
+            <a href="/2017/03/28/根据分辨率改变html根的font-size的值/">根据分辨率改变html根的font-size的值</a>
           </li>
         
           <li>
@@ -247,7 +247,7 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/不可错过的javascript迷你库/">不可错过的javascript迷你库</a>
+            <a href="/2017/03/28/svn主干分支合并/">svn主干分支合并</a>
           </li>
         
           <li>
@@ -255,23 +255,7 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/svn主干分支合并/">svn主干分支合并</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/js语法规范错误提示代码/">Javascript语法规范错误提示代码</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/JavaScript-事件代理和委托/">JavaScript事件代理和委托（Delegation）</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/JavaScript中this指针指向的彻底理解/">JavaScript中this指针指向的彻底理解</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/JavaScript-模块化编程一/">JavaScript 语言中 模块的写法</a>
+            <a href="/2017/03/28/不可错过的javascript迷你库/">不可错过的javascript迷你库</a>
           </li>
         
           <li>
@@ -279,7 +263,7 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/jQuery.extend 和 jQuery.fn.extend 的区别/">jQuery.extend 和 jQuery.fn.extend 的区别</a>
+            <a href="/2017/03/28/js设计模式/">js设计模式</a>
           </li>
         
           <li>
@@ -287,11 +271,27 @@
           </li>
         
           <li>
+            <a href="/2017/03/28/JavaScript中this指针指向的彻底理解/">JavaScript中this指针指向的彻底理解</a>
+          </li>
+        
+          <li>
             <a href="/2017/03/28/mockjs/">Mock.js使用记录</a>
           </li>
         
           <li>
-            <a href="/2017/03/28/js设计模式/">js设计模式</a>
+            <a href="/2017/03/28/js语法规范错误提示代码/">Javascript语法规范错误提示代码</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/jQuery.extend 和 jQuery.fn.extend 的区别/">jQuery.extend 和 jQuery.fn.extend 的区别</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/JavaScript-事件代理和委托/">JavaScript事件代理和委托（Delegation）</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/JavaScript-模块化编程一/">JavaScript 语言中 模块的写法</a>
           </li>
         
           <li>
@@ -323,19 +323,7 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/hello-hexo/">Hello World</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/fis3配置文档入门/">fis3配置文档</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/angular代码段/">angularjs代码</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/angularTodolist/">angularjs todolist</a>
+            <a href="/2017/03/28/gulp配置文档入门/">gulp配置文档入门</a>
           </li>
         
           <li>
@@ -343,15 +331,27 @@
           </li>
         
           <li>
+            <a href="/2017/03/28/angularTodolist/">angularjs todolist</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/angular代码段/">angularjs代码</a>
+          </li>
+        
+          <li>
             <a href="/2017/03/28/CSS中Position、Float属性深入探讨/">CSS中Position、Float属性深入探讨</a>
           </li>
         
           <li>
-            <a href="/2017/03/28/gulp配置文档入门/">gulp配置文档入门</a>
+            <a href="/2017/03/28/fis3配置文档入门/">fis3配置文档</a>
           </li>
         
           <li>
             <a href="/2017/03/28/git github gitlab/">git github gitlab...</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/hello-hexo/">Hello World</a>
           </li>
         
           <li>

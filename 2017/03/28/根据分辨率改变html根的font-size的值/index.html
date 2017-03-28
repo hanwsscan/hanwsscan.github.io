@@ -11,13 +11,13 @@
 <meta property="og:url" content="http://hanwsscan.github.io/2017/03/28/根据分辨率改变html根的font-size的值/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="rem 单位123456789101112(function(doc, win) &amp;#123; var docEl = doc.documentElement,  resizeEvt = &apos;orientationchange&apos; in window ? &apos;orientationchange&apos; : &apos;resize&apos;,  recalc = function() &amp;#123;   var clientWi">
-<meta property="og:image" content="http://hanwsscan.github.io/2017/03/28/根据分辨率改变html根的font-size的值/">
-<meta property="og:image" content="http://hanwsscan.github.io/2017/03/28/根据分辨率改变html根的font-size的值/">
-<meta property="og:updated_time" content="2016-03-03T08:18:35.751Z">
+<meta property="og:image" content="http://hanwsscan.github.io/2017/03/28/根据分辨率改变html根的font-size的值/fs20160303150753.png">
+<meta property="og:image" content="http://hanwsscan.github.io/2017/03/28/根据分辨率改变html根的font-size的值/fs20160303150831.png">
+<meta property="og:updated_time" content="2017-03-28T05:07:09.020Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="根据分辨率改变html根的font-size的值">
 <meta name="twitter:description" content="rem 单位123456789101112(function(doc, win) &amp;#123; var docEl = doc.documentElement,  resizeEvt = &apos;orientationchange&apos; in window ? &apos;orientationchange&apos; : &apos;resize&apos;,  recalc = function() &amp;#123;   var clientWi">
-<meta name="twitter:image" content="http://hanwsscan.github.io/2017/03/28/根据分辨率改变html根的font-size的值/">
+<meta name="twitter:image" content="http://hanwsscan.github.io/2017/03/28/根据分辨率改变html根的font-size的值/fs20160303150753.png">
   
   
     <link rel="icon" href="/favicon.png">
@@ -84,13 +84,13 @@
       
         <h3 id="rem-单位"><a href="#rem-单位" class="headerlink" title="rem 单位"></a>rem 单位</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">doc, win</span>) </span>&#123;</div><div class="line"> <span class="keyword">var</span> docEl = doc.documentElement,</div><div class="line">  resizeEvt = <span class="string">'orientationchange'</span> <span class="keyword">in</span> <span class="built_in">window</span> ? <span class="string">'orientationchange'</span> : <span class="string">'resize'</span>,</div><div class="line">  recalc = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">   <span class="keyword">var</span> clientWidth = docEl.clientWidth;</div><div class="line">   <span class="keyword">if</span> (!clientWidth) <span class="keyword">return</span>;</div><div class="line">   docEl.style.fontSize = <span class="number">20</span> * (clientWidth / <span class="number">320</span>) + <span class="string">'px'</span>;</div><div class="line">  &#125;;</div><div class="line"> <span class="keyword">if</span> (!doc.addEventListener) <span class="keyword">return</span>;</div><div class="line"> win.addEventListener(resizeEvt, recalc, <span class="literal">false</span>);</div><div class="line"> doc.addEventListener(<span class="string">'DOMContentLoaded'</span>, recalc, <span class="literal">false</span>);</div><div class="line">&#125;)(<span class="built_in">document</span>, <span class="built_in">window</span>);</div></pre></td></tr></table></figure>
 <h4 id="改变html的font-size可以等比改变所有用了rem单位的元素"><a href="#改变html的font-size可以等比改变所有用了rem单位的元素" class="headerlink" title="改变html的font-size可以等比改变所有用了rem单位的元素;"></a>改变html的font-size可以等比改变所有用了rem单位的元素;</h4><a id="more"></a>
-<p><img src="/2017/03/28/根据分辨率改变html根的font-size的值/" alt="示例1"></p>
-<p><img src="/2017/03/28/根据分辨率改变html根的font-size的值/" alt="示例2"></p>
+<p><img src="/2017/03/28/根据分辨率改变html根的font-size的值/fs20160303150753.png" alt="示例1"></p>
+<p><img src="/2017/03/28/根据分辨率改变html根的font-size的值/fs20160303150831.png" alt="示例2"></p>
 <h5 id="rem（font-size-of-the-root-element）是指相对于根元素-html-的字体大小的单位。"><a href="#rem（font-size-of-the-root-element）是指相对于根元素-html-的字体大小的单位。" class="headerlink" title="rem（font size of the root element）是指相对于根元素(html)的字体大小的单位。"></a>rem（font size of the root element）是指相对于根元素(html)的字体大小的单位。</h5><h5 id="em（font-size-of-the-element）是指相对于父元素的字体大小的单位。"><a href="#em（font-size-of-the-element）是指相对于父元素的字体大小的单位。" class="headerlink" title="em（font size of the element）是指相对于父元素的字体大小的单位。"></a>em（font size of the element）是指相对于父元素的字体大小的单位。</h5>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hanwsscan.github.io/2017/03/28/根据分辨率改变html根的font-size的值/" data-id="cj0t1npqj0026uww7nxa4j5x6" class="article-share-link">Share</a>
+      <a data-url="http://hanwsscan.github.io/2017/03/28/根据分辨率改变html根的font-size的值/" data-id="cj0t30jkr0022yww71lik44ic" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/">html</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
@@ -101,19 +101,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2017/03/28/一段js代码的升级之旅/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/03/28/What is the difference between Bower and npm/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          一段代码的升级之旅...
+          What is the difference between Bower and npm?
         
       </div>
     </a>
   
   
-    <a href="/2017/03/28/nvm管理node/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/03/28/初识requirejs/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">nvm管理node</div>
+      <div class="article-nav-title">初识requirejs</div>
     </a>
   
 </nav>
@@ -132,7 +132,11 @@
       <ul>
         
           <li>
-            <a href="/2017/03/28/一段小代码/">一段小代码</a>
+            <a href="/2017/03/28/聊聊互联网产品的分类/">聊聊互联网产品的分类</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/管理岗是什么/">管理岗是什么鬼？</a>
           </li>
         
           <li>
@@ -144,14 +148,6 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/聊聊互联网产品的分类/">聊聊互联网产品的分类</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/管理岗是什么/">管理岗是什么鬼？</a>
-          </li>
-        
-          <li>
             <a href="/2017/03/28/如何挑选适合的前端框架/">如何挑选适合的前端框架</a>
           </li>
         
@@ -160,11 +156,11 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/一段js代码的升级之旅/">一段代码的升级之旅...</a>
+            <a href="/2017/03/28/一段小代码/">一段小代码</a>
           </li>
         
           <li>
-            <a href="/2017/03/28/根据分辨率改变html根的font-size的值/">根据分辨率改变html根的font-size的值</a>
+            <a href="/2017/03/28/一段js代码的升级之旅/">一段代码的升级之旅...</a>
           </li>
         
           <li>
@@ -176,6 +172,10 @@
           </li>
         
           <li>
+            <a href="/2017/03/28/编写稳健、可维护和可扩展的 Sass/">编写稳健、可维护和可扩展的 Sass</a>
+          </li>
+        
+          <li>
             <a href="/2017/03/28/Vuejs-class-and-style/">Vue-class-and-style 在Vue.js 里处理 class 和 style</a>
           </li>
         
@@ -184,7 +184,7 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/编写稳健、可维护和可扩展的 Sass/">编写稳健、可维护和可扩展的 Sass</a>
+            <a href="/2017/03/28/根据分辨率改变html根的font-size的值/">根据分辨率改变html根的font-size的值</a>
           </li>
         
           <li>
@@ -192,7 +192,7 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/不可错过的javascript迷你库/">不可错过的javascript迷你库</a>
+            <a href="/2017/03/28/svn主干分支合并/">svn主干分支合并</a>
           </li>
         
           <li>
@@ -200,23 +200,7 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/svn主干分支合并/">svn主干分支合并</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/js语法规范错误提示代码/">Javascript语法规范错误提示代码</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/JavaScript-事件代理和委托/">JavaScript事件代理和委托（Delegation）</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/JavaScript中this指针指向的彻底理解/">JavaScript中this指针指向的彻底理解</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/JavaScript-模块化编程一/">JavaScript 语言中 模块的写法</a>
+            <a href="/2017/03/28/不可错过的javascript迷你库/">不可错过的javascript迷你库</a>
           </li>
         
           <li>
@@ -224,7 +208,7 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/jQuery.extend 和 jQuery.fn.extend 的区别/">jQuery.extend 和 jQuery.fn.extend 的区别</a>
+            <a href="/2017/03/28/js设计模式/">js设计模式</a>
           </li>
         
           <li>
@@ -232,11 +216,27 @@
           </li>
         
           <li>
+            <a href="/2017/03/28/JavaScript中this指针指向的彻底理解/">JavaScript中this指针指向的彻底理解</a>
+          </li>
+        
+          <li>
             <a href="/2017/03/28/mockjs/">Mock.js使用记录</a>
           </li>
         
           <li>
-            <a href="/2017/03/28/js设计模式/">js设计模式</a>
+            <a href="/2017/03/28/js语法规范错误提示代码/">Javascript语法规范错误提示代码</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/jQuery.extend 和 jQuery.fn.extend 的区别/">jQuery.extend 和 jQuery.fn.extend 的区别</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/JavaScript-事件代理和委托/">JavaScript事件代理和委托（Delegation）</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/JavaScript-模块化编程一/">JavaScript 语言中 模块的写法</a>
           </li>
         
           <li>
@@ -268,19 +268,7 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/hello-hexo/">Hello World</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/fis3配置文档入门/">fis3配置文档</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/angular代码段/">angularjs代码</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/angularTodolist/">angularjs todolist</a>
+            <a href="/2017/03/28/gulp配置文档入门/">gulp配置文档入门</a>
           </li>
         
           <li>
@@ -288,15 +276,27 @@
           </li>
         
           <li>
+            <a href="/2017/03/28/angularTodolist/">angularjs todolist</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/angular代码段/">angularjs代码</a>
+          </li>
+        
+          <li>
             <a href="/2017/03/28/CSS中Position、Float属性深入探讨/">CSS中Position、Float属性深入探讨</a>
           </li>
         
           <li>
-            <a href="/2017/03/28/gulp配置文档入门/">gulp配置文档入门</a>
+            <a href="/2017/03/28/fis3配置文档入门/">fis3配置文档</a>
           </li>
         
           <li>
             <a href="/2017/03/28/git github gitlab/">git github gitlab...</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/hello-hexo/">Hello World</a>
           </li>
         
           <li>

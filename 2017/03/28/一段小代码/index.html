@@ -15,16 +15,16 @@
 <meta property="og:description" content="记录搜集一些代码，整理知识点，比较散乱，只做记录
 知识点：函数声明提升；函数声明最重要的特征就是函数声明提升，也就是说，执行代码之前，会先读取函数声明，就意味着可以把函数声明放到调用它的后面；而函数表达式则不可以提前调用；
 12345678910111213funName()//正确执行，函数声明会在代码执行之前读取function funName()&amp;#123;		 console.log(th">
-<meta property="og:image" content="http://hanwsscan.github.io/2017/03/28/一段小代码/">
-<meta property="og:image" content="http://hanwsscan.github.io/2017/03/28/一段小代码/">
-<meta property="og:image" content="http://hanwsscan.github.io/2017/03/28/一段小代码/">
-<meta property="og:updated_time" content="2016-04-21T09:25:35.416Z">
+<meta property="og:image" content="http://hanwsscan.github.io/2017/03/28/一段小代码/dm02.jpg">
+<meta property="og:image" content="http://hanwsscan.github.io/2017/03/28/一段小代码/dm03.jpg">
+<meta property="og:image" content="http://hanwsscan.github.io/2017/03/28/一段小代码/dm01.jpg">
+<meta property="og:updated_time" content="2017-03-28T05:07:50.901Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一段小代码">
 <meta name="twitter:description" content="记录搜集一些代码，整理知识点，比较散乱，只做记录
 知识点：函数声明提升；函数声明最重要的特征就是函数声明提升，也就是说，执行代码之前，会先读取函数声明，就意味着可以把函数声明放到调用它的后面；而函数表达式则不可以提前调用；
 12345678910111213funName()//正确执行，函数声明会在代码执行之前读取function funName()&amp;#123;		 console.log(th">
-<meta name="twitter:image" content="http://hanwsscan.github.io/2017/03/28/一段小代码/">
+<meta name="twitter:image" content="http://hanwsscan.github.io/2017/03/28/一段小代码/dm02.jpg">
   
   
     <link rel="icon" href="/favicon.png">
@@ -93,12 +93,12 @@
 <h5 id="知识点：函数声明提升；"><a href="#知识点：函数声明提升；" class="headerlink" title="知识点：函数声明提升；"></a>知识点：函数声明提升；</h5><p>函数声明最重要的特征就是函数声明提升，也就是说，执行代码之前，会先读取函数声明，就意味着可以把函数声明放到调用它的后面；而函数表达式则不可以提前调用；</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">funName()</div><div class="line"><span class="comment">//正确执行，函数声明会在代码执行之前读取</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">funName</span>(<span class="params"></span>)</span>&#123;		</div><div class="line"> <span class="built_in">console</span>.log(<span class="keyword">this</span>)</div><div class="line">&#125;</div><div class="line"></div><div class="line">funName2()</div><div class="line"><span class="comment">//会报错，函数还不存在</span></div><div class="line"></div><div class="line"><span class="comment">//创建一个函数赋值给变量 funName2；这种函数也叫匿名函数，也叫拉姆达函数；</span></div><div class="line"><span class="keyword">var</span> funName2 = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line"> <span class="built_in">console</span>.log(<span class="string">'函数表达式 匿名函数 拉姆达函数'</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h5 id="下面这道题目，考点就是在于理解函数声明的提前读取；"><a href="#下面这道题目，考点就是在于理解函数声明的提前读取；" class="headerlink" title="下面这道题目，考点就是在于理解函数声明的提前读取；"></a>下面这道题目，考点就是在于理解函数声明的提前读取；</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params">s</span>)</span>&#123;</div><div class="line"> <span class="built_in">console</span>.log(s);</div><div class="line"> <span class="keyword">var</span> s = <span class="number">100</span>;				</div><div class="line"> <span class="function"><span class="keyword">function</span> <span class="title">s</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'hi'</span>)</div><div class="line"> &#125;</div><div class="line"> <span class="built_in">console</span>.log(s)</div><div class="line"> &#125;</div><div class="line">			</div><div class="line">fun(<span class="number">99</span>);</div></pre></td></tr></table></figure>
-<p><img src="/2017/03/28/一段小代码/" alt="执行结果"><br><img src="/2017/03/28/一段小代码/" alt="执行结果"><br><img src="/2017/03/28/一段小代码/" alt="执行结果"></p>
+<p><img src="/2017/03/28/一段小代码/dm02.jpg" alt="执行结果"><br><img src="/2017/03/28/一段小代码/dm03.jpg" alt="执行结果"><br><img src="/2017/03/28/一段小代码/dm01.jpg" alt="执行结果"></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hanwsscan.github.io/2017/03/28/一段小代码/" data-id="cj0t1npr0002luww72xlecgz0" class="article-share-link">Share</a>
+      <a data-url="http://hanwsscan.github.io/2017/03/28/一段小代码/" data-id="cj0t30jka001qyww7jskjgqwn" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
@@ -109,10 +109,19 @@
     
 <nav id="article-nav">
   
+    <a href="/2017/03/28/信息无障碍技术/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          信息无障碍技术
+        
+      </div>
+    </a>
   
-    <a href="/2017/03/28/项目总结/" id="article-nav-older" class="article-nav-link-wrap">
+  
+    <a href="/2017/03/28/一段js代码的升级之旅/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">项目总结</div>
+      <div class="article-nav-title">一段代码的升级之旅...</div>
     </a>
   
 </nav>
@@ -131,7 +140,11 @@
       <ul>
         
           <li>
-            <a href="/2017/03/28/一段小代码/">一段小代码</a>
+            <a href="/2017/03/28/聊聊互联网产品的分类/">聊聊互联网产品的分类</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/管理岗是什么/">管理岗是什么鬼？</a>
           </li>
         
           <li>
@@ -143,14 +156,6 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/聊聊互联网产品的分类/">聊聊互联网产品的分类</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/管理岗是什么/">管理岗是什么鬼？</a>
-          </li>
-        
-          <li>
             <a href="/2017/03/28/如何挑选适合的前端框架/">如何挑选适合的前端框架</a>
           </li>
         
@@ -159,11 +164,11 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/一段js代码的升级之旅/">一段代码的升级之旅...</a>
+            <a href="/2017/03/28/一段小代码/">一段小代码</a>
           </li>
         
           <li>
-            <a href="/2017/03/28/根据分辨率改变html根的font-size的值/">根据分辨率改变html根的font-size的值</a>
+            <a href="/2017/03/28/一段js代码的升级之旅/">一段代码的升级之旅...</a>
           </li>
         
           <li>
@@ -175,6 +180,10 @@
           </li>
         
           <li>
+            <a href="/2017/03/28/编写稳健、可维护和可扩展的 Sass/">编写稳健、可维护和可扩展的 Sass</a>
+          </li>
+        
+          <li>
             <a href="/2017/03/28/Vuejs-class-and-style/">Vue-class-and-style 在Vue.js 里处理 class 和 style</a>
           </li>
         
@@ -183,7 +192,7 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/编写稳健、可维护和可扩展的 Sass/">编写稳健、可维护和可扩展的 Sass</a>
+            <a href="/2017/03/28/根据分辨率改变html根的font-size的值/">根据分辨率改变html根的font-size的值</a>
           </li>
         
           <li>
@@ -191,7 +200,7 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/不可错过的javascript迷你库/">不可错过的javascript迷你库</a>
+            <a href="/2017/03/28/svn主干分支合并/">svn主干分支合并</a>
           </li>
         
           <li>
@@ -199,23 +208,7 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/svn主干分支合并/">svn主干分支合并</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/js语法规范错误提示代码/">Javascript语法规范错误提示代码</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/JavaScript-事件代理和委托/">JavaScript事件代理和委托（Delegation）</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/JavaScript中this指针指向的彻底理解/">JavaScript中this指针指向的彻底理解</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/JavaScript-模块化编程一/">JavaScript 语言中 模块的写法</a>
+            <a href="/2017/03/28/不可错过的javascript迷你库/">不可错过的javascript迷你库</a>
           </li>
         
           <li>
@@ -223,7 +216,7 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/jQuery.extend 和 jQuery.fn.extend 的区别/">jQuery.extend 和 jQuery.fn.extend 的区别</a>
+            <a href="/2017/03/28/js设计模式/">js设计模式</a>
           </li>
         
           <li>
@@ -231,11 +224,27 @@
           </li>
         
           <li>
+            <a href="/2017/03/28/JavaScript中this指针指向的彻底理解/">JavaScript中this指针指向的彻底理解</a>
+          </li>
+        
+          <li>
             <a href="/2017/03/28/mockjs/">Mock.js使用记录</a>
           </li>
         
           <li>
-            <a href="/2017/03/28/js设计模式/">js设计模式</a>
+            <a href="/2017/03/28/js语法规范错误提示代码/">Javascript语法规范错误提示代码</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/jQuery.extend 和 jQuery.fn.extend 的区别/">jQuery.extend 和 jQuery.fn.extend 的区别</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/JavaScript-事件代理和委托/">JavaScript事件代理和委托（Delegation）</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/JavaScript-模块化编程一/">JavaScript 语言中 模块的写法</a>
           </li>
         
           <li>
@@ -267,19 +276,7 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/hello-hexo/">Hello World</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/fis3配置文档入门/">fis3配置文档</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/angular代码段/">angularjs代码</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/angularTodolist/">angularjs todolist</a>
+            <a href="/2017/03/28/gulp配置文档入门/">gulp配置文档入门</a>
           </li>
         
           <li>
@@ -287,15 +284,27 @@
           </li>
         
           <li>
+            <a href="/2017/03/28/angularTodolist/">angularjs todolist</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/angular代码段/">angularjs代码</a>
+          </li>
+        
+          <li>
             <a href="/2017/03/28/CSS中Position、Float属性深入探讨/">CSS中Position、Float属性深入探讨</a>
           </li>
         
           <li>
-            <a href="/2017/03/28/gulp配置文档入门/">gulp配置文档入门</a>
+            <a href="/2017/03/28/fis3配置文档入门/">fis3配置文档</a>
           </li>
         
           <li>
             <a href="/2017/03/28/git github gitlab/">git github gitlab...</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/hello-hexo/">Hello World</a>
           </li>
         
           <li>

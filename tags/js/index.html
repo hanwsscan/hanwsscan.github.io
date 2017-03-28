@@ -82,7 +82,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hanwsscan.github.io/2017/03/28/vue2-vue-cli/" data-id="cj0t1npq4001uuww74azfnhid" class="article-share-link">Share</a>
+      <a data-url="http://hanwsscan.github.io/2017/03/28/vue2-vue-cli/" data-id="cj0t30jka001myww7q0pkz4h4" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mvvm/">mvvm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue2/">vue2</a></li></ul>
@@ -120,7 +120,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hanwsscan.github.io/2017/03/28/js语法规范错误提示代码/" data-id="cj0t1nppe001cuww73yuo5mfd" class="article-share-link">Share</a>
+      <a data-url="http://hanwsscan.github.io/2017/03/28/js语法规范错误提示代码/" data-id="cj0t30jjf001fyww7j9nz3o53" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/规范/">规范</a></li></ul>
@@ -154,7 +154,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="首先是需求，我希望在列表里循环出来10条模拟数据，包含4列，分别是用户昵称、姓名、手机号、状态"><a href="#首先是需求，我希望在列表里循环出来10条模拟数据，包含4列，分别是用户昵称、姓名、手机号、状态" class="headerlink" title="首先是需求，我希望在列表里循环出来10条模拟数据，包含4列，分别是用户昵称、姓名、手机号、状态"></a>首先是需求，我希望在列表里循环出来10条模拟数据，包含4列，分别是用户昵称、姓名、手机号、状态</h4><p><img src="/2017/03/28/mockjs/" alt="图示"></p>
+        <h4 id="首先是需求，我希望在列表里循环出来10条模拟数据，包含4列，分别是用户昵称、姓名、手机号、状态"><a href="#首先是需求，我希望在列表里循环出来10条模拟数据，包含4列，分别是用户昵称、姓名、手机号、状态" class="headerlink" title="首先是需求，我希望在列表里循环出来10条模拟数据，包含4列，分别是用户昵称、姓名、手机号、状态"></a>首先是需求，我希望在列表里循环出来10条模拟数据，包含4列，分别是用户昵称、姓名、手机号、状态</h4><p><img src="/2017/03/28/mockjs/mockjs.png" alt="图示"></p>
 <h4 id="最开始我用这种，自己手动写个假的json，然后调用"><a href="#最开始我用这种，自己手动写个假的json，然后调用" class="headerlink" title="最开始我用这种，自己手动写个假的json，然后调用"></a>最开始我用这种，自己手动写个假的json，然后调用</h4><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">	"datalist":[&#123;</div><div class="line">		"name":"nnnn1",</div><div class="line">		"cname":"xxxx1",</div><div class="line">		"phoneNum":"13311111111",</div><div class="line">		"status":"使用中"</div><div class="line">		&#125;,&#123;</div><div class="line">		"name":"nnnn2",</div><div class="line">		"cname":"xxxx2",</div><div class="line">		"phoneNum":"13322222222",</div><div class="line">		"status":"已停用"		</div><div class="line">		&#125;,&#123;</div><div class="line">		"name":"nnnn3",</div><div class="line">		"cname":"xxxx3",</div><div class="line">		"phoneNum":"13333333333",</div><div class="line">		"status":"已停用"		</div><div class="line">		&#125;...</div><div class="line">	]</div><div class="line">`</div></pre></td></tr></table></figure>
 <p>复制10条，改每一条的数据来进行模拟…也还好，不算多…</p>
 <h4 id="但是Mockjs更吊-10行代码不用，满足需求，且往下看…"><a href="#但是Mockjs更吊-10行代码不用，满足需求，且往下看…" class="headerlink" title="但是Mockjs更吊,10行代码不用，满足需求，且往下看…"></a>但是Mockjs更吊,10行代码不用，满足需求，且往下看…</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> dataMock = Mock.mock(&#123;</div><div class="line">	<span class="string">'datalist|10'</span>: [&#123;</div><div class="line">	<span class="string">'id|+1'</span>: <span class="number">1</span>,</div><div class="line">	<span class="string">'name'</span>: <span class="string">'@name'</span>,</div><div class="line">	<span class="string">'cname'</span>: <span class="string">'@cname'</span>,</div><div class="line">	<span class="string">'phoneNum'</span>: <span class="regexp">/^13[0-9]&#123;9&#125;$/</span>,</div><div class="line">	<span class="string">'status|1'</span>: [<span class="string">"使用中"</span>, <span class="string">"已停用"</span>]</div><div class="line">	&#125;]</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
@@ -171,7 +171,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hanwsscan.github.io/2017/03/28/mockjs/" data-id="cj0t1nppe001huww7bl5rizqv" class="article-share-link">Share</a>
+      <a data-url="http://hanwsscan.github.io/2017/03/28/mockjs/" data-id="cj0t30jjv001iyww7gdjqgf6s" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mockjs/">mockjs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前后端分离/">前后端分离</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/模拟数据/">模拟数据</a></li></ul>
@@ -210,7 +210,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hanwsscan.github.io/2017/03/28/angularTodolist/" data-id="cj0t1npoj000suww7vr6czh4p" class="article-share-link">Share</a>
+      <a data-url="http://hanwsscan.github.io/2017/03/28/angularTodolist/" data-id="cj0t30jj0000qyww7mdg5zhqd" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angular/">angular</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mvvm/">mvvm</a></li></ul>
@@ -250,7 +250,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hanwsscan.github.io/2017/03/28/angular代码段/" data-id="cj0t1npoj000tuww74hss95xw" class="article-share-link">Share</a>
+      <a data-url="http://hanwsscan.github.io/2017/03/28/angular代码段/" data-id="cj0t30jj0000syww7t2gp5b5y" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angular/">angular</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mvvm/">mvvm</a></li></ul>
@@ -288,7 +288,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hanwsscan.github.io/2017/03/28/65条最常用正则表达式/" data-id="cj0t1npn60000uww7rnnhc2co" class="article-share-link">Share</a>
+      <a data-url="http://hanwsscan.github.io/2017/03/28/65条最常用正则表达式/" data-id="cj0t30ji40005yww7vioag5w2" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/正则/">正则</a></li></ul>
@@ -312,7 +312,11 @@
       <ul>
         
           <li>
-            <a href="/2017/03/28/一段小代码/">一段小代码</a>
+            <a href="/2017/03/28/聊聊互联网产品的分类/">聊聊互联网产品的分类</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/管理岗是什么/">管理岗是什么鬼？</a>
           </li>
         
           <li>
@@ -324,14 +328,6 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/聊聊互联网产品的分类/">聊聊互联网产品的分类</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/管理岗是什么/">管理岗是什么鬼？</a>
-          </li>
-        
-          <li>
             <a href="/2017/03/28/如何挑选适合的前端框架/">如何挑选适合的前端框架</a>
           </li>
         
@@ -340,11 +336,11 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/一段js代码的升级之旅/">一段代码的升级之旅...</a>
+            <a href="/2017/03/28/一段小代码/">一段小代码</a>
           </li>
         
           <li>
-            <a href="/2017/03/28/根据分辨率改变html根的font-size的值/">根据分辨率改变html根的font-size的值</a>
+            <a href="/2017/03/28/一段js代码的升级之旅/">一段代码的升级之旅...</a>
           </li>
         
           <li>
@@ -356,6 +352,10 @@
           </li>
         
           <li>
+            <a href="/2017/03/28/编写稳健、可维护和可扩展的 Sass/">编写稳健、可维护和可扩展的 Sass</a>
+          </li>
+        
+          <li>
             <a href="/2017/03/28/Vuejs-class-and-style/">Vue-class-and-style 在Vue.js 里处理 class 和 style</a>
           </li>
         
@@ -364,7 +364,7 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/编写稳健、可维护和可扩展的 Sass/">编写稳健、可维护和可扩展的 Sass</a>
+            <a href="/2017/03/28/根据分辨率改变html根的font-size的值/">根据分辨率改变html根的font-size的值</a>
           </li>
         
           <li>
@@ -372,7 +372,7 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/不可错过的javascript迷你库/">不可错过的javascript迷你库</a>
+            <a href="/2017/03/28/svn主干分支合并/">svn主干分支合并</a>
           </li>
         
           <li>
@@ -380,23 +380,7 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/svn主干分支合并/">svn主干分支合并</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/js语法规范错误提示代码/">Javascript语法规范错误提示代码</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/JavaScript-事件代理和委托/">JavaScript事件代理和委托（Delegation）</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/JavaScript中this指针指向的彻底理解/">JavaScript中this指针指向的彻底理解</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/JavaScript-模块化编程一/">JavaScript 语言中 模块的写法</a>
+            <a href="/2017/03/28/不可错过的javascript迷你库/">不可错过的javascript迷你库</a>
           </li>
         
           <li>
@@ -404,7 +388,7 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/jQuery.extend 和 jQuery.fn.extend 的区别/">jQuery.extend 和 jQuery.fn.extend 的区别</a>
+            <a href="/2017/03/28/js设计模式/">js设计模式</a>
           </li>
         
           <li>
@@ -412,11 +396,27 @@
           </li>
         
           <li>
+            <a href="/2017/03/28/JavaScript中this指针指向的彻底理解/">JavaScript中this指针指向的彻底理解</a>
+          </li>
+        
+          <li>
             <a href="/2017/03/28/mockjs/">Mock.js使用记录</a>
           </li>
         
           <li>
-            <a href="/2017/03/28/js设计模式/">js设计模式</a>
+            <a href="/2017/03/28/js语法规范错误提示代码/">Javascript语法规范错误提示代码</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/jQuery.extend 和 jQuery.fn.extend 的区别/">jQuery.extend 和 jQuery.fn.extend 的区别</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/JavaScript-事件代理和委托/">JavaScript事件代理和委托（Delegation）</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/JavaScript-模块化编程一/">JavaScript 语言中 模块的写法</a>
           </li>
         
           <li>
@@ -448,19 +448,7 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/hello-hexo/">Hello World</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/fis3配置文档入门/">fis3配置文档</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/angular代码段/">angularjs代码</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/angularTodolist/">angularjs todolist</a>
+            <a href="/2017/03/28/gulp配置文档入门/">gulp配置文档入门</a>
           </li>
         
           <li>
@@ -468,15 +456,27 @@
           </li>
         
           <li>
+            <a href="/2017/03/28/angularTodolist/">angularjs todolist</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/angular代码段/">angularjs代码</a>
+          </li>
+        
+          <li>
             <a href="/2017/03/28/CSS中Position、Float属性深入探讨/">CSS中Position、Float属性深入探讨</a>
           </li>
         
           <li>
-            <a href="/2017/03/28/gulp配置文档入门/">gulp配置文档入门</a>
+            <a href="/2017/03/28/fis3配置文档入门/">fis3配置文档</a>
           </li>
         
           <li>
             <a href="/2017/03/28/git github gitlab/">git github gitlab...</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/hello-hexo/">Hello World</a>
           </li>
         
           <li>

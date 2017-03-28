@@ -25,14 +25,14 @@ MVC（Model-View-Controller）是最常见的软件架构之一，业界有着�
 视图（View）：用户界面。
 控制器（Controller）：业务逻辑
 模型（Model）：数据保存">
+<meta property="og:image" content="http://hanwsscan.github.io/2017/03/28/MVC、MVP、MVVM的图示/bg2015020104.png">
+<meta property="og:image" content="http://hanwsscan.github.io/2017/03/28/MVC、MVP、MVVM的图示/bg2015020105.png">
+<meta property="og:image" content="http://hanwsscan.github.io/2017/03/28/MVC、MVP、MVVM的图示/bg2015020106.png">
+<meta property="og:image" content="http://hanwsscan.github.io/2017/03/28/MVC、MVP、MVVM的图示/bg2015020107.png">
 <meta property="og:image" content="http://hanwsscan.github.io/2017/03/28/MVC、MVP、MVVM的图示/">
-<meta property="og:image" content="http://hanwsscan.github.io/2017/03/28/MVC、MVP、MVVM的图示/">
-<meta property="og:image" content="http://hanwsscan.github.io/2017/03/28/MVC、MVP、MVVM的图示/">
-<meta property="og:image" content="http://hanwsscan.github.io/2017/03/28/MVC、MVP、MVVM的图示/">
-<meta property="og:image" content="http://hanwsscan.github.io/2017/03/28/MVC、MVP、MVVM的图示/">
-<meta property="og:image" content="http://hanwsscan.github.io/2017/03/28/MVC、MVP、MVVM的图示/">
-<meta property="og:image" content="http://hanwsscan.github.io/2017/03/28/MVC、MVP、MVVM的图示/">
-<meta property="og:updated_time" content="2016-04-20T02:29:30.236Z">
+<meta property="og:image" content="http://hanwsscan.github.io/2017/03/28/MVC、MVP、MVVM的图示/bg2015020109.png">
+<meta property="og:image" content="http://hanwsscan.github.io/2017/03/28/MVC、MVP、MVVM的图示/bg2015020110.png">
+<meta property="og:updated_time" content="2017-03-28T05:05:43.386Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MVC、MVP、MVVM的图示">
 <meta name="twitter:description" content="复杂的软件必须有清晰合理的架构，否则无法开发和维护。
@@ -43,7 +43,7 @@ MVC（Model-View-Controller）是最常见的软件架构之一，业界有着�
 视图（View）：用户界面。
 控制器（Controller）：业务逻辑
 模型（Model）：数据保存">
-<meta name="twitter:image" content="http://hanwsscan.github.io/2017/03/28/MVC、MVP、MVVM的图示/">
+<meta name="twitter:image" content="http://hanwsscan.github.io/2017/03/28/MVC、MVP、MVVM的图示/bg2015020104.png">
   
   
     <link rel="icon" href="/favicon.png">
@@ -111,14 +111,14 @@ MVC（Model-View-Controller）是最常见的软件架构之一，业界有着�
         <p>复杂的软件必须有清晰合理的架构，否则无法开发和维护。</p>
 <p>MVC（Model-View-Controller）是最常见的软件架构之一，业界有着广泛应用。它本身很容易理解，但是要讲清楚，它与衍生的 MVP 和 MVVM 架构的区别就不容易了。</p>
 <h5 id="一、MVC"><a href="#一、MVC" class="headerlink" title="一、MVC"></a>一、MVC</h5><p>MVC模式的意思是，软件可以分成三个部分。</p>
-<p><img src="/2017/03/28/MVC、MVP、MVVM的图示/" alt="MVC"></p>
+<p><img src="/2017/03/28/MVC、MVP、MVVM的图示/bg2015020104.png" alt="MVC"></p>
 <ul>
 <li>视图（View）：用户界面。</li>
 <li>控制器（Controller）：业务逻辑</li>
 <li>模型（Model）：数据保存</li>
 </ul>
 <p>各部分之间的通信方式如下。</p>
-<p><img src="/2017/03/28/MVC、MVP、MVVM的图示/" alt="MVC"></p>
+<p><img src="/2017/03/28/MVC、MVP、MVVM的图示/bg2015020105.png" alt="MVC"></p>
 <ul>
 <li>View 传送指令到 Controller</li>
 <li>Controller 完成业务逻辑后，要求 Model 改变状态</li>
@@ -126,9 +126,9 @@ MVC（Model-View-Controller）是最常见的软件架构之一，业界有着�
 </ul>
 <p>所有通信都是单向的。</p>
 <h5 id="二、互动模式"><a href="#二、互动模式" class="headerlink" title="二、互动模式"></a>二、互动模式</h5><p>接受用户指令时，MVC 可以分成两种方式。一种是通过 View 接受指令，传递给 Controller。</p>
-<p><img src="/2017/03/28/MVC、MVP、MVVM的图示/" alt="MVC"></p>
+<p><img src="/2017/03/28/MVC、MVP、MVVM的图示/bg2015020106.png" alt="MVC"></p>
 <p>另一种是直接通过controller接受指令。</p>
-<p><img src="/2017/03/28/MVC、MVP、MVVM的图示/" alt="MVC"></p>
+<p><img src="/2017/03/28/MVC、MVP、MVVM的图示/bg2015020107.png" alt="MVC"></p>
 <h5 id="三、实例：Backbone"><a href="#三、实例：Backbone" class="headerlink" title="三、实例：Backbone"></a>三、实例：Backbone</h5><p><img src="/2017/03/28/MVC、MVP、MVVM的图示/" alt="Backbone"></p>
 <ol>
 <li>用户可以向 View 发送指令（DOM 事件），再由 View 直接要求 Model 改变状态。</li>
@@ -136,21 +136,21 @@ MVC（Model-View-Controller）是最常见的软件架构之一，业界有着�
 <li>Controller 非常薄，只起到路由的作用，而 View 非常厚，业务逻辑都部署在 View。所以，Backbone 索性取消了 Controller，只保留一个 Router（路由器） 。</li>
 </ol>
 <h5 id="四、MVP"><a href="#四、MVP" class="headerlink" title="四、MVP"></a>四、MVP</h5><p>MVP 模式将 Controller 改名为 Presenter，同时改变了通信方向。</p>
-<p><img src="/2017/03/28/MVC、MVP、MVVM的图示/" alt="MVP"></p>
+<p><img src="/2017/03/28/MVC、MVP、MVVM的图示/bg2015020109.png" alt="MVP"></p>
 <ol>
 <li>各部分之间的通信，都是双向的。</li>
 <li>View 与 Model 不发生联系，都通过 Presenter 传递。</li>
 <li>View 非常薄，不部署任何业务逻辑，称为”被动视图”（Passive View），即没有任何主动性，而 Presenter非常厚，所有逻辑都部署在那里。</li>
 </ol>
 <h5 id="五、MVVM"><a href="#五、MVVM" class="headerlink" title="五、MVVM"></a>五、MVVM</h5><p>MVVM 模式将 Presenter 改名为 ViewModel，基本上与 MVP 模式完全一致。</p>
-<p><img src="/2017/03/28/MVC、MVP、MVVM的图示/" alt="MVP"></p>
+<p><img src="/2017/03/28/MVC、MVP、MVVM的图示/bg2015020110.png" alt="MVP"></p>
 <p>唯一的区别是，它采用双向绑定（data-binding）：View的变动，自动反映在 ViewModel，反之亦然。Angular 和 Ember 都采用这种模式。</p>
 <p><a href="http://www.ruanyifeng.com/blog/2015/02/mvcmvp_mvvm.html" target="_blank" rel="external">原文地址</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hanwsscan.github.io/2017/03/28/MVC、MVP、MVVM的图示/" data-id="cj0t1npoj000kuww7uctcuv9p" class="article-share-link">Share</a>
+      <a data-url="http://hanwsscan.github.io/2017/03/28/MVC、MVP、MVVM的图示/" data-id="cj0t30jik000hyww77527wos0" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/转载/">转载</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/阮一峰/">阮一峰</a></li></ul>
@@ -171,9 +171,9 @@ MVC（Model-View-Controller）是最常见的软件架构之一，业界有着�
     </a>
   
   
-    <a href="/2017/03/28/Vuejs-class-and-style/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/03/28/编写稳健、可维护和可扩展的 Sass/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Vue-class-and-style 在Vue.js 里处理 class 和 style</div>
+      <div class="article-nav-title">编写稳健、可维护和可扩展的 Sass</div>
     </a>
   
 </nav>
@@ -192,7 +192,11 @@ MVC（Model-View-Controller）是最常见的软件架构之一，业界有着�
       <ul>
         
           <li>
-            <a href="/2017/03/28/一段小代码/">一段小代码</a>
+            <a href="/2017/03/28/聊聊互联网产品的分类/">聊聊互联网产品的分类</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/管理岗是什么/">管理岗是什么鬼？</a>
           </li>
         
           <li>
@@ -204,14 +208,6 @@ MVC（Model-View-Controller）是最常见的软件架构之一，业界有着�
           </li>
         
           <li>
-            <a href="/2017/03/28/聊聊互联网产品的分类/">聊聊互联网产品的分类</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/管理岗是什么/">管理岗是什么鬼？</a>
-          </li>
-        
-          <li>
             <a href="/2017/03/28/如何挑选适合的前端框架/">如何挑选适合的前端框架</a>
           </li>
         
@@ -220,11 +216,11 @@ MVC（Model-View-Controller）是最常见的软件架构之一，业界有着�
           </li>
         
           <li>
-            <a href="/2017/03/28/一段js代码的升级之旅/">一段代码的升级之旅...</a>
+            <a href="/2017/03/28/一段小代码/">一段小代码</a>
           </li>
         
           <li>
-            <a href="/2017/03/28/根据分辨率改变html根的font-size的值/">根据分辨率改变html根的font-size的值</a>
+            <a href="/2017/03/28/一段js代码的升级之旅/">一段代码的升级之旅...</a>
           </li>
         
           <li>
@@ -236,6 +232,10 @@ MVC（Model-View-Controller）是最常见的软件架构之一，业界有着�
           </li>
         
           <li>
+            <a href="/2017/03/28/编写稳健、可维护和可扩展的 Sass/">编写稳健、可维护和可扩展的 Sass</a>
+          </li>
+        
+          <li>
             <a href="/2017/03/28/Vuejs-class-and-style/">Vue-class-and-style 在Vue.js 里处理 class 和 style</a>
           </li>
         
@@ -244,7 +244,7 @@ MVC（Model-View-Controller）是最常见的软件架构之一，业界有着�
           </li>
         
           <li>
-            <a href="/2017/03/28/编写稳健、可维护和可扩展的 Sass/">编写稳健、可维护和可扩展的 Sass</a>
+            <a href="/2017/03/28/根据分辨率改变html根的font-size的值/">根据分辨率改变html根的font-size的值</a>
           </li>
         
           <li>
@@ -252,7 +252,7 @@ MVC（Model-View-Controller）是最常见的软件架构之一，业界有着�
           </li>
         
           <li>
-            <a href="/2017/03/28/不可错过的javascript迷你库/">不可错过的javascript迷你库</a>
+            <a href="/2017/03/28/svn主干分支合并/">svn主干分支合并</a>
           </li>
         
           <li>
@@ -260,23 +260,7 @@ MVC（Model-View-Controller）是最常见的软件架构之一，业界有着�
           </li>
         
           <li>
-            <a href="/2017/03/28/svn主干分支合并/">svn主干分支合并</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/js语法规范错误提示代码/">Javascript语法规范错误提示代码</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/JavaScript-事件代理和委托/">JavaScript事件代理和委托（Delegation）</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/JavaScript中this指针指向的彻底理解/">JavaScript中this指针指向的彻底理解</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/JavaScript-模块化编程一/">JavaScript 语言中 模块的写法</a>
+            <a href="/2017/03/28/不可错过的javascript迷你库/">不可错过的javascript迷你库</a>
           </li>
         
           <li>
@@ -284,7 +268,7 @@ MVC（Model-View-Controller）是最常见的软件架构之一，业界有着�
           </li>
         
           <li>
-            <a href="/2017/03/28/jQuery.extend 和 jQuery.fn.extend 的区别/">jQuery.extend 和 jQuery.fn.extend 的区别</a>
+            <a href="/2017/03/28/js设计模式/">js设计模式</a>
           </li>
         
           <li>
@@ -292,11 +276,27 @@ MVC（Model-View-Controller）是最常见的软件架构之一，业界有着�
           </li>
         
           <li>
+            <a href="/2017/03/28/JavaScript中this指针指向的彻底理解/">JavaScript中this指针指向的彻底理解</a>
+          </li>
+        
+          <li>
             <a href="/2017/03/28/mockjs/">Mock.js使用记录</a>
           </li>
         
           <li>
-            <a href="/2017/03/28/js设计模式/">js设计模式</a>
+            <a href="/2017/03/28/js语法规范错误提示代码/">Javascript语法规范错误提示代码</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/jQuery.extend 和 jQuery.fn.extend 的区别/">jQuery.extend 和 jQuery.fn.extend 的区别</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/JavaScript-事件代理和委托/">JavaScript事件代理和委托（Delegation）</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/JavaScript-模块化编程一/">JavaScript 语言中 模块的写法</a>
           </li>
         
           <li>
@@ -328,19 +328,7 @@ MVC（Model-View-Controller）是最常见的软件架构之一，业界有着�
           </li>
         
           <li>
-            <a href="/2017/03/28/hello-hexo/">Hello World</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/fis3配置文档入门/">fis3配置文档</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/angular代码段/">angularjs代码</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/angularTodolist/">angularjs todolist</a>
+            <a href="/2017/03/28/gulp配置文档入门/">gulp配置文档入门</a>
           </li>
         
           <li>
@@ -348,15 +336,27 @@ MVC（Model-View-Controller）是最常见的软件架构之一，业界有着�
           </li>
         
           <li>
+            <a href="/2017/03/28/angularTodolist/">angularjs todolist</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/angular代码段/">angularjs代码</a>
+          </li>
+        
+          <li>
             <a href="/2017/03/28/CSS中Position、Float属性深入探讨/">CSS中Position、Float属性深入探讨</a>
           </li>
         
           <li>
-            <a href="/2017/03/28/gulp配置文档入门/">gulp配置文档入门</a>
+            <a href="/2017/03/28/fis3配置文档入门/">fis3配置文档</a>
           </li>
         
           <li>
             <a href="/2017/03/28/git github gitlab/">git github gitlab...</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/hello-hexo/">Hello World</a>
           </li>
         
           <li>
