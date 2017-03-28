@@ -48,9 +48,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -60,45 +60,6 @@
 </header>
       <div class="outer">
         <section id="main">
-  
-    <article id="post-angularTodolist" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/03/28/angularTodolist/" class="article-date">
-  <time datetime="2017-03-28T03:14:11.781Z" itemprop="datePublished">2017-03-28</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/28/angularTodolist/">angularjs todolist</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="直接上代码"><a href="#直接上代码" class="headerlink" title="直接上代码"></a>直接上代码</h4><p><img src="20161013174350.png" alt="图示"></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">ng-app</span>=<span class="string">"testTodolist"</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>Todolist<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-controller</span>=<span class="string">"todolist"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">ng-model</span>=<span class="string">"testTit"</span> /&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">ng-model</span>=<span class="string">"testUrl"</span> /&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:;"</span> <span class="attr">ng-click</span>=<span class="string">"btnAdd()"</span>&gt;</span>添加<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-repeat</span>=<span class="string">"item in testMsg"</span>&gt;</span></div><div class="line">			标题:<span class="tag">&lt;<span class="name">span</span> <span class="attr">ng-bind</span>=<span class="string">"&#123;&#123;item.testTit&#125;&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span>链接:<span class="tag">&lt;<span class="name">span</span> <span class="attr">ng-bind</span>=<span class="string">"&#123;&#123;item.testUrl&#125;&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:;"</span> <span class="attr">ng-click</span>=<span class="string">"testMsg.splice($index,1)"</span>&gt;</span>删除<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"//cdn.bootcss.com/angular.js/1.5.8/angular.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line">	angular.module(<span class="string">"testTodolist"</span>, []).controller(<span class="string">"todolist"</span>, [<span class="string">'$scope'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">$scope</span>) </span>&#123;</div><div class="line">		<span class="comment">//添加</span></div><div class="line">		$scope.testMsg = [];</div><div class="line">		$scope.btnAdd = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">			<span class="keyword">if</span>(!$scope.testTit == <span class="string">""</span> || !$scope.testTit == <span class="literal">null</span> || !$scope.testUrl == <span class="string">""</span> || !$scope.testUrl == <span class="literal">null</span>) &#123;</div><div class="line">				$scope.testMsg.push(<span class="keyword">new</span> Addtest($scope.testTit, $scope.testUrl));</div><div class="line">				$scope.testTit = <span class="string">""</span>;</div><div class="line">				$scope.testUrl = <span class="string">""</span>;</div><div class="line">				<span class="built_in">console</span>.log($scope.testMsg)</div><div class="line">			&#125; <span class="keyword">else</span> &#123;</div><div class="line">				alert(<span class="string">"请输入"</span>)</div><div class="line">			&#125;</div><div class="line">		&#125;;</div><div class="line"></div><div class="line">		<span class="function"><span class="keyword">function</span> <span class="title">Addtest</span>(<span class="params">testTit, testUrl</span>) </span>&#123;</div><div class="line">			<span class="keyword">this</span>.testTit = testTit;</div><div class="line">			<span class="keyword">this</span>.testUrl = testUrl;</div><div class="line">		&#125;</div><div class="line">	&#125;])</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/28/angularTodolist/" data-id="cj0syydhi000sj0w70yuzxo7l" class="article-share-link">Partager</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angular/">angular</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mvvm/">mvvm</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
   
     <article id="post-angular代码段" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -128,7 +89,46 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/28/angular代码段/" data-id="cj0syydhi000tj0w7ct26fc2j" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/03/28/angular代码段/" data-id="cj0sz6aeu000s80w76bk98g1f" class="article-share-link">Delen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angular/">angular</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mvvm/">mvvm</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-angularTodolist" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/28/angularTodolist/" class="article-date">
+  <time datetime="2017-03-28T03:14:11.781Z" itemprop="datePublished">2017-03-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/28/angularTodolist/">angularjs todolist</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="直接上代码"><a href="#直接上代码" class="headerlink" title="直接上代码"></a>直接上代码</h4><p><img src="/2017/03/28/angularTodolist/" alt="图示"></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">ng-app</span>=<span class="string">"testTodolist"</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>Todolist<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-controller</span>=<span class="string">"todolist"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">ng-model</span>=<span class="string">"testTit"</span> /&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">ng-model</span>=<span class="string">"testUrl"</span> /&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:;"</span> <span class="attr">ng-click</span>=<span class="string">"btnAdd()"</span>&gt;</span>添加<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-repeat</span>=<span class="string">"item in testMsg"</span>&gt;</span></div><div class="line">			标题:<span class="tag">&lt;<span class="name">span</span> <span class="attr">ng-bind</span>=<span class="string">"&#123;&#123;item.testTit&#125;&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span>链接:<span class="tag">&lt;<span class="name">span</span> <span class="attr">ng-bind</span>=<span class="string">"&#123;&#123;item.testUrl&#125;&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:;"</span> <span class="attr">ng-click</span>=<span class="string">"testMsg.splice($index,1)"</span>&gt;</span>删除<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"//cdn.bootcss.com/angular.js/1.5.8/angular.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line">	angular.module(<span class="string">"testTodolist"</span>, []).controller(<span class="string">"todolist"</span>, [<span class="string">'$scope'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">$scope</span>) </span>&#123;</div><div class="line">		<span class="comment">//添加</span></div><div class="line">		$scope.testMsg = [];</div><div class="line">		$scope.btnAdd = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">			<span class="keyword">if</span>(!$scope.testTit == <span class="string">""</span> || !$scope.testTit == <span class="literal">null</span> || !$scope.testUrl == <span class="string">""</span> || !$scope.testUrl == <span class="literal">null</span>) &#123;</div><div class="line">				$scope.testMsg.push(<span class="keyword">new</span> Addtest($scope.testTit, $scope.testUrl));</div><div class="line">				$scope.testTit = <span class="string">""</span>;</div><div class="line">				$scope.testUrl = <span class="string">""</span>;</div><div class="line">				<span class="built_in">console</span>.log($scope.testMsg)</div><div class="line">			&#125; <span class="keyword">else</span> &#123;</div><div class="line">				alert(<span class="string">"请输入"</span>)</div><div class="line">			&#125;</div><div class="line">		&#125;;</div><div class="line"></div><div class="line">		<span class="function"><span class="keyword">function</span> <span class="title">Addtest</span>(<span class="params">testTit, testUrl</span>) </span>&#123;</div><div class="line">			<span class="keyword">this</span>.testTit = testTit;</div><div class="line">			<span class="keyword">this</span>.testUrl = testUrl;</div><div class="line">		&#125;</div><div class="line">	&#125;])</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/28/angularTodolist/" data-id="cj0sz6aeu000t80w7v7qiffce" class="article-share-link">Delen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angular/">angular</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mvvm/">mvvm</a></li></ul>
@@ -166,7 +166,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/28/65条最常用正则表达式/" data-id="cj0syydfl0000j0w74tgui9j1" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/03/28/65条最常用正则表达式/" data-id="cj0sz6adj000080w7o5ezj8my" class="article-share-link">Delen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/正则/">正则</a></li></ul>
@@ -218,7 +218,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/28/A love letter to jQuery/" data-id="cj0syydfl0001j0w7ih285t8i" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/03/28/A love letter to jQuery/" data-id="cj0sz6adj000180w7ig6fk5ao" class="article-share-link">Delen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jquery/">jquery</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/转载/">转载</a></li></ul>
@@ -272,7 +272,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/28/hello-world/" data-id="cj0syydhy0015j0w7l4inq1k0" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/03/28/hello-world/" data-id="cj0sz6afr001580w7mujvn23z" class="article-share-link">Delen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/">html</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
@@ -298,7 +298,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Mot-clés</h3>
+    <h3 class="widget-title">Labels</h3>
     <div class="widget">
       <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/MVVM/">MVVM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vuejs/">Vuejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/angular/">angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/baidu/">baidu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bower/">bower</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas/">canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fis/">fis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gulp/">gulp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html5/">html5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jquery/">jquery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mockjs/">mockjs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mvvm/">mvvm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/">npm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nvm/">nvm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/">react</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/svn/">svn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/this/">this</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue2/">vue2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/不错/">不错</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/作用域/">作用域</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/全局变量/">全局变量</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/其他/">其他</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前后端分离/">前后端分离</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/构建工具/">构建工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/模拟数据/">模拟数据</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/正则/">正则</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/版本控制/">版本控制</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/管理/">管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/规范/">规范</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/记录/">记录</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/转载/">转载</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/闭包/">闭包</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/阮一峰/">阮一峰</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面向对象/">面向对象</a></li></ul>
     </div>
@@ -308,7 +308,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Nuage de mot-clés</h3>
+    <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
       <a href="/tags/MVVM/" style="font-size: 13.33px;">MVVM</a> <a href="/tags/Vuejs/" style="font-size: 10px;">Vuejs</a> <a href="/tags/angular/" style="font-size: 15px;">angular</a> <a href="/tags/baidu/" style="font-size: 10px;">baidu</a> <a href="/tags/bower/" style="font-size: 10px;">bower</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/css/" style="font-size: 18.33px;">css</a> <a href="/tags/fis/" style="font-size: 10px;">fis</a> <a href="/tags/git/" style="font-size: 11.67px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/html/" style="font-size: 16.67px;">html</a> <a href="/tags/html5/" style="font-size: 10px;">html5</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/jquery/" style="font-size: 13.33px;">jquery</a> <a href="/tags/js/" style="font-size: 18.33px;">js</a> <a href="/tags/mockjs/" style="font-size: 10px;">mockjs</a> <a href="/tags/mvvm/" style="font-size: 13.33px;">mvvm</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/nvm/" style="font-size: 10px;">nvm</a> <a href="/tags/react/" style="font-size: 11.67px;">react</a> <a href="/tags/svn/" style="font-size: 11.67px;">svn</a> <a href="/tags/this/" style="font-size: 10px;">this</a> <a href="/tags/vue/" style="font-size: 11.67px;">vue</a> <a href="/tags/vue2/" style="font-size: 10px;">vue2</a> <a href="/tags/不错/" style="font-size: 10px;">不错</a> <a href="/tags/作用域/" style="font-size: 10px;">作用域</a> <a href="/tags/全局变量/" style="font-size: 10px;">全局变量</a> <a href="/tags/其他/" style="font-size: 11.67px;">其他</a> <a href="/tags/前后端分离/" style="font-size: 10px;">前后端分离</a> <a href="/tags/前端/" style="font-size: 10px;">前端</a> <a href="/tags/指针/" style="font-size: 10px;">指针</a> <a href="/tags/构建工具/" style="font-size: 11.67px;">构建工具</a> <a href="/tags/模拟数据/" style="font-size: 10px;">模拟数据</a> <a href="/tags/正则/" style="font-size: 10px;">正则</a> <a href="/tags/版本控制/" style="font-size: 10px;">版本控制</a> <a href="/tags/管理/" style="font-size: 10px;">管理</a> <a href="/tags/规范/" style="font-size: 10px;">规范</a> <a href="/tags/记录/" style="font-size: 10px;">记录</a> <a href="/tags/转载/" style="font-size: 18.33px;">转载</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a> <a href="/tags/阮一峰/" style="font-size: 10px;">阮一峰</a> <a href="/tags/面向对象/" style="font-size: 10px;">面向对象</a>
     </div>
@@ -317,7 +317,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Archieven</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li></ul>
     </div>
@@ -327,16 +327,12 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Articles récents</h3>
+    <h3 class="widget-title">Recente berichten</h3>
     <div class="widget">
       <ul>
         
           <li>
             <a href="/2017/03/28/项目总结/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/聊聊互联网产品的分类/">聊聊互联网产品的分类</a>
           </li>
         
           <li>
@@ -348,7 +344,11 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/一段小代码/">一段小代码</a>
+            <a href="/2017/03/28/信息无障碍技术/">信息无障碍技术</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/一段js代码的升级之旅/">一段代码的升级之旅...</a>
           </li>
         
       </ul>
@@ -364,7 +364,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2017 John Doe<br>
-      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>

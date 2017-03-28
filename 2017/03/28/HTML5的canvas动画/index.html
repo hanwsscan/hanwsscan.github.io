@@ -15,16 +15,16 @@ getContext() 方法可返回一个对象，该对象提供了用于在画布上�
 <meta property="og:description" content="HTML5 canvas 标签用于绘制图像，canvas 元素本身并没有绘制能力（它仅仅是图形的容器） 必须使用脚本（通常是 JavaScript）来完成实际的绘图任务。
 Internet Explorer 9 +、Firefox、Opera、Chrome 以及 Safari 支持 canvas 及其属性和方法。
 getContext() 方法可返回一个对象，该对象提供了用于在画布上绘图的方法和属">
-<meta property="og:image" content="http://yoursite.com/canvas01.jpg">
-<meta property="og:image" content="http://yoursite.com/canvas02.jpg">
-<meta property="og:image" content="http://yoursite.com/canvas03.jpg">
+<meta property="og:image" content="http://yoursite.com/2017/03/28/HTML5的canvas动画/">
+<meta property="og:image" content="http://yoursite.com/2017/03/28/HTML5的canvas动画/">
+<meta property="og:image" content="http://yoursite.com/2017/03/28/HTML5的canvas动画/">
 <meta property="og:updated_time" content="2016-04-05T03:54:09.660Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTML5的canvas动画">
 <meta name="twitter:description" content="HTML5 canvas 标签用于绘制图像，canvas 元素本身并没有绘制能力（它仅仅是图形的容器） 必须使用脚本（通常是 JavaScript）来完成实际的绘图任务。
 Internet Explorer 9 +、Firefox、Opera、Chrome 以及 Safari 支持 canvas 及其属性和方法。
 getContext() 方法可返回一个对象，该对象提供了用于在画布上绘图的方法和属">
-<meta name="twitter:image" content="http://yoursite.com/canvas01.jpg">
+<meta name="twitter:image" content="http://yoursite.com/2017/03/28/HTML5的canvas动画/">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -62,9 +62,9 @@ getContext() 方法可返回一个对象，该对象提供了用于在画布上�
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -99,12 +99,12 @@ getContext() 方法可返回一个对象，该对象提供了用于在画布上�
 <p>Internet Explorer 9 +、Firefox、Opera、Chrome 以及 Safari 支持 canvas 及其属性和方法。</p>
 <p>getContext() 方法可返回一个对象，该对象提供了用于在画布上绘图的方法和属性。</p>
 <a id="more"></a>
-<h4 id="一、标签原型"><a href="#一、标签原型" class="headerlink" title="一、标签原型"></a>一、标签原型</h4><h5 id="canvas-fillStyle-属性，绘制矩形样式"><a href="#canvas-fillStyle-属性，绘制矩形样式" class="headerlink" title="canvas fillStyle 属性，绘制矩形样式"></a>canvas fillStyle 属性，绘制矩形样式</h5><p><img src="canvas01.jpg" alt="绘制矩形样式"></p>
+<h4 id="一、标签原型"><a href="#一、标签原型" class="headerlink" title="一、标签原型"></a>一、标签原型</h4><h5 id="canvas-fillStyle-属性，绘制矩形样式"><a href="#canvas-fillStyle-属性，绘制矩形样式" class="headerlink" title="canvas fillStyle 属性，绘制矩形样式"></a>canvas fillStyle 属性，绘制矩形样式</h5><p><img src="/2017/03/28/HTML5的canvas动画/" alt="绘制矩形样式"></p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">canvas</span> <span class="attr">width</span>=<span class="string">"1000"</span> <span class="attr">height</span>=<span class="string">"1000"</span> <span class="attr">id</span>=<span class="string">”myCanvas”</span>&gt;</span></div><div class="line"> 您的浏览器版本过低，不支持HTML5新增的canvas标签。</div><div class="line"><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></div></pre></td></tr></table></figure>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//1、绘制矩形</span></div><div class="line"><span class="keyword">var</span> canvasID = <span class="built_in">document</span>.getElementById(“myCanvas”);</div><div class="line"><span class="keyword">var</span> canvas = canvasID.getContext(“<span class="number">2</span>d”);</div><div class="line">canvas.fillStyle=<span class="string">"#0000ff"</span>;<span class="comment">//填充颜色</span></div><div class="line">canvas.fillRect(<span class="number">20</span>,<span class="number">20</span>,<span class="number">150</span>,<span class="number">100</span>);<span class="comment">//(左边距，上边距，宽，高)</span></div><div class="line"></div><div class="line"><span class="comment">//2、渐变效果</span></div><div class="line"><span class="keyword">var</span> c=<span class="built_in">document</span>.getElementById(<span class="string">"myCanvas"</span>);</div><div class="line"><span class="keyword">var</span> ctx=c.getContext(<span class="string">"2d"</span>);</div><div class="line"><span class="keyword">var</span> my_gradient=ctx.createLinearGradient(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">170</span>);</div><div class="line">my_gradient.addColorStop(<span class="number">0</span>,<span class="string">"black"</span>);</div><div class="line">my_gradient.addColorStop(<span class="number">1</span>,<span class="string">"white"</span>);</div><div class="line">ctx.fillStyle=my_gradient;</div><div class="line">ctx.fillRect(<span class="number">20</span>,<span class="number">20</span>,<span class="number">150</span>,<span class="number">100</span>);</div><div class="line"></div><div class="line"><span class="comment">//3、使用图像来填充绘图：</span></div><div class="line"><span class="keyword">var</span> c=<span class="built_in">document</span>.getElementById(<span class="string">"myCanvas"</span>);</div><div class="line"><span class="keyword">var</span> ctx=c.getContext(<span class="string">"2d"</span>);</div><div class="line"><span class="keyword">var</span> img=<span class="built_in">document</span>.getElementById(<span class="string">"lamp"</span>);</div><div class="line"><span class="keyword">var</span> pat=ctx.createPattern(img,<span class="string">"repeat"</span>);</div><div class="line">ctx.rect(<span class="number">0</span>,<span class="number">0</span>,<span class="number">150</span>,<span class="number">100</span>);</div><div class="line">ctx.fillStyle=pat;</div><div class="line">ctx.fill();</div></pre></td></tr></table></figure>
-<h5 id="canvas-strokeStyle-属性，绘制边框的样式"><a href="#canvas-strokeStyle-属性，绘制边框的样式" class="headerlink" title="canvas strokeStyle 属性，绘制边框的样式"></a>canvas strokeStyle 属性，绘制边框的样式</h5><p><img src="canvas02.jpg" alt="绘制边框的样式"></p>
+<h5 id="canvas-strokeStyle-属性，绘制边框的样式"><a href="#canvas-strokeStyle-属性，绘制边框的样式" class="headerlink" title="canvas strokeStyle 属性，绘制边框的样式"></a>canvas strokeStyle 属性，绘制边框的样式</h5><p><img src="/2017/03/28/HTML5的canvas动画/" alt="绘制边框的样式"></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> c=<span class="built_in">document</span>.getElementById(<span class="string">"myCanvas"</span>);</div><div class="line"><span class="keyword">var</span> ctx=c.getContext(<span class="string">"2d"</span>);</div><div class="line"></div><div class="line"><span class="comment">//纯色边框</span></div><div class="line">ctx.strokeStyle=<span class="string">"#0000ff"</span>;</div><div class="line">ctx.strokeRect(<span class="number">20</span>,<span class="number">20</span>,<span class="number">150</span>,<span class="number">100</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> gradient=ctx.createLinearGradient(<span class="number">0</span>,<span class="number">0</span>,<span class="number">170</span>,<span class="number">0</span>);</div><div class="line">gradient.addColorStop(<span class="string">"0"</span>,<span class="string">"magenta"</span>);</div><div class="line">gradient.addColorStop(<span class="string">"0.5"</span>,<span class="string">"blue"</span>);</div><div class="line">gradient.addColorStop(<span class="string">"1.0"</span>,<span class="string">"red"</span>);</div><div class="line"></div><div class="line"><span class="comment">// 用渐变进行填充</span></div><div class="line">ctx.strokeStyle=gradient;</div><div class="line">ctx.lineWidth=<span class="number">5</span>;</div><div class="line">ctx.strokeRect(<span class="number">20</span>,<span class="number">20</span>,<span class="number">150</span>,<span class="number">100</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> c=<span class="built_in">document</span>.getElementById(<span class="string">"myCanvas"</span>);</div><div class="line"><span class="keyword">var</span> ctx=c.getContext(<span class="string">"2d"</span>);</div><div class="line"></div><div class="line">ctx.font=<span class="string">"30px Verdana"</span>;</div><div class="line"><span class="comment">// 创建渐变</span></div><div class="line"><span class="keyword">var</span> gradient=ctx.createLinearGradient(<span class="number">0</span>,<span class="number">0</span>,c.width,<span class="number">0</span>);</div><div class="line">gradient.addColorStop(<span class="string">"0"</span>,<span class="string">"magenta"</span>);</div><div class="line">gradient.addColorStop(<span class="string">"0.5"</span>,<span class="string">"blue"</span>);</div><div class="line">gradient.addColorStop(<span class="string">"1.0"</span>,<span class="string">"red"</span>);</div><div class="line"><span class="comment">// 用渐变进行填充</span></div><div class="line">ctx.strokeStyle=gradient;</div><div class="line">ctx.strokeText(<span class="string">"hanwsscan.github.io"</span>,<span class="number">10</span>,<span class="number">50</span>);</div></pre></td></tr></table></figure>
-<h5 id="canvas-shadowColor-属性，绘制阴影的样式"><a href="#canvas-shadowColor-属性，绘制阴影的样式" class="headerlink" title="canvas shadowColor 属性，绘制阴影的样式"></a>canvas shadowColor 属性，绘制阴影的样式</h5><p><img src="canvas03.jpg" alt="绘制阴影的样式"></p>
+<h5 id="canvas-shadowColor-属性，绘制阴影的样式"><a href="#canvas-shadowColor-属性，绘制阴影的样式" class="headerlink" title="canvas shadowColor 属性，绘制阴影的样式"></a>canvas shadowColor 属性，绘制阴影的样式</h5><p><img src="/2017/03/28/HTML5的canvas动画/" alt="绘制阴影的样式"></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> c=<span class="built_in">document</span>.getElementById(<span class="string">"myCanvas"</span>);</div><div class="line"><span class="keyword">var</span> ctx=c.getContext(<span class="string">"2d"</span>);</div><div class="line">ctx.shadowBlur=<span class="number">20</span>;</div><div class="line">ctx.shadowColor=<span class="string">"black"</span>;</div><div class="line">ctx.fillStyle=<span class="string">"blue"</span>;</div><div class="line">ctx.fillRect(<span class="number">20</span>,<span class="number">20</span>,<span class="number">100</span>,<span class="number">80</span>);</div><div class="line"></div><div class="line"><span class="comment">//shadowOffsetX 向右偏移xxx像素</span></div><div class="line">ctx.shadowOffsetX=<span class="number">20</span>;</div><div class="line"><span class="comment">//shadowOffsetY 向下偏移xxx像素</span></div><div class="line">ctx.shadowOffsetY=<span class="number">20</span>;</div></pre></td></tr></table></figure>
 <h5 id="canvas-lineCap-属性，绘制圆形的结束线"><a href="#canvas-lineCap-属性，绘制圆形的结束线" class="headerlink" title="canvas lineCap 属性，绘制圆形的结束线"></a>canvas lineCap 属性，绘制圆形的结束线</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> c=<span class="built_in">document</span>.getElementById(<span class="string">"myCanvas"</span>);</div><div class="line"><span class="keyword">var</span> ctx=c.getContext(<span class="string">"2d"</span>);</div><div class="line">ctx.beginPath();</div><div class="line"></div><div class="line">ctx.lineCap=<span class="string">"round"</span>;</div><div class="line"></div><div class="line">ctx.lineJoin=<span class="string">"round"</span>;</div><div class="line"></div><div class="line">ctx.moveTo(<span class="number">20</span>,<span class="number">20</span>);</div><div class="line">ctx.lineTo(<span class="number">20</span>,<span class="number">200</span>);</div><div class="line">ctx.stroke();</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//宽度为 10 像素</span></div><div class="line">ctx.lineWidth=<span class="number">10</span>;</div><div class="line"></div><div class="line"><span class="comment">//以最大斜接长度 5 绘制线条</span></div><div class="line">ctx.miterLimit=<span class="number">5</span>;</div></pre></td></tr></table></figure>
 <p>待续…</p>
@@ -113,7 +113,7 @@ getContext() 方法可返回一个对象，该对象提供了用于在画布上�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/28/HTML5的canvas动画/" data-id="cj0syydg10004j0w7txb09duz" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/03/28/HTML5的canvas动画/" data-id="cj0sz6ady000480w7xt9t4kl5" class="article-share-link">Delen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/canvas/">canvas</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/">html</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html5/">html5</a></li></ul>
@@ -125,7 +125,7 @@ getContext() 方法可返回一个对象，该对象提供了用于在画布上�
 <nav id="article-nav">
   
     <a href="/2017/03/28/HTML5面试问题及答案/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Récent</strong>
+      <strong class="article-nav-caption">Nieuwer</strong>
       <div class="article-nav-title">
         
           HTML5 面试问题及答案
@@ -135,7 +135,7 @@ getContext() 方法可返回一个对象，该对象提供了用于在画布上�
   
   
     <a href="/2017/03/28/fis3配置文档入门/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Ancien</strong>
+      <strong class="article-nav-caption">Ouder</strong>
       <div class="article-nav-title">fis3配置文档</div>
     </a>
   
@@ -153,7 +153,7 @@ getContext() 方法可返回一个对象，该对象提供了用于在画布上�
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Mot-clés</h3>
+    <h3 class="widget-title">Labels</h3>
     <div class="widget">
       <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/MVVM/">MVVM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vuejs/">Vuejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/angular/">angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/baidu/">baidu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bower/">bower</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas/">canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fis/">fis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gulp/">gulp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html5/">html5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jquery/">jquery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mockjs/">mockjs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mvvm/">mvvm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/">npm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nvm/">nvm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/">react</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/svn/">svn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/this/">this</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue2/">vue2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/不错/">不错</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/作用域/">作用域</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/全局变量/">全局变量</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/其他/">其他</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前后端分离/">前后端分离</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/构建工具/">构建工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/模拟数据/">模拟数据</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/正则/">正则</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/版本控制/">版本控制</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/管理/">管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/规范/">规范</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/记录/">记录</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/转载/">转载</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/闭包/">闭包</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/阮一峰/">阮一峰</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面向对象/">面向对象</a></li></ul>
     </div>
@@ -163,7 +163,7 @@ getContext() 方法可返回一个对象，该对象提供了用于在画布上�
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Nuage de mot-clés</h3>
+    <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
       <a href="/tags/MVVM/" style="font-size: 13.33px;">MVVM</a> <a href="/tags/Vuejs/" style="font-size: 10px;">Vuejs</a> <a href="/tags/angular/" style="font-size: 15px;">angular</a> <a href="/tags/baidu/" style="font-size: 10px;">baidu</a> <a href="/tags/bower/" style="font-size: 10px;">bower</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/css/" style="font-size: 18.33px;">css</a> <a href="/tags/fis/" style="font-size: 10px;">fis</a> <a href="/tags/git/" style="font-size: 11.67px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/html/" style="font-size: 16.67px;">html</a> <a href="/tags/html5/" style="font-size: 10px;">html5</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/jquery/" style="font-size: 13.33px;">jquery</a> <a href="/tags/js/" style="font-size: 18.33px;">js</a> <a href="/tags/mockjs/" style="font-size: 10px;">mockjs</a> <a href="/tags/mvvm/" style="font-size: 13.33px;">mvvm</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/nvm/" style="font-size: 10px;">nvm</a> <a href="/tags/react/" style="font-size: 11.67px;">react</a> <a href="/tags/svn/" style="font-size: 11.67px;">svn</a> <a href="/tags/this/" style="font-size: 10px;">this</a> <a href="/tags/vue/" style="font-size: 11.67px;">vue</a> <a href="/tags/vue2/" style="font-size: 10px;">vue2</a> <a href="/tags/不错/" style="font-size: 10px;">不错</a> <a href="/tags/作用域/" style="font-size: 10px;">作用域</a> <a href="/tags/全局变量/" style="font-size: 10px;">全局变量</a> <a href="/tags/其他/" style="font-size: 11.67px;">其他</a> <a href="/tags/前后端分离/" style="font-size: 10px;">前后端分离</a> <a href="/tags/前端/" style="font-size: 10px;">前端</a> <a href="/tags/指针/" style="font-size: 10px;">指针</a> <a href="/tags/构建工具/" style="font-size: 11.67px;">构建工具</a> <a href="/tags/模拟数据/" style="font-size: 10px;">模拟数据</a> <a href="/tags/正则/" style="font-size: 10px;">正则</a> <a href="/tags/版本控制/" style="font-size: 10px;">版本控制</a> <a href="/tags/管理/" style="font-size: 10px;">管理</a> <a href="/tags/规范/" style="font-size: 10px;">规范</a> <a href="/tags/记录/" style="font-size: 10px;">记录</a> <a href="/tags/转载/" style="font-size: 18.33px;">转载</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a> <a href="/tags/阮一峰/" style="font-size: 10px;">阮一峰</a> <a href="/tags/面向对象/" style="font-size: 10px;">面向对象</a>
     </div>
@@ -172,7 +172,7 @@ getContext() 方法可返回一个对象，该对象提供了用于在画布上�
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Archieven</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li></ul>
     </div>
@@ -182,16 +182,12 @@ getContext() 方法可返回一个对象，该对象提供了用于在画布上�
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Articles récents</h3>
+    <h3 class="widget-title">Recente berichten</h3>
     <div class="widget">
       <ul>
         
           <li>
             <a href="/2017/03/28/项目总结/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/聊聊互联网产品的分类/">聊聊互联网产品的分类</a>
           </li>
         
           <li>
@@ -203,7 +199,11 @@ getContext() 方法可返回一个对象，该对象提供了用于在画布上�
           </li>
         
           <li>
-            <a href="/2017/03/28/一段小代码/">一段小代码</a>
+            <a href="/2017/03/28/信息无障碍技术/">信息无障碍技术</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/一段js代码的升级之旅/">一段代码的升级之旅...</a>
           </li>
         
       </ul>
@@ -219,7 +219,7 @@ getContext() 方法可返回一个对象，该对象提供了用于在画布上�
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2017 John Doe<br>
-      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>

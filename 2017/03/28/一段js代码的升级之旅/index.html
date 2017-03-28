@@ -15,14 +15,14 @@
 <meta property="og:description" content="需求：一个输入框里面字数的计数
 最简单的全局变量写法：
 1234567891011121314151617181920212223242526272829303132333435363738&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html&amp;gt;	&amp;lt;head&amp;gt;		&amp;lt;meta charset=&quot;utf-8&quot;&amp;gt;		&amp;lt;title&amp;gt;test&amp;lt;/title">
-<meta property="og:image" content="http://yoursite.com/e676966.gif">
+<meta property="og:image" content="http://yoursite.com/2017/03/28/一段js代码的升级之旅/">
 <meta property="og:updated_time" content="2016-03-17T06:38:05.293Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一段代码的升级之旅...">
 <meta name="twitter:description" content="需求：一个输入框里面字数的计数
 最简单的全局变量写法：
 1234567891011121314151617181920212223242526272829303132333435363738&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html&amp;gt;	&amp;lt;head&amp;gt;		&amp;lt;meta charset=&quot;utf-8&quot;&amp;gt;		&amp;lt;title&amp;gt;test&amp;lt;/title">
-<meta name="twitter:image" content="http://yoursite.com/e676966.gif">
+<meta name="twitter:image" content="http://yoursite.com/2017/03/28/一段js代码的升级之旅/">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -60,9 +60,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -93,7 +93,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="需求：一个输入框里面字数的计数"><a href="#需求：一个输入框里面字数的计数" class="headerlink" title="需求：一个输入框里面字数的计数"></a>需求：一个输入框里面字数的计数</h4><p><img src="e676966.gif" alt="解决HTTP 1的请求数增加"></p>
+        <h4 id="需求：一个输入框里面字数的计数"><a href="#需求：一个输入框里面字数的计数" class="headerlink" title="需求：一个输入框里面字数的计数"></a>需求：一个输入框里面字数的计数</h4><p><img src="/2017/03/28/一段js代码的升级之旅/" alt="解决HTTP 1的请求数增加"></p>
 <p>最简单的全局变量写法：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"></div><div class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span>test<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"http://code.jquery.com/jquery-1.9.1.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line">			$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">				<span class="keyword">var</span> input = $(<span class="string">'#J_input'</span>);</div><div class="line">				<span class="comment">//用来获取字数</span></div><div class="line">				<span class="function"><span class="keyword">function</span> <span class="title">getNum</span>(<span class="params"></span>) </span>&#123;</div><div class="line">					<span class="keyword">return</span> input.val().length;</div><div class="line">				&#125;</div><div class="line">				<span class="comment">//渲染元素</span></div><div class="line">				<span class="function"><span class="keyword">function</span> <span class="title">render</span>(<span class="params"></span>) </span>&#123;</div><div class="line">					<span class="keyword">var</span> num = getNum();</div><div class="line">					<span class="comment">//没有字数的容器就新建一个</span></div><div class="line">					<span class="keyword">if</span> ($(<span class="string">'#J_input_count'</span>).length == <span class="number">0</span>) &#123;</div><div class="line">						input.after(<span class="string">'&lt;span id="J_input_count"&gt;&lt;/span&gt;'</span>);</div><div class="line">					&#125;;</div><div class="line">					$(<span class="string">'#J_input_count'</span>).html(num + <span class="string">'个字'</span>);</div><div class="line">				&#125;</div><div class="line">				<span class="comment">//监听事件</span></div><div class="line">				input.on(<span class="string">'keyup'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">					render();</div><div class="line">				&#125;);</div><div class="line">				<span class="comment">//初始化，第一次渲染</span></div><div class="line">				render();</div><div class="line">			&#125;)</div><div class="line">		<span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"></div><div class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"J_input"</span> /&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>这种写法在单独的页面，如活动页面使用没有问题，但如果在负责项目页面多的情况下，变量和函数命名到后期会变的相当混乱而无法维护！</p>
@@ -103,7 +103,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/28/一段js代码的升级之旅/" data-id="cj0syydid001rj0w77udy8wki" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/03/28/一段js代码的升级之旅/" data-id="cj0sz6agc001s80w7l4lj2ncy" class="article-share-link">Delen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jquery/">jquery</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/作用域/">作用域</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/全局变量/">全局变量</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/闭包/">闭包</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/面向对象/">面向对象</a></li></ul>
@@ -115,7 +115,7 @@
 <nav id="article-nav">
   
     <a href="/2017/03/28/信息无障碍技术/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Récent</strong>
+      <strong class="article-nav-caption">Nieuwer</strong>
       <div class="article-nav-title">
         
           信息无障碍技术
@@ -124,9 +124,9 @@
     </a>
   
   
-    <a href="/2017/03/28/随笔集/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Ancien</strong>
-      <div class="article-nav-title">随笔集</div>
+    <a href="/2017/03/28/一段小代码/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ouder</strong>
+      <div class="article-nav-title">一段小代码</div>
     </a>
   
 </nav>
@@ -143,7 +143,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Mot-clés</h3>
+    <h3 class="widget-title">Labels</h3>
     <div class="widget">
       <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/MVVM/">MVVM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vuejs/">Vuejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/angular/">angular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/baidu/">baidu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bower/">bower</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/canvas/">canvas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fis/">fis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gulp/">gulp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html5/">html5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jquery/">jquery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mockjs/">mockjs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mvvm/">mvvm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/">npm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nvm/">nvm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/">react</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/svn/">svn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/this/">this</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue2/">vue2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/不错/">不错</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/作用域/">作用域</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/全局变量/">全局变量</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/其他/">其他</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前后端分离/">前后端分离</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指针/">指针</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/构建工具/">构建工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/模拟数据/">模拟数据</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/正则/">正则</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/版本控制/">版本控制</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/管理/">管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/规范/">规范</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/记录/">记录</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/转载/">转载</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/闭包/">闭包</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/阮一峰/">阮一峰</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面向对象/">面向对象</a></li></ul>
     </div>
@@ -153,7 +153,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Nuage de mot-clés</h3>
+    <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
       <a href="/tags/MVVM/" style="font-size: 13.33px;">MVVM</a> <a href="/tags/Vuejs/" style="font-size: 10px;">Vuejs</a> <a href="/tags/angular/" style="font-size: 15px;">angular</a> <a href="/tags/baidu/" style="font-size: 10px;">baidu</a> <a href="/tags/bower/" style="font-size: 10px;">bower</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/css/" style="font-size: 18.33px;">css</a> <a href="/tags/fis/" style="font-size: 10px;">fis</a> <a href="/tags/git/" style="font-size: 11.67px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/html/" style="font-size: 16.67px;">html</a> <a href="/tags/html5/" style="font-size: 10px;">html5</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/jquery/" style="font-size: 13.33px;">jquery</a> <a href="/tags/js/" style="font-size: 18.33px;">js</a> <a href="/tags/mockjs/" style="font-size: 10px;">mockjs</a> <a href="/tags/mvvm/" style="font-size: 13.33px;">mvvm</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/nvm/" style="font-size: 10px;">nvm</a> <a href="/tags/react/" style="font-size: 11.67px;">react</a> <a href="/tags/svn/" style="font-size: 11.67px;">svn</a> <a href="/tags/this/" style="font-size: 10px;">this</a> <a href="/tags/vue/" style="font-size: 11.67px;">vue</a> <a href="/tags/vue2/" style="font-size: 10px;">vue2</a> <a href="/tags/不错/" style="font-size: 10px;">不错</a> <a href="/tags/作用域/" style="font-size: 10px;">作用域</a> <a href="/tags/全局变量/" style="font-size: 10px;">全局变量</a> <a href="/tags/其他/" style="font-size: 11.67px;">其他</a> <a href="/tags/前后端分离/" style="font-size: 10px;">前后端分离</a> <a href="/tags/前端/" style="font-size: 10px;">前端</a> <a href="/tags/指针/" style="font-size: 10px;">指针</a> <a href="/tags/构建工具/" style="font-size: 11.67px;">构建工具</a> <a href="/tags/模拟数据/" style="font-size: 10px;">模拟数据</a> <a href="/tags/正则/" style="font-size: 10px;">正则</a> <a href="/tags/版本控制/" style="font-size: 10px;">版本控制</a> <a href="/tags/管理/" style="font-size: 10px;">管理</a> <a href="/tags/规范/" style="font-size: 10px;">规范</a> <a href="/tags/记录/" style="font-size: 10px;">记录</a> <a href="/tags/转载/" style="font-size: 18.33px;">转载</a> <a href="/tags/闭包/" style="font-size: 10px;">闭包</a> <a href="/tags/阮一峰/" style="font-size: 10px;">阮一峰</a> <a href="/tags/面向对象/" style="font-size: 10px;">面向对象</a>
     </div>
@@ -162,7 +162,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Archieven</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li></ul>
     </div>
@@ -172,16 +172,12 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Articles récents</h3>
+    <h3 class="widget-title">Recente berichten</h3>
     <div class="widget">
       <ul>
         
           <li>
             <a href="/2017/03/28/项目总结/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/28/聊聊互联网产品的分类/">聊聊互联网产品的分类</a>
           </li>
         
           <li>
@@ -193,7 +189,11 @@
           </li>
         
           <li>
-            <a href="/2017/03/28/一段小代码/">一段小代码</a>
+            <a href="/2017/03/28/信息无障碍技术/">信息无障碍技术</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/一段js代码的升级之旅/">一段代码的升级之旅...</a>
           </li>
         
       </ul>
@@ -209,7 +209,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2017 John Doe<br>
-      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
